@@ -1,0 +1,236 @@
+/*
+    Document   : style.css, for cs-portfolio
+    Created on : Monday, October 12, 2015,
+    Author     : Adrielo (Audrey) Bongalon
+    Description: css stylesheet, for 10th grade computer science expeditions course
+
+
+                                        88
+                                        88
+                                        88
+      ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
+      ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P_____88  `8b     d8'
+      ,adPPPPP88  88       88  8b       88  88          8PP"""""""   `8b   d8'
+      88,    ,88  "8a,   ,a88  "8a,   ,d88  88          "8b,   ,aa    `8b,d8'
+      `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
+                                                                        d8'
+                                                                       d8'
+    You like my design, huh? Feel free to check it out!
+    I'm glad you're curious. (^-^)
+*/
+
+root {
+    display: block;
+}
+
+
+
+
+html { 
+    background: url("modern_wallpaper1.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+
+.header h1 {
+    font-family:"Raleway", sans-serif;
+    color:#ffffff;
+    font-size:60px;
+    text-align:center;
+    margin-top:20%;
+    padding:0px;
+}
+
+
+
+
+.name {
+    margin:0px;
+    width:100%;
+    border-bottom:1px solid #00ffff;
+}
+
+
+
+
+.name h1 {
+    font-family:"Raleway", sans-serif;
+    font-weight:100;
+    color:#ffffff;
+    font-size:60px;
+    padding:0.5% 3% 0.5%;
+    margin:0px;
+}
+
+
+
+
+.welcome {
+    width:100%
+}
+
+
+
+
+.welcome h5 {
+    font-family:"Raleway", sans-serif;
+    color:#ffffff;
+    font-size:20px;
+    text-align:center;
+}
+
+
+
+
+.welcome {
+    text-align:center;
+}
+
+
+
+
+.welcome a {
+    font-family:"Raleway", sans-serif;
+    color:#ffffff;
+    font-size:14px;
+    text-align:center;
+    font-weight:bold;
+    text-decoration:none;
+    padding:15px;
+    border:1px solid #ffffff;
+    border-radius:23px;
+    margin-top:100px;
+    transition:0.5s all;
+}
+
+
+
+
+.title-link {
+    margin-top:100px;
+    transition:all 0.5s ease;
+    display:inline-block;
+}
+
+
+
+
+.title-link a:hover {
+    background-color:rgba(255,255,255,0.25);
+    cursor:default;
+/*  -webkit-transition:all 0.5s ease;
+    -webkit-transform:scale(1.1);
+    -moz-transition:all 0.5s ease;
+    -moz-transform:scale(1.1);
+    transition:all 0.5s ease;
+    transform:scale(1.1);     */
+}
+
+
+
+
+.title-link a:active {    
+    color:#ffffff;
+    background-color:#00bcbc;
+    cursor:default;
+}
+
+
+
+
+.nav {
+	width:100%;
+	float:left;
+	margin:0% 0% 1%;
+	padding:0%;
+	background-color:rgba(0,0,0,0.5);
+	border-bottom:1px solid #00ffff;
+}
+
+
+
+
+.nav ul {
+    list-style:none;
+	width:1330px;
+	margin:0px 3% 5px;
+	padding:0;
+}
+
+
+
+
+.nav a {
+    border-right:1px solid #333333;
+}
+.left-border {
+    border-left:1px solid #333333;
+}
+
+
+
+
+.nav li {
+    float:left;
+    font-family:"Raleway", sans-serif;
+    font-size:1.4em;
+    font-weight:400;
+    line-height:40px;
+}
+
+
+
+.nav li a {
+    display:block;
+    padding:8px 15px;
+    text-decoration:none;
+    color:#00ffff;
+    transition: .24s background-color;
+}
+
+
+
+
+.nav a:hover {
+    background-color:#006868;
+    cursor:default;
+}
+
+
+
+
+.main {
+    display:inline-block;
+    margin:5px 3% 0px 1%;
+    height:450px;
+    width:70%;
+    background-color:rgba(255,255,255,0.6);
+    border-radius:7px;
+}
+
+
+
+
+.main-text {
+    font-family:"Raleway", sans-serif;
+    color:#000000;
+    font-size:1em;
+    text-align:justify;
+    padding:0% 2%;
+}
+
+
+
+
+.sidebar {
+    display:inline-block;
+    /*margin:5px 0px 0px 3%;*/
+    height:300px;
+    background-color:rgba(255,255,255,0.6);
+    border-radius:7px;
+}
