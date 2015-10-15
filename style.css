@@ -9,8 +9,8 @@
                                         88
                                         88
       ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
-      ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P_____88  `8b     d8'
-      ,adPPPPP88  88       88  8b       88  88          8PP"""""""   `8b   d8'
+      ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
+      ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
       88,    ,88  "8a,   ,a88  "8a,   ,d88  88          "8b,   ,aa    `8b,d8'
       `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
                                                                         d8'
@@ -32,6 +32,17 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin:0;
+    padding:0;
+}
+
+
+
+
+body {
+    margin:0;
+    padding:0;
+    padding-bottom:25px;
 }
 
 
@@ -63,7 +74,7 @@ html {
     font-weight:100;
     color:#ffffff;
     font-size:60px;
-    padding:0.5% 3% 0.5%;
+    padding:0.5% 6% 0.5%;
     margin:0px;
 }
 
@@ -123,12 +134,12 @@ html {
 .title-link a:hover {
     background-color:rgba(255,255,255,0.25);
     cursor:default;
-/*  -webkit-transition:all 0.5s ease;
-    -webkit-transform:scale(1.1);
-    -moz-transition:all 0.5s ease;
-    -moz-transform:scale(1.1);
-    transition:all 0.5s ease;
-    transform:scale(1.1);     */
+    /*-webkit-transition:all 0.5s ease;*/
+    /*-webkit-transform:scale(1.1);*/
+    /*-moz-transition:all 0.5s ease;*/
+    /*-moz-transform:scale(1.1);*/
+    /*transition:all 0.5s ease;*/
+    /*transform:scale(1.1);             i can't get this to work :(  */
 }
 
 
@@ -158,7 +169,7 @@ html {
 .nav ul {
     list-style:none;
 	width:1330px;
-	margin:0px 3% 5px;
+	margin:0px 6% 5px;
 	padding:0;
 }
 
@@ -166,10 +177,10 @@ html {
 
 
 .nav a {
-    border-right:1px solid #333333;
+    border-right:1px solid #444444;
 }
 .left-border {
-    border-left:1px solid #333333;
+    border-left:1px solid #444444;
 }
 
 
@@ -206,9 +217,9 @@ html {
 
 .main {
     display:inline-block;
-    margin:5px 3% 0px 1%;
+    margin:5px 1% 0px 6%;
     height:450px;
-    width:70%;
+    width:65%;
     background-color:rgba(255,255,255,0.6);
     border-radius:7px;
 }
@@ -217,9 +228,9 @@ html {
 
 
 .main-text {
-    font-family:"Raleway", sans-serif;
+    font-family:"Open Sans", sans-serif;
     color:#000000;
-    font-size:1em;
+    font-size:15px;
     text-align:justify;
     padding:0% 2%;
 }
@@ -229,8 +240,69 @@ html {
 
 .sidebar {
     display:inline-block;
-    /*margin:5px 0px 0px 3%;*/
+    vertical-align:top;
+    margin:5px 0px 0px 3px;
+    width:22%;
     height:300px;
     background-color:rgba(255,255,255,0.6);
     border-radius:7px;
+}
+
+
+
+
+.gif-page {
+    display:inline-block;
+    margin:5px 1% 0px 6%;
+    height:1000px;
+    width:65%;
+    background-color:rgba(255,255,255,0.6);
+    border-radius:7px;
+}
+
+
+
+
+.gif-page img {
+    text-align:center;
+    /*needs work*/
+}
+
+
+
+
+.aboutme {
+    display:inline-block;
+    margin:5px 1% 0px 6%;
+    height:50%;
+    width:65%;
+    background-color:rgba(255,255,255,0.6);
+    border-radius:7px;
+}
+
+
+
+
+.aboutmeimages {
+    text-align:center;
+}
+
+
+
+
+.aboutmeimages img {
+    display:inline-block;
+    border:2px solid #eeeeee;
+    border-radius:3px;
+    box-shadow: 2px 2px 3px #333333;
+    margin:0px 15px;
+}
+
+
+
+
+.subtext {
+    font-family:"Open Sans", sans-serif;
+    color:#000000;
+    font-size:13px;
 }
