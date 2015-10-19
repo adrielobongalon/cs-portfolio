@@ -220,7 +220,7 @@ body {
     margin:5px 1% 0px 6%;
     height:450px;
     width:65%;
-    background-color:rgba(255,255,255,0.6);
+    background-color:rgba(255,255,255,0.75);
     border-radius:7px;
 }
 
@@ -238,14 +238,50 @@ body {
 
 
 
+.sidebar-text {
+    font-family:"Open Sans", sans-serif;
+    color:#000000;
+    font-size:15px;
+    text-align:justify;
+    padding:0% 10px;
+}
+
+
+
+
 .sidebar {
     display:inline-block;
     vertical-align:top;
     margin:5px 0px 0px 3px;
     width:22%;
-    height:300px;
-    background-color:rgba(255,255,255,0.6);
+    height:100%;
+    background-color:rgba(255,255,255,0.75);
     border-radius:7px;
+}
+
+
+
+
+h2 {
+    font-family:"Raleway", sans-serif;
+    color:#000000;
+    font-size:25px;
+    text-align:justify;
+    margin:2% 2% 0%;
+    border-bottom:1px solid #a1a1a1;
+}
+
+
+
+
+h3 {
+    font-family:"Raleway", sans-serif;
+    color:#000000;
+    font-size:20px;
+    text-align:justify;
+    margin:40px 2% 0%;
+    border-top:1px solid #a1a1a1;
+    padding-top:10px;
 }
 
 
@@ -256,7 +292,7 @@ body {
     margin:5px 1% 0px 6%;
     height:1000px;
     width:65%;
-    background-color:rgba(255,255,255,0.6);
+    background-color:rgba(255,255,255,0.75);
     border-radius:7px;
 }
 
@@ -274,9 +310,9 @@ body {
 .aboutme {
     display:inline-block;
     margin:5px 1% 0px 6%;
-    height:50%;
+    height:100%;
     width:65%;
-    background-color:rgba(255,255,255,0.6);
+    background-color:rgba(255,255,255,0.75);
     border-radius:7px;
 }
 
@@ -305,4 +341,40 @@ body {
     font-family:"Open Sans", sans-serif;
     color:#000000;
     font-size:13px;
+}
+
+
+
+
+.mono {
+    font-family:"Cousine", monospace;
+    color:#000000;
+    font-size:15px;
+}
+
+
+
+
+.rainbow {
+    font-family:"Open Sans", sans-serif;
+    font-weight:bold;
+    font-size:16px;
+    padding-top:4px;
+    background-image:-webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image:gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip:text;
+    background-clip:text;
+    text-align:center
+}
+/*this is weird in that background-clip:text is producing an error, even though it works (and changing it to a "box" will paint the entire element space, rather than just the text)*/
+
+
+
+
+.black-bg {
+    background-color:#000000;
+    margin:0% 2%;
+    height:30px;
+    border-radius:5px;
 }
