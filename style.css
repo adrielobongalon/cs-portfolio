@@ -201,7 +201,7 @@ body {
     padding:8px 15px;
     text-decoration:none;
     color:#00ffff;
-    transition: .24s background-color;
+    transition:0.24s background-color;
 }
 
 
@@ -218,7 +218,7 @@ body {
 .main {
     display:inline-block;
     margin:5px 1% 0px 6%;
-    height:450px;
+    height:100%;
     width:65%;
     background-color:rgba(255,255,255,0.75);
     border-radius:7px;
@@ -232,7 +232,8 @@ body {
     color:#000000;
     font-size:15px;
     text-align:justify;
-    padding:0% 2%;
+    padding:0px 20px;
+    margin:10px 0px 0px;
 }
 
 
@@ -267,7 +268,7 @@ h2 {
     color:#000000;
     font-size:25px;
     text-align:justify;
-    margin:2% 2% 0%;
+    margin:20px 20px 0px;
     border-bottom:1px solid #a1a1a1;
 }
 
@@ -279,9 +280,10 @@ h3 {
     color:#000000;
     font-size:20px;
     text-align:justify;
-    margin:40px 2% 0%;
-    border-top:1px solid #a1a1a1;
+    margin:80px 20px 15px;
+    border-bottom:1px solid #a1a1a1;
     padding-top:10px;
+    clear:left;
 }
 
 
@@ -307,10 +309,10 @@ h3 {
 
 
 
-.aboutme {
+.home-main-box {
     display:inline-block;
     margin:5px 1% 0px 6%;
-    height:100%;
+    height:450px;
     width:65%;
     background-color:rgba(255,255,255,0.75);
     border-radius:7px;
@@ -319,19 +321,59 @@ h3 {
 
 
 
-.aboutmeimages {
+.centre {
     text-align:center;
 }
 
 
 
 
-.aboutmeimages img {
+.centre img {
     display:inline-block;
+}
+
+
+
+
+.left {
+    margin:5px 0px;
+}
+
+
+
+
+.inline-block {
+    display:inline-block;
+    padding:0px;
+    margin:0px;
+}
+
+
+
+
+.float-r {
+    float:right;
+    padding-right:20px;
+    width:62%;
+}
+
+
+
+
+.HTMLtextbox {
+    width:61%;
+    vertical-align:top;
+}
+
+
+
+
+.img-border img {
     border:2px solid #eeeeee;
     border-radius:3px;
     box-shadow: 2px 2px 3px #333333;
-    margin:0px 15px;
+    margin:0px 20px;
+    display:inline-block;
 }
 
 
@@ -360,8 +402,8 @@ h3 {
     font-weight:bold;
     font-size:16px;
     padding-top:4px;
-    background-image:-webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-    background-image:gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image:-webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
+    background-image:gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
     color:transparent;
     -webkit-background-clip:text;
     background-clip:text;
