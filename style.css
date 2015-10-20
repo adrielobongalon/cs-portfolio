@@ -196,12 +196,13 @@ body {
 
 
 
+
 .nav li a {
     display:block;
     padding:8px 15px;
     text-decoration:none;
     color:#00ffff;
-    transition:0.24s background-color;
+    transition:0.4s background-color;
 }
 
 
@@ -233,7 +234,7 @@ body {
     font-size:15px;
     text-align:justify;
     padding:0px 20px;
-    margin:10px 0px 0px;
+    margin:10px 0px 15px;
 }
 
 
@@ -361,8 +362,37 @@ h3 {
 
 
 .HTMLtextbox {
-    width:61%;
+    width:60%;
     vertical-align:top;
+}
+
+
+
+
+table {
+    background-color:#eeeeee;
+    border:2px solid #a1a1a1;
+    border-radius:3px;
+    box-shadow: 2px 2px 3px #333333;
+    margin:0px 20px;
+}
+
+
+
+thead td {
+    font-weight:bold;
+    border-bottom:1px solid #a1a1a1;
+}
+
+
+
+
+td {
+    text-align:left;
+    font-family:"Open Sans", sans-serif;
+    padding:3px 7px 1px;
+    vertical-align:top;
+    /*border:1px solid red;*/
 }
 
 
@@ -392,6 +422,9 @@ h3 {
     font-family:"Cousine", monospace;
     color:#000000;
     font-size:15px;
+    background-color:#efefef;
+    padding:1px 2px;
+    border-radius:2px;
 }
 
 
