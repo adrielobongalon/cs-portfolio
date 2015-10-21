@@ -56,55 +56,85 @@
             </div>
             <p class="main-text">The language of HTML consists of text and/or information surrounded by HTML tags (or just "tags", for short), which
             look like letters or words enclosed between angled brackets. The picture to the upper left shows an example of a tag, the <span
-            class="mono">&#60html&#62</span> tag. This tag tells the web browser, "The HTML document begins here." <span
-            class="mono">&#60/html&#62</span> is what the corresponding closing tag would look like. Notice how the only difference between the
-            opening and closing tags is the forward slash that precedes the tag.</p>
+            class="mono offwhite-highlight">&#60html&#62</span> tag. This tag tells the web browser, "The HTML document begins here." <span
+            class="mono offwhite-highlight">&#60/html&#62</span> is what the corresponding closing tag would look like. Notice how the only
+            difference between the opening and closing tags is the forward slash that precedes the tag.</p>
             
             <p class="main-text">Here's a list of some common HTML tags.</p>
             <table>
                 <thead>
                     <tr>
-                        <td>tag</td>
-                        <td>stands for</td>
+                        <td colspan="3" class="table-title">Common HTML Tags</td>
+                    </tr>
+                    <tr>
+                        <td class="tcolumn1">tag</td>
+                        <td class="tcolumn2">stands for</td>
                         <td>usage</td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>&#60html&#62</td>
-                        <td>hypertext markup language</td>
+                        <td class="mono tcolumn1">&#60html&#62</td>
+                        <td class="tcolumn2">hypertext markup language</td>
                         <td>indicates the start and end of the HTML document</td>
                     </tr>
                     <tr>
-                        <td>&#60body&#62</td>
-                        <td>body</td>
+                        <td class="mono tcolumn1">&#60body&#62</td>
+                        <td class="tcolumn2">body</td>
                         <td>body of the page, most of the webpage content goes here</td>
                     </tr>
                     <tr>
-                        <td>&#60p&#62</td>
-                        <td>paragraph</td>
+                        <td class="mono tcolumn1">&#60p&#62</td>
+                        <td class="tcolumn2">paragraph</td>
                         <td>used for most text and paragraphs</td>
                     </tr>
                     <tr>
-                        <td>&#60h1&#62</td>
-                        <td>heading, size 1</td>
+                        <td class="mono tcolumn1">&#60h1&#62</td>
+                        <td class="tcolumn2">heading, size 1</td>
                         <td>used for headings, size can be changed to whole numbers 1-6</td>
+                    </tr>
+                    <tr>
+                        <td class="mono tcolumn1">&#60img&#62</td>
+                        <td class="tcolumn2">image</td>
+                        <td>used to insert images</td>
+                    </tr>
+                    <tr>
+                        <td class="mono tcolumn1">&#60table&#62</td>
+                        <td class="tcolumn2">table</td>
+                        <td>used to create tables*</td>
+                    </tr>
+                    <tr>
+                        <td class="tcolumn1"><span class="mono">&#60div&#62</span> & <span class="mono">&#60span&#62</span></td>
+                        <td class="tcolumn2">division & span</td>
+                        <td>used to group content, div and span have some technical differences</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="table-footnote">*creating tables actually involves more tags than just <span
+                        class="mono-footnote">&#60table&#62</span></td>
                     </tr>
                 </tbody>
             </table>
+            <br>
+            <br>
 
-            <p class="main-text">If you want, press <span class="mono">Ctrl</span> (<span class="mono">&#8984</span> on a Mac) + <span
-            class="mono">U</span> to open up the HTML document for this page in a new tab. If you do, you'll notice that most of the words you
-            actually see on this page fall between <span class="mono">&#60p&#62</span> tags, which stands for "paragraph".</p>
+            <p class="main-text">If you want, press <span class="mono offwhite-highlight">Ctrl</span> (<span
+            class="mono offwhite-highlight">&#8984</span> on a Mac) + <span class="mono">U</span> to open up the HTML document for this page in a new
+            tab. If you do, you'll notice that most of the words you actually see on this page fall between <span
+            class="mono offwhite-highlight">&#60p&#62</span> tags, which are for paragraphs. You might also notice that a lot of the tags don't just
+            "stand by themselves", so to speak. That is, you don't just see <span class="mono offwhite-highlight">&#60p&#62</span>, for example, by
+            itself. They often have a bunch of words and data between the tag name ("<span class="mono offwhite-highlight">p</span>" in this case) and
+            the closing angle bracket. These are called "HTML attributes" . Attributes</p>
 
             <h3>CSS</h3>
-            <p class="main-text">CSS aoneuthasnoetudantoheudnatoheudntaoeudnteoau <span class="mono">&#60p&#62 moar text</span></p>
+            <p class="main-text">CSS aoneuthasnoetudantoheudnatoheudntaoeudnteoau</p>
             <div class="black-bg">
                 <p class="rainbow">RAINBOW TEXT WOOOOOOOOOOOOO! YEAAAAAAAAAAAHHH! YYYYYYAAAAAAAAAAAAAAAAAAAASSSSSSSS!</p>
             </div>
-            <p class="main-text">Click <a href="htmlcssugly.html" target="_blank">here</a> to see this webpage without CSS styling.</p>
+            <p class="main-text">Click <a href="htmlcssugly.html" target="_blank">here</a> to see this webpage without CSS styling. Click
+            <a href="style.css" target="_blank">here</a> to see the CSS stylesheet for this entire website. (Both links open in new tabs.)</p>
         </div>
         <div class="sidebar">
+            <h4>Page Overview</h4>
             <p class="sidebar-text">On this page, I'll be talking about HTML and CSS. Remember that this is for a school project, and I am required
             to have certain content on this site. Personally, I think it's a bit weird to talk about the program that you're using to make your
             website; it's like painting a picture of a paintbrush and a canvas. But oh well.</p>
