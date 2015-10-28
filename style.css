@@ -131,23 +131,29 @@ body {
 
 
 
-.title-link a:hover {
-    background-color:rgba(255,255,255,0.25);
+.title-link a:active {    
+    color:#ffffff;
+    background-color:#00bcbc;
     cursor:default;
-    /*-webkit-transition:all 0.5s ease;*/
-    /*-webkit-transform:scale(1.1);*/
-    /*-moz-transition:all 0.5s ease;*/
-    /*-moz-transform:scale(1.1);*/
-    /*transition:all 0.5s ease;*/
-    /*transform:scale(1.1);             i can't get this to work :(  */
 }
 
 
 
 
-.title-link a:active {    
-    color:#ffffff;
-    background-color:#00bcbc;
+.title-link:hover {
+    -webkit-transition:all 0.5s ease;
+    -webkit-transform:scale(1.1);
+    -moz-transition:all 0.5s ease;
+    -moz-transform:scale(1.1);
+    transition:all 0.5s ease;
+    transform:scale(1.1);
+}
+
+
+
+
+.title-link a:hover {
+    background-color:rgba(255,255,255,0.25);
     cursor:default;
 }
 
@@ -305,18 +311,6 @@ h4 {
 
 
 
-.gif-page {
-    display:inline-block;
-    margin:5px 1% 0px 6%;
-    height:1000px;
-    width:65%;
-    background-color:rgba(255,255,255,0.75);
-    border-radius:7px;
-}
-
-
-
-
 .gif-page img {
     text-align:center;
     /*needs work*/
@@ -338,6 +332,54 @@ h4 {
 
 
 
+.jump-to {
+    background-color:#eeeeee;
+    border:2px solid #a1a1a1;
+    border-radius:3px;
+    box-shadow:2px 2px 3px #333333;
+    margin:0px 20px;
+    width:200px;
+}
+
+
+
+
+.small-title {
+    font-family:"Raleway", sans-serif;
+    color:#000000;
+    font-size:15px;
+    font-weight:bold;
+    margin:10px 10px 0px;
+}
+
+
+
+
+.jump-to ol {
+    margin:5px;
+}
+
+
+
+
+.jump-to li {
+    font-family:"Open Sans", sans-serif;
+    color:#000000;
+    font-size:12px;
+    font-weight:bold;
+    margin:0px 10px;
+}
+
+
+
+
+.jump-to a, jump-to a:visited {
+    color:#555599;
+}
+
+
+
+
 .centre {
     text-align:center;
 }
@@ -352,34 +394,23 @@ h4 {
 
 
 
-.left {
-    margin:10px 0px;
+.justify {
+    text-align:justify;
 }
 
 
 
 
-.inline-block {
-    display:inline-block;
-    padding:0px;
-    margin:0px;
+
+.floatleft {
+    float:left;
 }
 
 
 
 
-.float-r {
+.floatright {
     float:right;
-    padding-right:20px;
-    width:62%;
-}
-
-
-
-
-.HTMLtextbox {
-    width:60%;
-    vertical-align:top;
 }
 
 
@@ -455,7 +486,6 @@ td.mono {
 .mono-footnote {
     font-family:"Cousine", monospace;
     font-size:10px;
-    background-color:#ffffff;
     border-radius:1px;
 }
 
@@ -500,11 +530,33 @@ td.mono {
 
 
 
+.white-highlight {
+    background-color:#ffffff;
+    padding:1px 2px;
+    border-radius:2px;
+}
+
+
+
+
+#css-example {
+    font-family:"Raleway", sans-serif;
+    background-color:#99ffff;
+    padding:0px 7px;
+    border:2px solid #4444ff;
+    border-radius:9px;
+    font-style:italic;
+    text-decoration:underline;
+}
+
+
+
+
 .rainbow {
     font-family:"Open Sans", sans-serif;
     font-weight:bold;
     font-size:16px;
-    padding-top:15px;
+    padding:15px 10px 0px;
     background-image:-webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f),
                      color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
     background-image:gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f),
@@ -512,7 +564,7 @@ td.mono {
     color:transparent;
     -webkit-background-clip:text;
     background-clip:text;
-    text-align:center
+    text-align:center;
 }
 /*this is weird in that background-clip:text is producing an error, even though it works (and changing it to a "box" will paint the entire element
 space, rather than just the text)*/
