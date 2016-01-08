@@ -1,54 +1,57 @@
-//  Document   : calc.js, for cs-portfolio
-//  Created on : Tuesday, Jaunary 5, 2016, 13:50 PM
-//  Author     : Adrielo (Audrey) Bongalon
-//  Description: calculator javascript page, for 10th grade computer science expeditions course
+/*  Document   : calc.js, for cs-portfolio
+    Created on : Tuesday, Jaunary 5, 2016, 13:50 PM
+    Author     : Adrielo (Audrey) Bongalon
+    Description: calculator javascript file, for 10th grade computer science expeditions course
 
 
-//                                      88
-//                                      88
-//                                      88
-//    ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
-//    ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
-//    ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
-//    88,    ,88  "8a,   ,a88  "8a,   ,d88  88          "8b,   ,aa    `8b,d8'
-//    `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
-//                                                                      d8'
-//                                                                     d8'
+                                        88
+                                        88
+                                        88
+      ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
+      ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
+      ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
+      88,    ,88  "8a,   ,a88  "8a,   ,d88  88          "8b,   ,aa    `8b,d8'
+      `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
+                                                                        d8'
+                                                                       d8'
+*/
 
 
-
-var button = document.getElementById("submitButton");
-var input1 = document.getElementById("input1");
+var button = document.getElementById("submitButton");       // goes into the html (with a pre-written function) and looks for the element with the
+var input1 = document.getElementById("input1");             //     given id
 var input2 = document.getElementById("input2");
 var answer;
 var display = document.getElementById("display");
 var dropdown = document.getElementById("dropdown");
 
-button.addEventListener("click", doMath);
+button.addEventListener("click", doMath);                   // looks for the button to be clicked, then runs the function doMath when that happens
 
 function doMath() {
-    var firstInput = parseInt(input1.value);
-    var secondInput = parseInt(input2.value);
-    if(dropdown.value == "+"){
-        answer = firstInput + secondInput;
+    var firstInput = parseInt(input1.value);                // gets the value from the first box and sets it as a variable
+    var secondInput = parseInt(input2.value);               // ditto the second value
+    if(dropdown.value == "+"){                              // looks for + being selected in the dropdown, if so, then adds values
+        answer = firstInput + secondInput;                  // sets the result as the variable "answer"
     }
-    else if(dropdown.value == "-"){
+    else if(dropdown.value == "-"){                         // ditto for -
         answer = firstInput - secondInput;
     }
-    else if(dropdown.value == "x"){
+    else if(dropdown.value == "x"){                         // ditto for x
         answer = firstInput * secondInput;
     }
-    else if(dropdown.value == "/"){
+    else if(dropdown.value == "/"){                         // ditto for /
         answer = firstInput / secondInput;
     }
-    else if(dropdown.value == "^"){
-        answer = Math.pow(firstInput, secondInput);
+    else if(dropdown.value == "^"){                         // ditto for ^
+        answer = Math.pow(firstInput, secondInput);         // Math.pow does exponents
     }
-    else if(dropdown.value == "r"){
-        answer = Math.pow(firstInput, 1 / secondInput);
+    else if(dropdown.value == "r"){                         // ditto for r (roots)
+        answer = Math.pow(firstInput, 1 / secondInput);     // since nth roots can be done as fractional exponents, make the denominator the second
+                                                            //     input for nth root with Math.pow
     }
-    else if(dropdown.value == "%"){
+    else if(dropdown.value == "%"){                         // ditto % (modulus)
         answer = firstInput % secondInput;
     }
-    display.innerHTML = answer;
+    display.innerHTML = answer;                             // displays the variable "answer"
 }
+
+// i need to program a pear so that i can do "pear programming" lol

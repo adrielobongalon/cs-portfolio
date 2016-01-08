@@ -28,125 +28,125 @@ root {
 
 html { 
     background: url("modern_wallpaper1.jpg") no-repeat center center fixed; 
-    -webkit-background-size:cover;
-    -moz-background-size:cover;
-    -o-background-size:cover;
-    background-size:cover;
-    margin:0;
-    padding:0;
-    overflow-x:hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 
 
 
 body {
-    margin:0;
-    padding:0;
-    padding-bottom:25px;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 25px;
 }
 
 
 
 
 .header h1 {
-    font-family:"Raleway", sans-serif;
-    color:#ffffff;
-    font-size:60px;
-    text-align:center;
-    margin-top:20%;
-    padding:0px;
+    font-family: "Raleway", sans-serif;
+    color: #ffffff;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 20%;
+    padding: 0px;
 }
 
 
 
 
 .name {
-    margin:0px;
-    width:100%;
-    border-bottom:1px solid #00ffff;
+    margin: 0px;
+    width: 100%;
+    border-bottom: 1px solid #00ffff;
 }
 
 
 
 
 .name h1 {
-    font-family:"Raleway", sans-serif;
-    font-weight:100;
-    color:#ffffff;
-    font-size:60px;
-    padding:0.5% 6% 0.5%;
-    margin:0px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 100;
+    color: #ffffff;
+    font-size: 60px;
+    padding: 0.5% 6% 0.5%;
+    margin: 0px;
 }
 
 
 
 
 .welcome {
-    width:100%
+    width: 100%
 }
 
 
 
 
 .welcome h5 {
-    font-family:"Raleway", sans-serif;
-    color:#ffffff;
-    font-size:20px;
-    text-align:center;
+    font-family: "Raleway", sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
 }
 
 
 
 
 .welcome {
-    text-align:center;
+    text-align: center;
 }
 
 
 
 
 .welcome a {
-    font-family:"Raleway", sans-serif;
-    color:#ffffff;
-    font-size:14px;
-    text-align:center;
-    font-weight:bold;
-    text-decoration:none;
-    padding:15px;
-    border:1px solid #ffffff;
-    border-radius:23px;
-    margin-top:100px;
-    transition:0.5s all;
+    font-family: "Raleway", sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px;
+    border: 1px solid #ffffff;
+    border-radius: 23px;
+    margin-top: 100px;
+    transition: 0.5s all;
 }
 
 
 
 
 .title-link {
-    margin-top:100px;
-    transition:all 0.5s ease;
-    display:inline-block;
+    margin-top: 100px;
+    transition: all 0.5s ease;
+    display: inline-block;
 }
 
 
 
 
 .title-link a:active {    
-    color:#ffffff;
-    background-color:#00bcbc;
-    cursor:default;
+    color: #ffffff;
+    background-color: #00bcbc;
+    cursor: default;
 }
 
 
 
 
 .title-link:hover {
-    -webkit-transition:all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
     -webkit-transform:scale(1.1);
-    -moz-transition:all 0.5s ease;
+    -moz-transition: all 0.5s ease;
     -moz-transform:scale(1.1);
-    transition:all 0.5s ease;
+    transition: all 0.5s ease;
     transform:scale(1.1);
 }
 
@@ -154,166 +154,166 @@ body {
 
 
 .title-link a:hover {
-    background-color:rgba(255,255,255,0.25);
-    cursor:default;
+    background-color: rgba(255,255,255,0.25);
+    cursor: default;
 }
 
 
 
 
 .nav {
-	width:100%;
-	float:left;
-	margin:0% 0% 1%;
-	padding:0%;
-	background-color:#000000;
-	background-color:rgba(0,0,0,0.6);
-	border-bottom:1px solid #00ffff;
+	width: 100%;
+	float: left;
+	margin: 0% 0% 1%;
+	padding: 0%;
+	background-color: #000000;
+	background-color: rgba(0,0,0,0.6);
+	border-bottom: 1px solid #00ffff;
 }
 
 
 
 
 .nav ul {
-    list-style:none;
-	width:1330px;
-	margin:0px 6% 5px;
-	padding:0;
+    list-style: none;
+	width: 1330px;
+	margin: 0px 6% 5px;
+	padding: 0px;
 }
 
 
 
 
 .nav a {
-    border-right:1px solid #444444;
+    border-right: 1px solid #444444;
 }
 .left-border {
-    border-left:1px solid #444444;
+    border-left: 1px solid #444444;
 }
 
 
 
 
 .nav li {
-    float:left;
-    font-family:"Raleway", sans-serif;
-    font-size:1.4em;
-    font-weight:400;
-    line-height:40px;
+    float: left;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    line-height: 40px;
 }
 
 
 
 
 .nav li a {
-    display:block;
-    padding:8px 15px;
-    text-decoration:none;
-    color:#00ffff;
-    transition:0.4s background-color;
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #00ffff;
+    transition: 0.4s background-color;
 }
 
 
 
 
 .nav a:hover {
-    background-color:#006868;
-    cursor:default;
+    background-color: #006868;
+    cursor: default;
 }
 
 
 
 
 .main {
-    display:inline-block;
-    margin:5px 1% 0px 6%;
-    height:100%;
-    width:65%;
-    background-color:#f7f7f7;
-    background-color:rgba(255,255,255,0.75);
-    border-radius:7px;
+    display: inline-block;
+    margin: 5px 1% 0px 6%;
+    height: 100%;
+    width: 65%;
+    background-color: #f7f7f7;
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 7px;
 }
 
 
 
 
 .main-text {
-    font-family:"Open Sans", sans-serif;
-    color:#000000;
-    font-size:15px;
-    text-align:justify;
-    padding:0px 20px;
-    margin:10px 0px 15px;
+    font-family: "Open Sans", sans-serif;
+    color: #000000;
+    font-size: 15px;
+    text-align: justify;
+    padding: 0px 20px;
+    margin: 10px 0px 15px;
 }
 
 
 
 
 .sidebar-text {
-    font-family:"Open Sans", sans-serif;
-    color:#000000;
-    font-size:15px;
-    text-align:justify;
-    padding:0px 10px;
-    margin:10px 0px 15px;
+    font-family: "Open Sans", sans-serif;
+    color: #000000;
+    font-size: 15px;
+    text-align: justify;
+    padding: 0px 10px;
+    margin: 10px 0px 15px;
 }
 
 
 
 
 .sidebar {
-    display:inline-block;
-    vertical-align:top;
-    margin:5px 0px 0px 3px;
-    width:22%;
-    height:100%;
-    background-color:rgba(255,255,255,0.75);
-    border-radius:7px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 0px 0px 3px;
+    width: 22%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 7px;
 }
 
 
 
 
 h2 {
-    font-family:"Raleway", sans-serif;
-    color:#000000;
-    font-size:25px;
-    text-align:justify;
-    margin:20px 20px 0px;
-    border-bottom:1px solid #a1a1a1;
+    font-family: "Raleway", sans-serif;
+    color: #000000;
+    font-size: 25px;
+    text-align: justify;
+    margin: 20px 20px 0px;
+    border-bottom: 1px solid #a1a1a1;
 }
 
 
 
 
 h3 {
-    font-family:"Raleway", sans-serif;
-    color:#000000;
-    font-size:20px;
-    text-align:justify;
-    margin:80px 20px 15px;
-    border-bottom:1px solid #a1a1a1;
-    padding-top:10px;
+    font-family: "Raleway", sans-serif;
+    color: #000000;
+    font-size: 20px;
+    text-align: justify;
+    margin: 80px 20px 15px;
+    border-bottom: 1px solid #a1a1a1;
+    padding-top: 10px;
 }
 
 
 
 
 h4 {
-    font-family:"Raleway", sans-serif;
-    color:#000000;
-    font-size:20px;
-    text-align:justify;
-    margin:15px 10px 0px;
-    border-bottom:1px solid #a1a1a1;
-    padding-top:10px;
+    font-family: "Raleway", sans-serif;
+    color: #000000;
+    font-size: 20px;
+    text-align: justify;
+    margin: 15px 10px 0px;
+    border-bottom: 1px solid #a1a1a1;
+    padding-top: 10px;
 }
 
 
 
 
 .gif-page img {
-    text-align:center;
+    text-align: center;
     /*needs work*/
 }
 
@@ -321,82 +321,82 @@ h4 {
 
 
 .home-main-box {
-    display:inline-block;
-    margin:5px 1% 0px 6%;
-    height:450px;
-    width:65%;
-    background-color:#f7f7f7;
-    background-color:rgba(255,255,255,0.75);
-    border-radius:7px;
+    display: inline-block;
+    margin: 5px 1% 0px 6%;
+    height: 450px;
+    width: 65%;
+    background-color: #f7f7f7;
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 7px;
 }
 
 
 
 
 .jump-to {
-    background-color:#eeeeee;
-    border:2px solid #a1a1a1;
-    border-radius:3px;
-    box-shadow:2px 2px 3px #333333;
-    margin:0px 20px;
-    width:200px;
+    background-color: #eeeeee;
+    border: 2px solid #a1a1a1;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px #333333;
+    margin: 0px 20px;
+    width: 200px;
 }
 
 
 
 
 .small-title {
-    font-family:"Raleway", sans-serif;
-    color:#000000;
-    font-size:15px;
-    font-weight:bold;
-    margin:10px 10px 0px;
+    font-family: "Raleway", sans-serif;
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 10px 0px;
 }
 
 
 
 
 .jump-to ol {
-    margin:5px;
+    margin: 5px;
 }
 
 
 
 
 .jump-to li {
-    font-family:"Open Sans", sans-serif;
-    color:#000000;
-    font-size:12px;
-    font-weight:bold;
-    margin:0px 10px;
+    font-family: "Open Sans", sans-serif;
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0px 10px;
 }
 
 
 
 
 .jump-to a, jump-to a:visited {
-    color:#555599;
+    color: #555599;
 }
 
 
 
 
 .centre {
-    text-align:center;
+    text-align: center;
 }
 
 
 
 
 .centre img {
-    display:inline-block;
+    display: inline-block;
 }
 
 
 
 
 .justify {
-    text-align:justify;
+    text-align: justify;
 }
 
 
@@ -404,64 +404,64 @@ h4 {
 
 
 .floatleft {
-    float:left;
+    float: left;
 }
 
 
 
 
 .floatright {
-    float:right;
+    float: right;
 }
 
 
 
 
 table {
-    background-color:#eeeeee;
-    border:2px solid #a1a1a1;
-    border-radius:3px;
-    box-shadow:2px 2px 3px #333333;
-    margin:0px 20px;
+    background-color: #eeeeee;
+    border: 2px solid #a1a1a1;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px #333333;
+    margin: 0px 20px;
 }
 
 
 
 thead td {
-    font-weight:bold;
-    border-bottom:1px solid #a1a1a1;
+    font-weight: bold;
+    border-bottom: 1px solid #a1a1a1;
 }
 
 
 
 
 td {
-    text-align:left;
-    font-family:"Open Sans", sans-serif;
-    padding:3px 7px 1px;
-    vertical-align:top;
-    /*border:1px solid red;*/
+    text-align: left;
+    font-family: "Open Sans", sans-serif;
+    padding: 3px 7px 1px;
+    vertical-align: top;
+    /*border: 1px solid red;*/
 }
 
 
 
 
 td.mono {
-    padding:7px 7px 1px;
+    padding: 7px 7px 1px;
 }
 
 
 
 
 .tcolumn1 {
-    width:140px;
+    width: 140px;
 }
 
 
 
 
 .tcolumn2 {
-    width:160px;
+    width: 160px;
 }
 
 
@@ -469,113 +469,136 @@ td.mono {
 
 
 .table-title {
-    border-bottom:none;
-    font-size:20px;
+    border-bottom: none;
+    font-size: 20px;
 }
 
 
 
 
 .table-footnote {
-    border-bottom:none;
-    font-size:10px;
+    border-bottom: none;
+    font-size: 10px;
 }
 
 
 
 
 .mono-footnote {
-    font-family:"Cousine", monospace;
-    font-size:10px;
-    border-radius:1px;
+    font-family: "Cousine", monospace;
+    font-size: 10px;
+    border-radius: 1px;
 }
 
 
 
 
 .img-border img {
-    border:2px solid #eeeeee;
-    border-radius:3px;
-    box-shadow:2px 2px 3px #333333;
-    margin:5px 20px;
-    display:inline-block;
+    border: 2px solid #eeeeee;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px #333333;
+    margin: 5px 20px;
+    display: inline-block;
 }
 
 
 
 
 .subtext {
-    font-family:"Open Sans", sans-serif;
-    color:#000000;
-    font-size:13px;
+    font-family: "Open Sans", sans-serif;
+    color: #000000;
+    font-size: 13px;
 }
 
 
 
 
 .mono {
-    font-family:"Cousine", monospace;
-    color:#000000;
-    font-size:15px;
+    font-family: "Cousine", monospace;
+    color: #000000;
+    font-size: 15px;
 }
 
 
 
 
 .offwhite-highlight {
-    background-color:#efefef;
-    padding:1px 2px;
-    border-radius:2px;
+    background-color: #efefef;
+    padding: 1px 2px;
+    border-radius: 2px;
 }
 
 
 
 
 .white-highlight {
-    background-color:#ffffff;
-    padding:1px 2px;
-    border-radius:2px;
+    background-color: #ffffff;
+    padding: 1px 2px;
+    border-radius: 2px;
 }
 
 
 
 
 #css-example {
-    font-family:"Raleway", sans-serif;
-    background-color:#99ffff;
-    padding:0px 7px;
-    border:2px solid #4444ff;
-    border-radius:9px;
-    font-style:italic;
-    text-decoration:underline;
+    font-family: "Raleway", sans-serif;
+    background-color: #99ffff;
+    padding: 0px 7px;
+    border: 2px solid #4444ff;
+    border-radius: 9px;
+    font-style: italic;
+    text-decoration: underline;
 }
 
 
 
 
 .rainbow {
-    font-family:"Open Sans", sans-serif;
-    font-weight:bold;
-    font-size:16px;
-    padding:15px 10px 0px;
-    background-image:-webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f),
-                     color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
-    background-image:gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f),
-                     color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
-    color:transparent;
-    -webkit-background-clip:text;
-    background-clip:text;
-    text-align:center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px 10px 0px;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f),
+                      color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
+    background-image: gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f),
+                      color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-align: center;
 }
-/*this is weird in that background-clip:text is producing an error, even though it works (and changing it to a "box" will paint the entire element
+/*this is weird in that "background-clip: text" is producing an error, even though it works (and changing it to a "box" will paint the entire element
 space, rather than just the text)*/
 
 
 
 
 .black-bg {
-    background-color:#000000;
-    margin:0% 2%;
-    height:100%;
-    border-radius:5px;
+    background-color: #000000;
+    margin: 0% 2%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+
+
+
+.calculator{
+    padding: 0px 20px;
+    margin: 10px 0px 15px;
+}
+
+
+
+
+#input1, #input2 {
+    width: 50px;
+}
+
+
+
+
+#boxgamecanvas {
+    margin: 10px 20px 15px;
+    border: 2px ridge #a1a1a1;
 }
