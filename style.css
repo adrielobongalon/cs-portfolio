@@ -252,7 +252,7 @@ body {
 .sidebar-text {
     font-family: "Open Sans", sans-serif;
     color: #000000;
-    font-size: 15px;
+    font-size: 13px;
     text-align: justify;
     padding: 0px 10px;
     margin: 10px 0px 15px;
@@ -522,6 +522,15 @@ td.mono {
 
 
 
+.mono-side {
+    font-family: "Cousine", monospace;
+    color: #000000;
+    font-size: 13px;
+}
+
+
+
+
 .offwhite-highlight {
     background-color: #efefef;
     padding: 1px 2px;
@@ -583,6 +592,11 @@ space, rather than just the text)*/
 
 
 
+/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
 .calculator{
     padding: 0px 20px;
     margin: 10px 0px 15px;
@@ -601,4 +615,87 @@ space, rather than just the text)*/
 #boxgamecanvas {
     margin: 10px 20px 15px;
     border: 2px ridge #a1a1a1;
+    background-color: #efefef;
+    background-color: rgba(255, 255, 255, 0.65);
+}
+
+
+
+
+.twilio-tool {
+    margin: 10px 20px 15px;
+}
+
+
+
+
+#input1, #input2, #phoneNumberInput, #messageInput {
+    font-family: "Open Sans", sans-serif;
+    margin: 1px 0px 1px;
+}
+
+
+
+
+#dropdown, #submitButton, #twiliobutton, #twiliobutton-text-audrey, #twiliobutton-text-jelly, #twiliobutton-call, #twiliobutton-call-audrey,
+#twiliobutton-call-jelly, #clear-button, #reset-button {
+    font-family: "Raleway", sans-serif;
+    margin: 1px 0px 1px;
+    color: #111111;
+    transition: 0.4s color;
+}
+
+
+
+
+#dropdown:hover, #submitButton:hover, #twiliobutton:hover, #twiliobutton-text-audrey:hover, #twiliobutton-text-jelly:hover, #twiliobutton-call:hover,
+#twiliobutton-call-audrey:hover, #twiliobutton-call-jelly:hover, #clear-button:hover, #reset-button:hover {
+    font-family: "Raleway", sans-serif;
+    margin: 1px 0px 1px;
+    color: #00cccc;
+}
+
+
+
+
+#dropdown:active, #submitButton:active, #twiliobutton:active, #twiliobutton-text-audrey:active, #twiliobutton-text-jelly:active,
+#twiliobutton-call:active, #twiliobutton-call-audrey:active, #twiliobutton-call-jelly:active, #clear-button:active, #reset-button:active {
+    font-family: "Raleway", sans-serif;
+    margin: 1px 0px 1px;
+    color: #66ff66;
+}
+
+
+
+
+:placeholder-shown {
+    vertical-align: top;
+    color: #a1a1a1;
+}
+::-webkit-input-placeholder {
+    vertical-align: top;
+    color: #a1a1a1;
+}
+::-moz-placeholder {
+    vertical-align: top;
+    color: #a1a1a1;
+}
+
+
+
+
+
+
+#spacegamecanvas {
+    margin: 10px 20px 15px;
+    border: 1px solid #a1a1a1;
+    background-color: #101010;
+    background-color: rgba(0, 0, 0, 0.95);
+    background-image: url("stars-background-edit.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

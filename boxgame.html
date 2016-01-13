@@ -29,31 +29,38 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="home.html" class="left-border">Home</a></li>
-                <li><a href="htmlcss.html">HTML and CSS</a>         </li>
-                <li><a href="calc.html">Calculator</a>              </li>
-                <li><a href="boxgame.html">Box Game</a>             </li>
-                <li><a href="gifs.html">Gifs</a>                    </li>
-                <li><a href="aboutme.html">About Me</a>             </li>
+                <li><a href="home.html" class="left-border">Home</a>        </li>
+                <li><a href="htmlcss.html">HTML and CSS</a>                 </li>
+                <li><a href="calc.html">Calculator</a>                      </li>
+                <li><a href="boxgame.html">Box Game</a>                     </li>
+                <li><a href="twilio_thing.html">Texting Tool</a>            </li>
+                <li><a href="spaceshootergame.html">Space Shooter Game</a>  </li>
+                <li><a href="gifs.html">Gifs</a>                            </li>
+                <li><a href="aboutme.html">About Me</a>                     </li>
             </ul>
         </div>
         <div class="main">
             <h2>Etch a Sketch</h2>
-            <canvas id="boxgamecanvas" width="800px" height="400px"></canvas>
-            <script src="boxgame.js"></script>
+            <canvas id="boxgamecanvas" width="800px" height="365px">aw. the game vwont work. your browser doesn't support the HTML5 canvas tag
+            *(>n<)*</canvas>
+            <input type="button" value="clear screen" id="clear-button" style="margin:0px 0px 15px 20px">
+            <input type="button" value="reset point" id="reset-button" style="margin:0px 0px 15px">
+            <p>needs variable speed</p>
         </div>
         <div class="sidebar">
             <h4>Instructions</h4>
             <p class="sidebar-text">Originally, this was supposed to be a "box game" where you control a small box. I sized down the box to a dot,
             and modified it so that the box leaves a trail behind. Now it acts like an Etch a Sketch!</p>
             <br>
-            <p class="sidebar-text">You can use the <span class="mono offwhite-highlight">arrow keys</span> to move the dot.</p>
-            <p class="sidebar-text">For those who prefer a more classic approach, the <span class="mono offwhite-highlight">z</span>,
-            <span class="mono offwhite-highlight">x</span>, <span class="mono offwhite-highlight">,</span>, and
-            <span class="mono offwhite-highlight">.</span> keys. It simulates a clockwise and anticlockwise turn of each knob.</p>
+            <p class="sidebar-text">You can use the <span class="mono-side offwhite-highlight">arrow keys</span> to move the dot.</p>
+            <p class="sidebar-text">For those who prefer a more classic approach, the <span class="mono-side offwhite-highlight">z</span>,
+            <span class="mono-side offwhite-highlight">x</span>, <span class="mono-side offwhite-highlight">,</span>, and
+            <span class="mono-side offwhite-highlight">.</span> keys. It simulates a clockwise and anticlockwise turn of each knob.</p>
             <p class="sidebar-text">Dvorak user? Don't worry; I got you covered. You can use the qwerty equivalents
-            <span class="mono offwhite-highlight">;</span>, <span class="mono offwhite-highlight">q</span>,
-            <span class="mono offwhite-highlight">w</span>, and <span class="mono offwhite-highlight">v</span>.</p>
+            <span class="mono-side offwhite-highlight">;</span>, <span class="mono-side offwhite-highlight">q</span>,
+            <span class="mono-side offwhite-highlight">w</span>, and <span class="mono-side offwhite-highlight">v</span>.</p>
+            <p class="sidebar-text">The buttons should be self-explanatory.</p>
         </div>
+        <script src="boxgame.js"></script>
     </body>
 </html>

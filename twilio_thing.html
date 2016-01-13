@@ -1,0 +1,76 @@
+<!--
+    Document   : twilio_thing.html, for cs-portfolio
+    Created on : Friday, January 8, 2016, 13:05 PM
+    Author     : Adrielo (Audrey) Bongalon
+    Description: html page for Twilio, for 10th grade computer science expeditions course
+
+                               ___
+                              /\  \
+      ______    ___  ___      \_\  \    ______    ______   ___  ___
+     /  __  \  /\  \/\  \    /  __  \  /\   __\  /  __  \ /\  \/\  \
+    /\  \L\  \ \ \  \_\  \  /\  \L\  \ \ \  \_/ /\   ___/ \ \  \_\  \
+    \ \___/\__\ \ \___/\__\ \ \___/\__\ \ \__\  \ \_____\  \ \____   \
+     \/__/\/__/  \/___/\__/  \/___/\__/  \/__/   \/_____/   \/___/_\  \
+                                                               /\_____/
+                                                               \/____/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8">
+    	<title>Twilio Thing</title>
+    	<link rel="stylesheet" type="text/css" href="style.css">
+    	<link href="https://fonts.googleapis.com/css?family=Cousine|Raleway:400|Open+Sans" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="name">
+            <h1>Adrielo Bongalon</h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="home.html" class="left-border">Home</a></li>
+                <li><a href="htmlcss.html">HTML and CSS</a>         </li>
+                <li><a href="calc.html">Calculator</a>              </li>
+                <li><a href="boxgame.html">Box Game</a>             </li>
+                <li><a href="twilio_thing.html">Texting Tool</a>    </li>
+                <li><a href="gifs.html">Gifs</a>                    </li>
+                <li><a href="aboutme.html">About Me</a>             </li>
+            </ul>
+        </div>
+        <div class="main">
+            <h2>Texting Tool</h2>
+            <div class="twilio-tool" style="float:left">
+                <input type="text" name="phoneNumberInput" placeholder="123-456-7890" id="phoneNumberInput" style="width:100px">
+                <input type="text" name="messageInput" placeholder="message" id="messageInput" style="width:350px">
+            </div>
+            <div class="twilio-tool">
+                <input type="button" value="text number" id="twiliobutton">
+                <input type="button" value="text audrey" id="twiliobutton-text-audrey">
+                <input type="button" value="text jelly" id="twiliobutton-text-jelly">
+                
+                <br>
+                
+                <input type="button" value="call number" id="twiliobutton-call">
+                <input type="button" value="call audrey" id="twiliobutton-call-audrey">
+                <input type="button" value="call jelly" id="twiliobutton-call-jelly">
+            </div>
+            <p class="main-text">Hey guys! Just want to remind you to treat this like an actual phone. Don't be disrespectful to people with it.
+            And please don't bother jelly, especially if you've never met her. Be responsible.</p>
+            <p class="main-text">This texting tool is made using Twilio. Thanks to the guys who made it!</p>
+            
+        </div>
+        <div class="sidebar">
+            <h4>Instructions</h4>
+            <p class="sidebar-text">Put a phone number in the first box in the form "123-245-7890" (do not forget the hyphens). Then enter a message
+            in the second box.</p>
+            <p class="sidebar-text">Click <span class="offwhite-highlight">text number</span> to send the message to the number in the box. Click
+            <span class="offwhite-highlight">text audrey</span> to send the message to audrey (the person who made this). Clicking
+            <span class="offwhite-highlight">text jelly</span> will send the message to jelly, audrey's friend, but please don't bother her. The call
+            buttons do nearly the same thing, except it calls the number and a robotic voice says the message. Please don't call me. or jelly.<p>
+        </div>
+        
+        <script src="//bit.ly/twilio-basic-v7" sid="ACae3aae3e08e179ccc8fc519e9843a714" token="4614e8e732e983fc8ccac8968c9ab0e7"></script>
+        <script type="text/javascript" src="twilio_thing.js"></script>
+    </body>
+</html>

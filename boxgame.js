@@ -15,9 +15,13 @@
 //                                                                      d8'
 //                                                                     d8'
 
+
 var boxgamecanvas = document.getElementById("boxgamecanvas");                   // gets the canvas from the html and gives it a variable name
 var ctx = boxgamecanvas.getContext("2d");                                       // tells the canvas that we're dealing with stuff in only two
                                                                                 // dimensions
+
+var clearCanvas = document.getElementById("clear-button");                      // creates variabe for the buttons
+var resetPoint = document.getElementById("reset-button");
 
 var boxSpeed = 2;                                                               // set the box speed
 var box = {                                                                     // creates the box as an object
@@ -81,25 +85,19 @@ document.addEventListener("keyup", function(evt){
 
 function gameLoop(){
     ctx.beginPath();
-    // ctx.clearRect(0, 0, boxgamecanvas.width, boxgamecanvas.height);
+    // ctx.clearRect(0, 0, boxgamecanvas.width, boxgamecanvas.height);          this originally got rid of the old boxes
     box.move();
     box.draw();
     window.requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+gameLoop();                                                                     // runs the game loop
 
+clearCanvas.addEventListener("click", function(){                               // clears the canvas when the button is clicked
+    ctx.clearRect(0, 0, boxgamecanvas.width, boxgamecanvas.height);
+});
 
-
-/*
-var bullets = []
-
-function Bullet(xPos, yPos){            captialise function for object creators
-    this.xPos = xPos
-    this.yPos = yPos
-    this.draw = function(){
-        aoeu
-    }
-}
-bullets.push(new Bullet(40, 25)
-*/
+resetPoint.addEventListener("click", function(){                                // resets the point when the button is clicked
+    box.xPos = 40;
+    box.yPos = 40;
+});
