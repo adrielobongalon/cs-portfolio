@@ -22,34 +22,69 @@ var ctx = spacegamecanvas.getContext("2d");                                     
 
 var shipxSpeed = 6;                                                             // set the ship x-speed
 var shipySpeed = 4;                                                             // set the ship y-speed
+var bulletSpeed = 6;                                                            // set speed of bullets
+var shipImage = document.getElementById("spaceship");                           // gives the ship the image to reference so it knows how to look
+var redBulletImage = document.getElementById("red-bullet");                     // gives the green bullets the image to reference
 
-var shipimage = document.getElementById("spaceship");
+var bullets = [];                                                               // array so object creator makes objects *that can be indexed*
+
 var ship = {                                                                    // creates the ship as an object
-    xPos: (spacegamecanvas.width / 2) - 15,                                                                   // sets the starting x-position
-    yPos: spacegamecanvas.height - 80,                                                                   // ditto y-pos
+    height: 35,
+    width: 30,
+    xPos: (spacegamecanvas.width / 2) - 15,                                     // starting x-pos in the middle ("-15" because half the imgage width)
+    yPos: spacegamecanvas.height - 80,                                          // starting y-pos is a bit higher than the bottom of the screen
     goUp: false,                                                                // defaults so that the ship isn't moving
     goDown: false,
     goLeft: false,
     goRight: false,
+    firing: false,
+    canShoot: true,
     move: function(){
-        if(ship.goUp && ship.yPos > 5){                                         // secondary condition to move up is that it is not 5px from the edge
-            ship.yPos -= shipySpeed;                                            // "-=" means "equals itself minus", moves the ship in the negative
+        if(this.goUp && this.yPos > spacegamecanvas.height / 3){                // secondary condition to go up is that it's in the bottom third
+            this.yPos -= shipySpeed;                                            // "-=" means "equals itself minus", moves the ship in the negative
         }                                                                       //     y-direction (up)
-        if(ship.goDown && ship.yPos < spacegamecanvas.height - 40){
-            ship.yPos += shipySpeed;                                            // moves the ship in the positive y-direction (down)
+        if(this.goDown && this.yPos < spacegamecanvas.height - 40){
+            this.yPos += shipySpeed;                                            // moves the ship in the positive y-direction (down)
         }
-        if(ship.goLeft && ship.xPos > 5){
-            ship.xPos -= shipxSpeed;                                            // moves the ship in the negative x-direction (left)
+        if(this.goLeft && this.xPos > 5){
+            this.xPos -= shipxSpeed;                                            // moves the ship in the negative x-direction (left)
         }
-        if(ship.goRight && ship.yPos < spacegamecanvas.height - 35){
-            ship.xPos += shipxSpeed;                                            // moves the ship in the positive y-direction (right)
+        if(this.goRight && this.xPos < spacegamecanvas.width - 35){
+            this.xPos += shipxSpeed;                                            // moves the ship in the positive y-direction (right)
         }
-        console.log(ship.xPos);                                                 // logs the ship coordinates
-        console.log(ship.yPos);
+    },
+    shoot: function(){
+        if(this.canShoot && this.firing){
+            bullets.push(new Bullet(ship.xPos + ship.width / 2 - 1, ship.yPos - 19));
+            this.canShoot = false;
+            window.setTimeout(makeCanShootTrue, 250);
+        }
     },
     draw: function(){
-        ctx.drawImage(shipimage, ship.xPos, ship.yPos, 30, 35);
+        ctx.drawImage(shipImage, this.xPos, this.yPos, this.width, this.height);
     }
+};
+
+function makeCanShootTrue(){
+    ship.canShoot = true;
+}
+
+function Bullet(xPos, yPos){                                                    // the object constructor for each bullet
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.draw = function(){
+        // ctx.beginPath();                                                     // remember that to draw a new shape you need to ctx.beginPath();
+        // ctx.rect(this.xPos, this.yPos, 10, 10);
+        // ctx.stroke()                                                         // must add a stroke and/or fill to see rectangle bullets
+        ctx.drawImage(redBulletImage, this.xPos, this.yPos, 2, 25);
+    };
+    this.move = function(){
+        this.yPos -= bulletSpeed;
+        if(this.yPos < 30){
+            return false;
+        }
+        return true;
+    };
 }
 
 document.addEventListener("keydown", function(evt){
@@ -64,6 +99,9 @@ document.addEventListener("keydown", function(evt){
    }
    if(evt.keyCode === 39){
        ship.goRight = true;
+   }
+   if(evt.keyCode === 32){
+        ship.firing = true;
    }
 });
 
@@ -80,29 +118,49 @@ document.addEventListener("keyup", function(evt){
    if(evt.keyCode === 39){
        ship.goRight = false;
    }
+   if(evt.keyCode === 32){
+      ship.firing = false;
+   }
 });
+
+
+var enemy1Image = document.getElementById("enemy1");
+var enemy1 = {                                                                  // creates enemy type 1 as an object
+    xPos: 200,
+    yPos: 20,
+    height: 19,
+    width: 25,
+    draw: function(){
+        ctx.drawImage(enemy1Image, this.xPos - this.width / 2, this.yPos, this.width, this.height);
+    }
+};
+
 
 function gameLoop(){
     ctx.beginPath();
     ctx.clearRect(0, 0, spacegamecanvas.width, spacegamecanvas.height);
     ship.move();
     ship.draw();
+    ship.shoot();
+    for (var i = 0; i < bullets.length; i++){                                   // "++" is the "increment operator". it adds 1; var "i" for "index"
+        if(!bullets[i].move())bullets.splice(i, 1);
+        bullets[i].draw();
+    }
+    enemy1.draw();
     window.requestAnimationFrame(gameLoop);
 }
 
 gameLoop();                                                                     // runs the game loop
 
 
-/*
-notes for object constructors
-var bullets = []
 
-function Bullet(xPos, yPos){            captialise function for object creators
-    this.xPos = xPos
-    this.yPos = yPos
-    this.draw = function(){
-        aoeu
-    }
-}
-bullets.push(new Bullet(40, 25)
+
+/*
+
+!isColliding
+Up      2.yPos + 2.height < 1.yPos
+Down    2.yPos > 1.yPos + 1.height
+Left    2.xPos + 2.width < 1.xPos
+Right   2.xPos > 1.xPos + 1.width
+
 */
