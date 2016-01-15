@@ -55,7 +55,7 @@ var ship = {                                                                    
     },
     shoot: function(){
         if(this.canShoot && this.firing){
-            bullets.push(new Bullet(ship.xPos + ship.width / 2 - 1, ship.yPos - 19));
+            bullets.push(new Bullet(ship.xPos + ship.width / 2 - 1, ship.yPos - 19, 25, 2));
             this.canShoot = false;
             window.setTimeout(makeCanShootTrue, 250);
         }
@@ -69,18 +69,26 @@ function makeCanShootTrue(){
     ship.canShoot = true;
 }
 
-function Bullet(xPos, yPos){                                                    // the object constructor for each bullet
+function Bullet(xPos, yPos, height, width){                                     // the object constructor for each bullet
     this.xPos = xPos;
     this.yPos = yPos;
+    this.height = height;
+    this.width = width;
     this.draw = function(){
         // ctx.beginPath();                                                     // remember that to draw a new shape you need to ctx.beginPath();
         // ctx.rect(this.xPos, this.yPos, 10, 10);
         // ctx.stroke()                                                         // must add a stroke and/or fill to see rectangle bullets
         ctx.drawImage(redBulletImage, this.xPos, this.yPos, 2, 25);
     };
+    this.isColliding = function(){
+        if(this.yPos + this.height < enemy1.yPos || this.yPos > enemy1.yPos + enemy1.height ||
+        this.xPos + this.width < enemy1.xPos || this.xPos > enemy1.xPos + enemy1.width){ // up down left right
+            return false;
+        }
+    };
     this.move = function(){
         this.yPos -= bulletSpeed;
-        if(this.yPos < 30){
+        if(this.yPos < -25){                                                    // 25 = bullet height
             return false;
         }
         return true;
@@ -123,7 +131,6 @@ document.addEventListener("keyup", function(evt){
    }
 });
 
-
 var enemy1Image = document.getElementById("enemy1");
 var enemy1 = {                                                                  // creates enemy type 1 as an object
     xPos: 200,
@@ -135,7 +142,6 @@ var enemy1 = {                                                                  
     }
 };
 
-
 function gameLoop(){
     ctx.beginPath();
     ctx.clearRect(0, 0, spacegamecanvas.width, spacegamecanvas.height);
@@ -143,10 +149,15 @@ function gameLoop(){
     ship.draw();
     ship.shoot();
     for (var i = 0; i < bullets.length; i++){                                   // "++" is the "increment operator". it adds 1; var "i" for "index"
-        if(!bullets[i].move())bullets.splice(i, 1);
         bullets[i].draw();
+        if(!bullets[i].move()) bullets.splice(i, 1);
     }
-    enemy1.draw();
+    if(!Bullet.isColliding){
+        enemy1.draw();
+    }
+    // else{
+    //     ctx.clearRect(0, 0, spacegamecanvas.width, spacegamecanvas.height);
+    // }
     window.requestAnimationFrame(gameLoop);
 }
 
@@ -156,7 +167,6 @@ gameLoop();                                                                     
 
 
 /*
-
 !isColliding
 Up      2.yPos + 2.height < 1.yPos
 Down    2.yPos > 1.yPos + 1.height
