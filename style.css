@@ -613,7 +613,7 @@ space, rather than just the text)*/
 
 
 #boxgamecanvas {
-    margin: 10px 20px 15px;
+    margin: 10px 20px 0px;
     border: 2px ridge #a1a1a1;
     background-color: #efefef;
     background-color: rgba(255, 255, 255, 0.65);
@@ -638,7 +638,7 @@ space, rather than just the text)*/
 
 
 #dropdown, #submitButton, #twiliobutton, #twiliobutton-text-audrey, #twiliobutton-text-jelly, #twiliobutton-call, #twiliobutton-call-audrey,
-#twiliobutton-call-jelly, #clear-button, #reset-button {
+#twiliobutton-call-jelly, #clear-button, #reset-button, #draw-slow, #draw-med, #draw-fast {
     font-family: "Raleway", sans-serif;
     margin: 1px 0px 1px;
     color: #111111;
@@ -649,7 +649,8 @@ space, rather than just the text)*/
 
 
 #dropdown:hover, #submitButton:hover, #twiliobutton:hover, #twiliobutton-text-audrey:hover, #twiliobutton-text-jelly:hover, #twiliobutton-call:hover,
-#twiliobutton-call-audrey:hover, #twiliobutton-call-jelly:hover, #clear-button:hover, #reset-button:hover {
+#twiliobutton-call-audrey:hover, #twiliobutton-call-jelly:hover, #clear-button:hover, #reset-button:hover, #draw-slow:hover, #draw-med:hover,
+#draw-fast:hover {
     font-family: "Raleway", sans-serif;
     margin: 1px 0px 1px;
     color: #00cccc;
@@ -659,7 +660,8 @@ space, rather than just the text)*/
 
 
 #dropdown:active, #submitButton:active, #twiliobutton:active, #twiliobutton-text-audrey:active, #twiliobutton-text-jelly:active,
-#twiliobutton-call:active, #twiliobutton-call-audrey:active, #twiliobutton-call-jelly:active, #clear-button:active, #reset-button:active {
+#twiliobutton-call:active, #twiliobutton-call-audrey:active, #twiliobutton-call-jelly:active, #clear-button:active, #reset-button:active,
+#draw-slow:active, #draw-med:active, #draw-fast:active {
     font-family: "Raleway", sans-serif;
     margin: 1px 0px 1px;
     color: #66ff66;

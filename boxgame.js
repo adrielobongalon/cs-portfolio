@@ -22,6 +22,9 @@ var ctx = boxgamecanvas.getContext("2d");                                       
 
 var clearCanvas = document.getElementById("clear-button");                      // creates variabe for the buttons
 var resetPoint = document.getElementById("reset-button");
+var slow = document.getElementById("draw-slow");
+var med = document.getElementById("draw-med");
+var fast = document.getElementById("draw-fast");
 
 var boxSpeed = 2;                                                               // set the box speed
 var box = {                                                                     // creates the box as an object
@@ -32,16 +35,16 @@ var box = {                                                                     
     goLeft: false,
     goRight: false,
     move: function(){
-        if(box.goUp){
+        if(box.goUp && this.yPos > 0){
             box.yPos -= boxSpeed;                                               // "-=" means "equals itself minus", moves the box in the negative
         }                                                                       //     y-direction (up)
-        if(box.goDown){
+        if(box.goDown && this.yPos < boxgamecanvas.height - 2){                 // "-2" due to box height
             box.yPos += boxSpeed;                                               // moves the box in the positive y-direction (down)
         }
-        if(box.goLeft){
+        if(box.goLeft && this.xPos > 0){
             box.xPos -= boxSpeed;                                               // moves the box in the negative x-direction (left)
         }
-        if(box.goRight){
+        if(box.goRight && this.xPos < boxgamecanvas.width - 2){
             box.xPos += boxSpeed;                                               // moves the box in the positive y-direction (right)
         }
         console.log(box.xPos);                                                  // logs the box coordinates
@@ -50,8 +53,9 @@ var box = {                                                                     
     draw: function(){
         ctx.rect(box.xPos, box.yPos, 2, 2);
         ctx.stroke();
+        ctx.fill();
     }
-}
+};
 
 document.addEventListener("keydown", function(evt){
    if(evt.keyCode === 38 || evt.keyCode === 190 || evt.keyCode === 86){         // key codes are in order: arrow keys, qwerty, dvorak
@@ -85,7 +89,7 @@ document.addEventListener("keyup", function(evt){
 
 function gameLoop(){
     ctx.beginPath();
-    // ctx.clearRect(0, 0, boxgamecanvas.width, boxgamecanvas.height);          this originally got rid of the old boxes
+    // ctx.clearRect(0, 0, boxgamecanvas.width, boxgamecanvas.height);          (this originally got rid of the old boxes)
     box.move();
     box.draw();
     window.requestAnimationFrame(gameLoop);
@@ -100,4 +104,16 @@ clearCanvas.addEventListener("click", function(){                               
 resetPoint.addEventListener("click", function(){                                // resets the point when the button is clicked
     box.xPos = 40;
     box.yPos = 40;
+});
+
+slow.addEventListener("click", function(){                                      // really slow speed on button click
+    boxSpeed = 0.5;
+});
+
+med.addEventListener("click", function(){                                       // slow speed on button click
+    boxSpeed = 1;
+});
+
+fast.addEventListener("click", function(){                                      // regular speed on button click
+    boxSpeed = 2;
 });

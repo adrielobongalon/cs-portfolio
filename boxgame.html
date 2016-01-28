@@ -41,11 +41,20 @@
         </div>
         <div class="main">
             <h2>Etch a Sketch</h2>
-            <canvas id="boxgamecanvas" width="800px" height="365px">aw. the game vwont work. your browser doesn't support the HTML5 canvas tag
+            <canvas id="boxgamecanvas" width="800px" height="365px">aw. the game wont work. your browser doesn't support the HTML5 canvas tag
             *(>n<)*</canvas>
-            <input type="button" value="clear screen" id="clear-button" style="margin:0px 0px 15px 20px">
-            <input type="button" value="reset point" id="reset-button" style="margin:0px 0px 15px">
-            <p>needs variable speed</p>
+            
+            <div style="float: left">
+                <p class="main-text" style="margin: 0px 0px 2px">drawing speed</p>
+                <input type="button" value="really slow" id="draw-slow" style="margin:0px 0px 15px 20px">
+                <input type="button" value="slow" id="draw-med" style="margin:0px 0px 15px">
+                <input type="button" value="regular" id="draw-fast" style="margin:0px 0px 15px">
+            </div>
+            <div style="margin-left: 50px; float: left">
+                <p class="main-text" style="margin: 0px 0px 2px">clear and reset</p>
+                <input type="button" value="clear screen" id="clear-button" style="margin:0px 0px 15px 20px">
+                <input type="button" value="reset point" id="reset-button" style="margin:0px 0px 15px">
+            </div>
         </div>
         <div class="sidebar">
             <h4>Instructions</h4>
