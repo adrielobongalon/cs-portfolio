@@ -87,16 +87,6 @@ document.addEventListener("keyup", function(evt){
    }
 });
 
-function gameLoop(){
-    ctx.beginPath();
-    // ctx.clearRect(0, 0, boxgamecanvas.width, boxgamecanvas.height);          (this originally got rid of the old boxes)
-    box.move();
-    box.draw();
-    window.requestAnimationFrame(gameLoop);
-}
-
-gameLoop();                                                                     // runs the game loop
-
 clearCanvas.addEventListener("click", function(){                               // clears the canvas when the button is clicked
     ctx.clearRect(0, 0, boxgamecanvas.width, boxgamecanvas.height);
 });
@@ -117,3 +107,13 @@ med.addEventListener("click", function(){                                       
 fast.addEventListener("click", function(){                                      // regular speed on button click
     boxSpeed = 2;
 });
+
+function gameLoop(){
+    ctx.beginPath();
+    // ctx.clearRect(0, 0, boxgamecanvas.width, boxgamecanvas.height);          (this originally got rid of the old boxes)
+    box.move();
+    box.draw();
+    window.requestAnimationFrame(gameLoop);
+}
+
+gameLoop();                                                                     // runs the game loop

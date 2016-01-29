@@ -20,25 +20,33 @@ var spacegamecanvas = document.getElementById("spacegamecanvas");               
 var ctx = spacegamecanvas.getContext("2d");                                     // tells the canvas that we're dealing with stuff in only two
                                                                                 // dimensions
 
-var shipxSpeed = 5;                                                             // set the ship x-speed
-var shipySpeed = 4;                                                             // set the ship y-speed
-var bulletSpeed = 6;                                                            // set speed of bullets
-var shipImage = document.getElementById("spaceship");                           // gives the ship the image to reference so it knows how to look
-var redBulletImage = document.getElementById("red-bullet");                     // gives the green bullets the image to reference
+var shipxSpeed = 5;                                                             // sets the ship x-speed
+var shipySpeed = 3;                                                             // sets the ship y-speed
+var bulletSpeed = 6;                                                            // sets speed of bullets
+var enemyBulletSpeed = 4;                                                       // sets speed of enemy bullets
 
-var bullets = [];                                                               // bullet array
+var shipImage = document.getElementById("spaceship");                           // reference images, so they know how to look
+var enemyImage = document.getElementById("enemy");
+var redBulletImage = document.getElementById("red-bullet");
+var greenBulletImage = document.getElementById("green-bullet");
+
+var bullets = [];                                                               // bullet arrays, start out empty
+var enemyBullets = [];
 
 var ship = {                                                                    // creates the ship as an object
     height: 35,                                                                 // set ship size
     width: 30,
     xPos: (spacegamecanvas.width / 2) - 15,                                     // starting x-pos in the middle ("-15" because half the imgage width)
     yPos: spacegamecanvas.height - 80,                                          // starting y-pos is a bit higher than the bottom of the screen
-    goUp: false,                                                                // defaults so that the ship isn't moving or shooting
+
+    goUp: false,                                                                // defaults so that the ship isnt moving or shooting
     goDown: false,
     goLeft: false,
     goRight: false,
     firing: false,
     canShoot: true,                                                             // able to shoot by default
+    hp: 100,                                                                    // starts out with 100HP
+
     move: function() {
         if (this.goUp && this.yPos > spacegamecanvas.height / 2) {              // secondary condition to go up is that it's in the bottom half,
             this.yPos -= shipySpeed;                                            // moves the ship in the negative y-direction (up)
@@ -64,6 +72,12 @@ var ship = {                                                                    
     },
     draw: function() {                                                          // fuction to draw the ship
         ctx.drawImage(shipImage, this.xPos, this.yPos, this.width, this.height);
+    },
+    drawHP: function() {
+        ctx.beginPath();
+        ctx.rect(15, spacegamecanvas.height - 13, (this.hp * 0.01) * (spacegamecanvas.width - 30), 3);// draws the HP bar, "13" = "10 + bar height"
+        ctx.fillStyle = "rgba(255, 0, 0, 0.75)";                              // colours the HP bar red
+        ctx.fill();
     }
 };
 
@@ -72,9 +86,7 @@ function Bullet(xPos, yPos, height, width) {                                    
     this.yPos = yPos;
     this.height = height;
     this.width = width;
-    this.draw = function() {
-        ctx.drawImage(redBulletImage, this.xPos, this.yPos, 2, 25);             // draws the bullet at the approprate location
-    };
+
     this.move = function() {
         this.yPos -= bulletSpeed;                                               // moves the bullets up the screen by the bulletSpeed amount
         if (this.yPos < -25) {                                                  // 25 = bullet height
@@ -82,27 +94,50 @@ function Bullet(xPos, yPos, height, width) {                                    
         }
         return true;                                                            // function only returns false if it satisfies "if conditions". for
     };                                                                          //     everything else, it has to know that it should return true
+        this.draw = function() {
+        ctx.drawImage(redBulletImage, this.xPos, this.yPos, 2, 25);             // draws the bullet at the approprate location
+    };
+}
+
+function EnemyBullet(xPos, yPos, height, width) {                               // the object constructor for enemy bullets
+    this.xPos = xPos;                                                           // defaults the values for each bullet
+    this.yPos = yPos;
+    this.height = height;
+    this.width = width;
+
+    this.draw = function() {
+        ctx.drawImage(greenBulletImage, this.xPos, this.yPos, 2, 25);           // draws the bullet at the approprate location
+    };
+    this.move = function() {
+        this.yPos += enemyBulletSpeed;                                          // moves the bullets down the screen by the bulletSpeed amount
+        if (this.yPos > spacegamecanvas.height) {                               // if off screen
+            return false;                                                       // "return false" will be used to detect if bullet is off screen
+        }
+        return true;                                                            // function only returns false if it satisfies "if conditions". for
+    };                                                                          //     everything else, it has to know that it should return true
 }
 
 document.addEventListener("keydown", function(evt) {
-   if (evt.keyCode === 38) {                                                    // key codes correspond to arrow keys
-       ship.goUp = true;
-   }
-   if (evt.keyCode === 40) {
-       ship.goDown = true;
-   }
-   if (evt.keyCode === 37) {
-       ship.goLeft = true;
-   }
-   if (evt.keyCode === 39) {
-       ship.goRight = true;
-   }
-   if (evt.keyCode === 32) {
-        ship.firing = true;
+   if (ship.hp > 0) {                                                           // cannot move if dead
+       if (evt.keyCode === 38) {                                                // key codes correspond to arrow keys
+           ship.goUp = true;
+       }
+       if (evt.keyCode === 40) {
+           ship.goDown = true;
+       }
+       if (evt.keyCode === 37) {
+           ship.goLeft = true;
+       }
+       if (evt.keyCode === 39) {
+           ship.goRight = true;
+       }
+       if (evt.keyCode === 32) {
+            ship.firing = true;
+       }
    }
 });
 
-document.addEventListener("keyup", function(evt) {                              // ship doesn't move when arrow keys are not pressed
+document.addEventListener("keyup", function(evt) {                              // ship doesnt move when arrow keys are not pressed
    if (evt.keyCode === 38) {
        ship.goUp = false;
    }
@@ -120,79 +155,139 @@ document.addEventListener("keyup", function(evt) {                              
    }
 });
 
-var enemyImage = document.getElementById("enemy");
 var enemy = {                                                                   // creates enemy as an object
     height: 19,                                                                 // defaults the size of enemy
     width: 25,
     xPos: (spacegamecanvas.width / 2) - (this.width / 2),                       // defaults the position of the enemy in the centre
     yPos: 20,
+    canShoot: true,
+    hp: 100,                                                                    // enemy starts out with 100HP
+
     draw: function() {                                                          // draws the enemy at the approprate location
         ctx.drawImage(enemyImage, this.xPos - this.width / 2, this.yPos, this.width, this.height);
-    }
-};
-
-var enemyHP = {
-    health: 100,                                                                // enemy starts out with 100HP
-    draw: function() {
+    },
+    drawHP: function() {
         ctx.beginPath();
-        ctx.rect(15, 10, (this.health * 0.01) * (spacegamecanvas.width - 30), 3);// draws the HP bar at the appropriate width
+        ctx.rect(15, 10, (this.hp * 0.01) * (spacegamecanvas.width - 30), 3);   // draws the HP bar at the appropriate width
         ctx.fillStyle = "rgba(50, 255, 50, 0.75)";                              // colours the HP bar green
         ctx.fill();
     }
 };
 
-function detectWin() {                                                          // function detects if the enemy is dead (HP = 0)
-    if (enemyHP.health <= 0) {
+function detectWin() {                                                          // function detects if the enemy is dead (HP <= 0)
+    if (enemy.hp <= 0) {
+        enemy.canShoot = false;                                                 // enemy cannot shoot if dead
+        
         ctx.beginPath();
-        ctx.rect(0, 0, spacegamecanvas.width, spacegamecanvas.height);          // if enemy is dead, screen slightly fades to white, displays
-        ctx.fillStyle = "rgba(255, 255, 255, 0.75)";                            //     "you win" message
+        ctx.rect(0, 0, spacegamecanvas.width, spacegamecanvas.height);          // if enemy is dead, screen slightly fades to white...
+        ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
         ctx.fill();
-        ctx.font = "25px 'Press Start 2P'";
+
+        ctx.font = "25px 'Press Start 2P'";                                     // ...and displays the "you win" message
         ctx.fillStyle = "#44ff44";
         ctx.stokeStyle = "#111111";
         ctx.textAlign = "center";
         ctx.fillText("yay! you win!", spacegamecanvas.width/2, spacegamecanvas.height/2);
-        ctx.strokeText("yay! you win!", spacegamecanvas.width/2, spacegamecanvas.height/2); 
+        ctx.strokeText("yay! you win!", spacegamecanvas.width/2, spacegamecanvas.height/2);
+    }
+}
+function detectLose() {                                                         // function detects if the player is dead (HP <= 0)
+    if (ship.hp <= 0) {
+        ship.canShoot = false;                                                  // ship cannot shoot if dead
+        
+        ctx.beginPath();
+        ctx.rect(0, 0, spacegamecanvas.width, spacegamecanvas.height);          // if player is dead, screen slightly fades to white...
+        ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
+        ctx.fill();
+
+        ctx.font = "35px 'Press Start 2P'";                                     // ...and displays the "game over" message
+        ctx.fillStyle = "#ff4444";
+        ctx.stokeStyle = "#111111";
+        ctx.textAlign = "center";
+        ctx.fillText("GAME OVER", spacegamecanvas.width/2, spacegamecanvas.height/2);
+        ctx.strokeText("GAME OVER", spacegamecanvas.width/2, spacegamecanvas.height/2);
+        
+        ctx.font = "15px 'Press Start 2P'";                                     // ...and displays the "game over" message
+        ctx.textAlign = "center";
+        ctx.fillText("you is deaded", spacegamecanvas.width/2, spacegamecanvas.height/2 + 30);
+        ctx.strokeText("you is deaded", spacegamecanvas.width/2, spacegamecanvas.height/2 + 30);
     }
 }
 
-var enemymove = 0;                                                              // creates the enemy movement; starts at zero, increases by gameLoop
+var enemyMove = 0;                                                              // creates the enemy movement; starts at zero, increases by gameLoop
+var enemyShoot = 0;
 
 function gameLoop() {
     ctx.beginPath();
     ctx.clearRect(0, 0, spacegamecanvas.width, spacegamecanvas.height);         // clears the canvas
+
     ship.move();                                                                // moves the spaceship
+
     ship.draw();                                                                // draws the spaceship
+    ship.drawHP();
+
     ship.shoot();                                                               // detects if ship is shooting, fires bullet if needed
     for (var i = 0; i < bullets.length; i++) {                                  // "++" is the "increment operator". it adds 1; var "i" for "index"
-        bullets[i].draw();                                                      // puts the bullets on the screen
+        bullets[i].draw();                                                      // draws the bullets on the screen
         if (!bullets[i].move() && bullets.length > 0) {                         // only run if there are bullets in the array; otherwise game crashes
             bullets.splice(i, 1);                                               // takes bullets out of the array if off screen
         }
         if (bullets.length > 0) {                                               // only run if there are bullets in the array; otherwise game crashes
-            if (!(bullets[i].yPos + bullets[i].height < enemy.yPos ||           // up
-            bullets[i].yPos > enemy.yPos + enemy.height ||                      // down                 if bullet is not above, below, left of, or
-            bullets[i].xPos + bullets[i].width < enemy.xPos ||                  // left                 right of enemy, then they are colliding
-            bullets[i].xPos > enemy.xPos + enemy.width)) {                      // right
+            if (!(bullets[i].yPos + bullets[i].height < enemy.yPos ||           // up                   ---------------------------------------------
+            bullets[i].yPos > enemy.yPos + enemy.height ||                      // down                 |if bullet is not above, below, left of, or |
+            bullets[i].xPos + bullets[i].width < enemy.xPos ||                  // left                 |right of enemy, then they are colliding    |
+            bullets[i].xPos > enemy.xPos + enemy.width)) {                      // right                ---------------------------------------------
                 bullets.splice(i, 1);                                           // bullet despawns if it hits the enemy
-                if (enemyHP.health > 0) {                                       // "if HP > 0"prevents HP bar from drawing in the negative direction
-                    enemyHP.health -= 2;                                        // enemy loses HP when hit
+                if (enemy.hp > 0) {                                             // "if HP > 0"prevents HP bar from drawing in the negative direction
+                    enemy.hp -= 2;                                              // enemy loses HP when hit
                 }
             }
         }
     }
-    enemymove++;                                                                // increases the variable mentioned right before the gameLoop
-
-    enemy.xPos = (-(((spacegamecanvas.width - 50) - 50) / 2) * (Math.sin((6.28318530718 / 400) * enemymove))) + (spacegamecanvas.width / 2);
-    enemy.yPos = (-((20 - (spacegamecanvas.height / 3)) / 2) * (Math.sin((6.28318530718 / 200) * enemymove))) + 100;
+    
+    if (enemy.canShoot) {                                                       // if enemy is alive (cannot shoot when dead)
+        enemyMove++;                                                            // increases the variable mentioned before the gameLoop
+    }
+    enemy.xPos = (-(((spacegamecanvas.width - 50) - 50) / 2) * (Math.sin((6.28318530718 / 400) * enemyMove))) + (spacegamecanvas.width / 2);
+    enemy.yPos = (-((20 - (spacegamecanvas.height / 3)) / 2) * (Math.sin((6.28318530718 / 200) * enemyMove))) + 100;
     // these equations are basic sin equatons (precal classes are finally paying off lol). they're in the y=A(B(x-C))+D form. both the x and y
     // direction fluctuate back and forth, creating the figure-8 movement. i made sure the enemy and spaceship x-speeds were different. that way,
     // it's harder to shoot the enemy ship
 
     enemy.draw();                                                               // draws the enemy
-    enemyHP.draw();                                                             // draws the enemy HP bar
+    enemy.drawHP();                                                             // draws the enemy HP bar
+
+    if (enemyShoot < 60) {
+        enemyShoot++;    
+    } else {
+        if (enemy.canShoot) {
+            enemyBullets.push(new EnemyBullet(enemy.xPos - 1, enemy.yPos + enemy.height, 25, 2));
+            enemyShoot = 0;
+        }
+    }
+
+    for (var i = 0; i < enemyBullets.length; i++) {
+        enemyBullets[i].move();
+        enemyBullets[i].draw();
+        if (!enemyBullets[i].move()) {                                          // dont need to detect if bullets in array; shooting is not irregular
+            enemyBullets.splice(i, 1);                                          // takes bullets out of the array if off screen
+        }
+        if (enemyBullets.length > 0) {                                          // only run if there are bullets in the array; otherwise game crashes
+            if (!(enemyBullets[i].yPos + enemyBullets[i].height < ship.yPos ||  // up                   ---------------------------------------------
+            enemyBullets[i].yPos > ship.yPos + ship.height ||                   // down                 |if bullet is not above, below, left of, or |
+            enemyBullets[i].xPos + enemyBullets[i].width < ship.xPos ||         // left                 |right of ship, then they are colliding     |
+            enemyBullets[i].xPos > ship.xPos + ship.width)) {                   // right                ---------------------------------------------
+                enemyBullets.splice(i, 1);                                      // bullet despawns if it hits the enemy
+                if (ship.hp > 0) {                                              // "if HP > 0"prevents HP bar from drawing in the negative direction
+                    ship.hp -= 5;                                               // enemy loses HP when hit
+                }
+            }
+        }
+    }
 
     detectWin();                                                                // calls the fuction that detects if the enemy is dead
+    detectLose();
+    
     window.requestAnimationFrame(gameLoop);                                     // loops the gameLoop
 }
 

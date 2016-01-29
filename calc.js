@@ -17,28 +17,28 @@
 */
 
 
-var button = document.getElementById("submitButton");       // goes into the html (with a pre-written function) and looks for the element with the
-var input1 = document.getElementById("input1");             //     given id
+var button = document.getElementById("submitButton");                           // goes into the html (with a pre-written function) and looks for the
+var input1 = document.getElementById("input1");                                 //     element with the given id
 var input2 = document.getElementById("input2");
 var answer;
 var display = document.getElementById("display");
 var dropdown = document.getElementById("dropdown");
 
-button.addEventListener("click", doMath);                   // looks for the button to be clicked, then runs the function doMath when that happens
+button.addEventListener("click", doMath);                                       // looks for the button to be clicked, then runs the function doMath
 
 function doMath() {
-    var firstInput = parseInt(input1.value);                // gets the value from the first box and sets it as a variable
-    var secondInput = parseInt(input2.value);               // ditto the second value
-    if(dropdown.value == "+"){                              // looks for + being selected in the dropdown, if so, then adds values
-        answer = firstInput + secondInput;                  // sets the result as the variable "answer"
+    var firstInput = parseFloat(input1.value);                                  // gets the value from the first box and sets it as a variable
+    var secondInput = parseFloat(input2.value);                                 // ditto the second value
+    if(dropdown.value == "+"){                                                  // if + is selected in the dropdown, then it adds values
+        answer = (firstInput * 100000000 + secondInput * 100000000) / 100000000;// sets the result as the variable "answer", uses a sligthly complex
+    }                                                                           //     algebraic function to accomodate decimals
+    else if(dropdown.value == "-"){                                             // ditto for -
+        answer = (firstInput * 100000000 - secondInput * 100000000) / 100000000;
     }
-    else if(dropdown.value == "-"){                         // ditto for -
-        answer = firstInput - secondInput;
-    }
-    else if(dropdown.value == "x"){                         // ditto for x
+    else if(dropdown.value == "x"){                                             // ditto for x
         answer = firstInput * secondInput;
     }
-    else if(dropdown.value == "/"){                         // ditto for /
+    else if(dropdown.value == "/"){                                             // ditto for /
         answer = firstInput / secondInput;
     }
     else if(dropdown.value == "^"){                         // ditto for ^
@@ -53,5 +53,3 @@ function doMath() {
     }
     display.innerHTML = answer;                             // displays the variable "answer"
 }
-
-// i need to program a pear so that i can do "pear programming" lol
