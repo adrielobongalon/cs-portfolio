@@ -26,9 +26,16 @@ var bulletSpeed = 6;                                                            
 var enemyBulletSpeed = 4;                                                       // sets speed of enemy bullets
 
 var shipImage = document.getElementById("spaceship");                           // reference images, so they know how to look
+var shipDamagedImage = document.getElementById("spaceship-damaged");
 var enemyImage = document.getElementById("enemy");
+var enemyDamagedImage = document.getElementById("enemy-damaged");
 var redBulletImage = document.getElementById("red-bullet");
 var greenBulletImage = document.getElementById("green-bullet");
+
+var player = shipImage;                                                         // ships start out normal (not damaged)
+var opponent = enemyImage;
+
+var gameStarted = false;
 
 var bullets = [];                                                               // bullet arrays, start out empty
 var enemyBullets = [];
@@ -71,7 +78,7 @@ var ship = {                                                                    
         }
     },
     draw: function() {                                                          // fuction to draw the ship
-        ctx.drawImage(shipImage, this.xPos, this.yPos, this.width, this.height);
+        ctx.drawImage(player, this.xPos, this.yPos, this.width, this.height);
     },
     drawHP: function() {
         ctx.beginPath();
@@ -118,7 +125,7 @@ function EnemyBullet(xPos, yPos, height, width) {                               
 }
 
 document.addEventListener("keydown", function(evt) {
-   if (ship.hp > 0) {                                                           // cannot move if dead
+    if (ship.hp > 0) {                                                          // cannot move if dead
        if (evt.keyCode === 38) {                                                // key codes correspond to arrow keys
            ship.goUp = true;
        }
@@ -132,7 +139,15 @@ document.addEventListener("keydown", function(evt) {
            ship.goRight = true;
        }
        if (evt.keyCode === 32) {
-            ship.firing = true;
+            if (gameStarted) {
+                ship.firing = true;                                             // if the game started, then spacebar makes the ship shoot
+            }
+            else {
+                if (evt.keyCode === 32) {
+                    gameStarted = true;                                         // if the game hasnt, then the spacebar starts the game
+                    enemy.canShoot = true;
+                }
+            }
        }
    }
 });
@@ -160,11 +175,11 @@ var enemy = {                                                                   
     width: 25,
     xPos: (spacegamecanvas.width / 2) - (this.width / 2),                       // defaults the position of the enemy in the centre
     yPos: 20,
-    canShoot: true,
+    canShoot: false,
     hp: 100,                                                                    // enemy starts out with 100HP
 
     draw: function() {                                                          // draws the enemy at the approprate location
-        ctx.drawImage(enemyImage, this.xPos - this.width / 2, this.yPos, this.width, this.height);
+        ctx.drawImage(opponent, this.xPos - this.width / 2, this.yPos, this.width, this.height);
     },
     drawHP: function() {
         ctx.beginPath();
@@ -174,6 +189,22 @@ var enemy = {                                                                   
     }
 };
 
+function detectStart() {
+    if (!gameStarted) {
+        ctx.beginPath();
+        ctx.font = "33px 'Press Start 2P'";                                     // ...and displays the "you win" message
+        ctx.fillStyle = "#44ff44";
+        ctx.stokeStyle = "#111111";
+        ctx.textAlign = "center";
+        ctx.fillText("press space", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 - 30);
+        ctx.strokeText("press space", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 - 30);
+
+        ctx.font = "33px 'Press Start 2P'";
+        ctx.textAlign = "center";
+        ctx.fillText("to start", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 + 10);
+        ctx.strokeText("to start", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 + 10);
+    }
+}
 function detectWin() {                                                          // function detects if the enemy is dead (HP <= 0)
     if (enemy.hp <= 0) {
         enemy.canShoot = false;                                                 // enemy cannot shoot if dead
@@ -187,8 +218,8 @@ function detectWin() {                                                          
         ctx.fillStyle = "#44ff44";
         ctx.stokeStyle = "#111111";
         ctx.textAlign = "center";
-        ctx.fillText("yay! you win!", spacegamecanvas.width/2, spacegamecanvas.height/2);
-        ctx.strokeText("yay! you win!", spacegamecanvas.width/2, spacegamecanvas.height/2);
+        ctx.fillText("yay! you win!", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
+        ctx.strokeText("yay! you win!", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
     }
 }
 function detectLose() {                                                         // function detects if the player is dead (HP <= 0)
@@ -204,13 +235,13 @@ function detectLose() {                                                         
         ctx.fillStyle = "#ff4444";
         ctx.stokeStyle = "#111111";
         ctx.textAlign = "center";
-        ctx.fillText("GAME OVER", spacegamecanvas.width/2, spacegamecanvas.height/2);
-        ctx.strokeText("GAME OVER", spacegamecanvas.width/2, spacegamecanvas.height/2);
-        
-        ctx.font = "15px 'Press Start 2P'";                                     // ...and displays the "game over" message
+        ctx.fillText("GAME OVER", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
+        ctx.strokeText("GAME OVER", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
+
+        ctx.font = "15px 'Press Start 2P'";
         ctx.textAlign = "center";
-        ctx.fillText("you is deaded", spacegamecanvas.width/2, spacegamecanvas.height/2 + 30);
-        ctx.strokeText("you is deaded", spacegamecanvas.width/2, spacegamecanvas.height/2 + 30);
+        ctx.fillText("you is deaded", spacegamecanvas.width / 2, spacegamecanvas.height / 2 + 30);
+        ctx.strokeText("you is deaded", spacegamecanvas.width / 2, spacegamecanvas.height / 2 + 30);
     }
 }
 
@@ -239,13 +270,17 @@ function gameLoop() {
             bullets[i].xPos > enemy.xPos + enemy.width)) {                      // right                ---------------------------------------------
                 bullets.splice(i, 1);                                           // bullet despawns if it hits the enemy
                 if (enemy.hp > 0) {                                             // "if HP > 0"prevents HP bar from drawing in the negative direction
-                    enemy.hp -= 2;                                              // enemy loses HP when hit
+                    enemy.hp -= 4;                                              // enemy loses HP when hit
+                    opponent = enemyDamagedImage;                               // makes the enemy "blink" (look damaged) for a second...
+                    window.setTimeout(function() {
+                        opponent = enemyImage;                                  // ...then resets the image back to normal
+                    }, 90);
                 }
             }
         }
     }
     
-    if (enemy.canShoot) {                                                       // if enemy is alive (cannot shoot when dead)
+    if (enemy.hp >= 0 || !gameStarted) {                                        // if enemy is alive, also able to move before game start
         enemyMove++;                                                            // increases the variable mentioned before the gameLoop
     }
     enemy.xPos = (-(((spacegamecanvas.width - 50) - 50) / 2) * (Math.sin((6.28318530718 / 400) * enemyMove))) + (spacegamecanvas.width / 2);
@@ -257,12 +292,27 @@ function gameLoop() {
     enemy.draw();                                                               // draws the enemy
     enemy.drawHP();                                                             // draws the enemy HP bar
 
-    if (enemyShoot < 60) {
+    if (enemyShoot < 30) {
         enemyShoot++;    
     } else {
         if (enemy.canShoot) {
             enemyBullets.push(new EnemyBullet(enemy.xPos - 1, enemy.yPos + enemy.height, 25, 2));
             enemyShoot = 0;
+            enemy.canShoot = false;
+            window.setTimeout(function() {
+                enemy.canShoot = true;
+            }, 100);
+        }
+    }
+
+    var enemyRandShoot = Math.random();
+    if (enemyRandShoot < 1 / 120) {
+        if (enemy.canShoot) {
+            enemyBullets.push(new EnemyBullet(enemy.xPos - 1, enemy.yPos + enemy.height, 25, 2));
+            enemy.canShoot = false;
+            window.setTimeout(function(){
+                enemy.canShoot = true;
+            }, 100);
         }
     }
 
@@ -279,21 +329,24 @@ function gameLoop() {
             enemyBullets[i].xPos > ship.xPos + ship.width)) {                   // right                ---------------------------------------------
                 enemyBullets.splice(i, 1);                                      // bullet despawns if it hits the enemy
                 if (ship.hp > 0) {                                              // "if HP > 0"prevents HP bar from drawing in the negative direction
-                    ship.hp -= 5;                                               // enemy loses HP when hit
+                    ship.hp -= 10;                                              // enemy loses HP when hit
+                    player = shipDamagedImage;                                  // ship looks damaged for a bit...
+                    window.setTimeout(function() {
+                        player = shipImage;                                     // ...then image resets back to normal
+                    }, 125);
                 }
             }
         }
     }
 
+    detectStart();
     detectWin();                                                                // calls the fuction that detects if the enemy is dead
     detectLose();
     
     window.requestAnimationFrame(gameLoop);                                     // loops the gameLoop
 }
 
-gameLoop();                                                                     // runs the gameLoop
-
-
+gameLoop();
 
 
 /*
@@ -305,4 +358,11 @@ Down    2.yPos            > 1.yPos + 1.height
 Left    2.xPos + 2.width  < 1.xPos
 Right   2.xPos            > 1.xPos + 1.width
 
+
+
+
+notes on "equals"
+  = means you're setting something to a value
+ == means you're comparing two things that aren't necessarily the same type (like string vs int)
+=== means you're comparing two things that are the same time
 */
