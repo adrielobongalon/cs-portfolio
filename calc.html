@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!--
     Document   : aboutme.html, for cs-portfolio
     Created on : Tuesday, Jaunary 5, 2016, 13:45 PM
@@ -15,13 +16,12 @@
                                                                \/____/
 -->
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<title>Calculator</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Cousine|Raleway:400|Open+Sans" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="name">
@@ -35,36 +35,39 @@
             <li><a href="boxgame.html">Box Game</a>                     </li>
             <li><a href="twilio_thing.html">Texting Tool</a>            </li>
             <li><a href="spaceshootergame.html">Space Shooter Game</a>  </li>
+            <li><a href="geniusproject.html">Genius Project</a>         </li>
             <li><a href="gifs.html">Gifs</a>                            </li>
             <li><a href="aboutme.html">About Me</a>                     </li>
         </ul>
     </div>
-    <div class="main">
-        <h2>Calculator</h2>
-        <div class="calculator">
-            <input type="text" name="input1" id="input1">
-            <select id="dropdown">
-                <option value="+">+ (add)</option>
-                <option value="-">- (subtract)</option>
-                <option value="x">&#x2715 (multiply)</option>
-                <option value="/">&#xf7 (divide)</option>
-                <option value="^">^ (exponent)</option>
-                <option value="r">&#x221a (nth root)</option>
-                <option value="%">% (modulus)</option>
-            </select>
-            <input type="text" name="input2" id="input2">
-            <input type="button" value="Calculate" id="submitButton">
+    <div class="content-box">
+        <div class="calculator-box">
+            <h2>Calculator</h2>
+            <div class="calculator">
+                <input type="text" name="input1" id="input1">
+                <select id="dropdown">
+                    <option value="+">+ (add)</option>
+                    <option value="-">- (subtract)</option>
+                    <option value="x">&#x2715; (multiply)</option>
+                    <option value="/">&#xf7; (divide)</option>
+                    <option value="^">^ (exponent)</option>
+                    <option value="r">&#x221a; (nth root)</option>
+                    <option value="%">% (modulus)</option>
+                </select>
+                <input type="text" name="input2" id="input2">
+                <input type="button" value="Calculate" id="submitButton">
+            </div>
+                <p class="main-text">answer: <span id="display"></span></p>
+                <p class="table-footnote" style="padding:0px 20px; margin:10px 0px 1px"><i>How to Use:</i></p>
+                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>1) enter 2 integer values into the boxes</i></p>
+                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>2) select operation</i></p>
+                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>3) press "Calculate" button</i></p>
+                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>4) for exponent function, use first box for the base and the
+                second for the exponent</i></p>
+                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>5) for root function, use first box for the radicand and the
+                second for the index</i></p>
+                <p class="table-footnote" style="padding:0px 20px; margin:10px 0px 15px"><i>Values may be rounded.</i></p>
         </div>
-            <p class="main-text">answer: <span id="display"></span></p>
-            <p class="table-footnote" style="padding:0px 20px; margin:10px 0px 1px"><i>How to Use:</i></p>
-            <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>1) enter 2 integer values into the boxes</i></p>
-            <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>2) select operation</i></p>
-            <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>3) press "Calculate" button</i></p>
-            <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>4) for exponent function, use first box for the base and the
-            second for the exponent</i></p>
-            <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>5) for root function, use first box for the radicand and the
-            second for the index</p>
-            <p class="table-footnote" style="padding:0px 20px; margin:10px 0px 15px"><i>Values may be rounded.</i></p>
     </div>
     <script src="calc.js"></script>
 </body>

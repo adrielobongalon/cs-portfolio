@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!--
     Document   : spaceshootergame.html, for cs-portfolio
     Created on : Monday, January 11, 2016, 14:59 PM
@@ -15,13 +16,12 @@
                                                                \/____/
 -->
 
-<!DOCTYPE html>
 <html lang="en">
     <head>
     	<meta charset="utf-8">
     	<title>Space Shooter Game</title>
     	<link rel="stylesheet" type="text/css" href="style.css">
-    	<link href="https://fonts.googleapis.com/css?family=Cousine|Raleway:400|Open+Sans|Press+Start+2P" rel="stylesheet" type="text/css">
+    	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans%7cPress+Start+2P" rel="stylesheet" type="text/css">
     	<link rel="shortcut icon" href="galaga-spaceship-edit.png">
     </head>
     <body>
@@ -36,33 +36,43 @@
                 <li><a href="boxgame.html">Box Game</a>                     </li>
                 <li><a href="twilio_thing.html">Texting Tool</a>            </li>
                 <li><a href="spaceshootergame.html">Space Shooter Game</a>  </li>
+                <li><a href="geniusproject.html">Genius Project</a>         </li>
                 <li><a href="gifs.html">Gifs</a>                            </li>
                 <li><a href="aboutme.html">About Me</a>                     </li>
             </ul>
         </div>
-        <div class="main">
-            <h2>Space Shooter Game</h2>
-            <img src="galaga-spaceship-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-            style="display:none" id="spaceship">
-            <img src="galaga-spaceship-damaged.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-            style="display:none" id="spaceship-damaged">
-            <img src="red-bullet.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-            style="display:none" id="red-bullet">
-
-            <img src="galaga-enemy-1-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-            style="display:none" id="enemy">
-            <img src="galaga-enemy-1-damaged.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-            style="display:none" id="enemy-damaged">
-            <img src="green-bullet.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-            style="display:none" id="green-bullet">
-
-            <canvas id="spacegamecanvas" width="400px" height="410px">aw. the game wont work. your browser doesn't support the HTML5 canvas tag
-            *(>n<)*</canvas>
+        <div class="content-box">
+            <div class="small-main">
+                <h2>Space Shooter Game</h2>
+                <img src="galaga-spaceship-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display:none;" id="spaceship">
+                <img src="galaga-spaceship-damaged.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display:none;" id="spaceship-damaged">
+                <img src="red-bullet.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display:none;" id="red-bullet">
+    
+                <img src="galaga-enemy-1-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display:none;" id="enemy">
+                <img src="galaga-enemy-1-damaged.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display:none;" id="enemy-damaged">
+                <img src="galaga-explosion1-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display:none;" id="explosion1">
+                <img src="galaga-explosion2-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display:none;" id="explosion2">
+                <img src="green-bullet.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display:none;" id="green-bullet">
+    
+                <canvas id="spacegamecanvas" width="400" height="410">aw. the game wont work. your browser doesn't support the HTML5 canvas tag
+                *(&gt;n&lt;)*</canvas>
+            </div>
+            <div class="sidebar">
+                <h4>Instructions</h4>
+                <p class="sidebar-text"><span class="mono-side offwhite-highlight">arrow keys</span> to move</p>
+                <p class="sidebar-text"><span class="mono-side offwhite-highlight">space</span> to shoot</p>
+                <p class="sidebar-text">shoot the other guy. don't get shot. sorry for the stupid "game over" message. i can't really say the k-word.
+                it's a weird mental <i>tick</i>. (Anyone get that reference?)</p>
+            </div>
         </div>
-        <div class="sidebar">
-            <h4>Instructions</h4>
-            <p class="sidebar-text"><span class="mono-side offwhite-highlight">arrow keys</span> to move</p>
-            <p class="sidebar-text"><span class="mono-side offwhite-highlight">space</span> to shoot</p>
         <script src="spaceshootergame.js"></script>
     </body>
 </html>

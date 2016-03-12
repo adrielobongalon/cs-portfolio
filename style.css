@@ -26,7 +26,7 @@ root {
 
 
 
-html { 
+html {
     background: url("modern_wallpaper1.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -43,7 +43,6 @@ html {
 body {
     margin: 0;
     padding: 0;
-    padding-bottom: 25px;
 }
 
 
@@ -55,14 +54,14 @@ body {
     font-size: 60px;
     text-align: center;
     margin-top: 20%;
-    padding: 0px;
+    padding: 0;
 }
 
 
 
 
 .name {
-    margin: 0px;
+    margin: 0;
     width: 100%;
     border-bottom: 1px solid #00ffff;
 }
@@ -74,9 +73,9 @@ body {
     font-family: "Raleway", sans-serif;
     font-weight: 100;
     color: #ffffff;
-    font-size: 60px;
+    font-size: 40px;
     padding: 0.5% 6% 0.5%;
-    margin: 0px;
+    margin: 0;
 }
 
 
@@ -164,8 +163,8 @@ body {
 .nav {
 	width: 100%;
 	float: left;
-	margin: 0% 0% 1%;
-	padding: 0%;
+	margin: 0;
+	padding: 0;
 	background-color: #000000;
 	background-color: rgba(0,0,0,0.6);
 	border-bottom: 1px solid #00ffff;
@@ -175,10 +174,15 @@ body {
 
 
 .nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     list-style: none;
-	width: 1330px;
-	margin: 0px 6% 5px;
-	padding: 0px;
+	/*width: 1330px;*/
+	width: 88%;
+	margin: 0 6% 0;
+	padding: 0;
 }
 
 
@@ -196,10 +200,14 @@ body {
 
 .nav li {
     float: left;
+    flex-grow: 1;
+    flex-shrink: 1;
     font-family: "Raleway", sans-serif;
-    font-size: 1.4em;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 40px;
+    line-height: 25px;
+    text-align: center;
+    white-space: nowrap;
 }
 
 
@@ -224,14 +232,22 @@ body {
 
 
 
+.content-box {
+    margin: 0 6%;
+}
+
+
+
+
 .main {
     display: inline-block;
-    margin: 5px 1% 0px 6%;
+    margin: 0 10px 0 0;
     height: 100%;
-    width: 65%;
+    width: 70.25%;
     background-color: #f7f7f7;
     background-color: rgba(255,255,255,0.75);
-    border-radius: 7px;
+    border-left: 1px solid #a1a1a1;
+    border-right: 1px solid #a1a1a1;
 }
 
 
@@ -242,8 +258,8 @@ body {
     color: #000000;
     font-size: 15px;
     text-align: justify;
-    padding: 0px 20px;
-    margin: 10px 0px 15px;
+    padding: 0 20px;
+    margin: 10px 0 15px;
 }
 
 
@@ -254,21 +270,52 @@ body {
     color: #000000;
     font-size: 13px;
     text-align: justify;
-    padding: 0px 10px;
-    margin: 10px 0px 15px;
+    padding: 0 10px;
+    margin: 10px 0 15px;
+}
+
+
+
+
+.bullet-list {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.bullet-list li {
+    list-style: none;
+    font-family: "Open Sans", sans-serif;
+    color: #000000;
+    font-size: 15px;
+    text-align: justify;
+    padding: 0 20px 0 0;
+}
+
+
+
+
+.bullet-list li:before {
+    content: "-";
+    padding-right: 5px;
 }
 
 
 
 
 .sidebar {
-    display: inline-block;
+    float: right;
     vertical-align: top;
-    margin: 5px 0px 0px 3px;
-    width: 22%;
-    height: 100%;
+    margin: 0;
+    width: 27%;
+    /*height: 100%;*/
+    background-color: #f7f7f7;
     background-color: rgba(255,255,255,0.75);
-    border-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border: 1px solid #a1a1a1;
 }
 
 
@@ -279,7 +326,7 @@ h2 {
     color: #000000;
     font-size: 25px;
     text-align: justify;
-    margin: 20px 20px 0px;
+    margin: 20px 20px 0;
     border-bottom: 1px solid #a1a1a1;
 }
 
@@ -304,7 +351,7 @@ h4 {
     color: #000000;
     font-size: 20px;
     text-align: justify;
-    margin: 15px 10px 0px;
+    margin: 15px 10px 0;
     border-bottom: 1px solid #a1a1a1;
     padding-top: 10px;
 }
@@ -312,22 +359,30 @@ h4 {
 
 
 
-.gif-page img {
-    text-align: center;
-    /*needs work*/
+.small-main {
+    display: inline-block;
+    margin: 0 1% 0 0;
+    width: 70.25%;
+    background-color: #f7f7f7;
+    background-color: rgba(255,255,255,0.75);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-left: 1px solid #a1a1a1;
+    border-right: 1px solid #a1a1a1;
+    border-bottom: 1px solid #a1a1a1;
 }
 
 
 
 
-.home-main-box {
+.full-main {
     display: inline-block;
-    margin: 5px 1% 0px 6%;
-    height: 450px;
-    width: 65%;
+    margin: 0 6%;
+    height: 100%;
     background-color: #f7f7f7;
     background-color: rgba(255,255,255,0.75);
-    border-radius: 7px;
+    border-left: 1px solid #a1a1a1;
+    border-right: 1px solid #a1a1a1;
 }
 
 
@@ -338,7 +393,7 @@ h4 {
     border: 2px solid #a1a1a1;
     border-radius: 3px;
     box-shadow: 2px 2px 3px #333333;
-    margin: 0px 20px;
+    margin: 0 20px;
     width: 200px;
 }
 
@@ -350,14 +405,14 @@ h4 {
     color: #000000;
     font-size: 15px;
     font-weight: bold;
-    margin: 10px 10px 0px;
+    margin: 10px 10px 0;
 }
 
 
 
 
 .jump-to ol {
-    margin: 5px;
+    margin: 5px 5px 10px;
 }
 
 
@@ -368,7 +423,7 @@ h4 {
     color: #000000;
     font-size: 12px;
     font-weight: bold;
-    margin: 0px 10px;
+    margin: 0 10px;
 }
 
 
@@ -422,7 +477,7 @@ table {
     border: 2px solid #a1a1a1;
     border-radius: 3px;
     box-shadow: 2px 2px 3px #333333;
-    margin: 0px 20px;
+    margin: 0 20px;
 }
 
 
@@ -504,6 +559,40 @@ td.mono {
 
 
 
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.caption-box {
+    margin: 5px 20px 0;
+}
+/* make sure to manually add the width and the side to float it to in the html */
+
+
+
+
+.img-with-caption img {
+    border: 2px solid #eeeeee;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px #333333;
+    display: inline-block;
+}
+
+
+
+
+.caption {
+    font-family: "Open Sans", sans-serif;
+    color: #000000;
+    font-size: 10px;
+    margin: 0;
+    padding-top: 2px;
+    text-align: center;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
 .subtext {
     font-family: "Open Sans", sans-serif;
     color: #000000;
@@ -552,7 +641,7 @@ td.mono {
 #css-example {
     font-family: "Raleway", sans-serif;
     background-color: #99ffff;
-    padding: 0px 7px;
+    padding: 0 7px;
     border: 2px solid #4444ff;
     border-radius: 9px;
     font-style: italic;
@@ -566,7 +655,7 @@ td.mono {
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
     font-size: 16px;
-    padding: 15px 10px 0px;
+    padding: 15px 10px;
     background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f),
                       color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22));
     background-image: gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f),
@@ -584,22 +673,39 @@ space, rather than just the text)*/
 
 .black-bg {
     background-color: #000000;
-    margin: 0% 2%;
-    height: 100%;
+    margin: 0 auto;
+    /*height: 100%;*/
+    width: 75%;
     border-radius: 5px;
 }
 
 
 
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+.calculator-box {
+    display: inline-block;
+    width: 99.8%;
+    margin: 0;
+    background-color: #f7f7f7;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-left: 1px solid #a1a1a1;
+    border-right: 1px solid #a1a1a1;
+    border-bottom: 1px solid #a1a1a1;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
 
 
 
 
 .calculator{
-    padding: 0px 20px;
-    margin: 10px 0px 15px;
+    padding: 0 20px;
+    margin: 10px 0 15px;
 }
 
 
@@ -613,7 +719,7 @@ space, rather than just the text)*/
 
 
 #boxgamecanvas {
-    margin: 10px 20px 0px;
+    margin: 10px 20px 10px;
     border: 2px ridge #a1a1a1;
     background-color: #efefef;
     background-color: rgba(255, 255, 255, 0.65);
@@ -631,7 +737,7 @@ space, rather than just the text)*/
 
 #input1, #input2, #phoneNumberInput, #messageInput {
     font-family: "Open Sans", sans-serif;
-    margin: 1px 0px 1px;
+    margin: 1px 0 1px;
 }
 
 
@@ -640,7 +746,7 @@ space, rather than just the text)*/
 #dropdown, #submitButton, #twiliobutton, #twiliobutton-text-audrey, #twiliobutton-text-jelly, #twiliobutton-call, #twiliobutton-call-audrey,
 #twiliobutton-call-jelly, #clear-button, #reset-button, #draw-slow, #draw-med, #draw-fast {
     font-family: "Raleway", sans-serif;
-    margin: 1px 0px 1px;
+    margin: 1px 0 1px;
     color: #111111;
     transition: 0.4s color;
 }
@@ -652,7 +758,7 @@ space, rather than just the text)*/
 #twiliobutton-call-audrey:hover, #twiliobutton-call-jelly:hover, #clear-button:hover, #reset-button:hover, #draw-slow:hover, #draw-med:hover,
 #draw-fast:hover {
     font-family: "Raleway", sans-serif;
-    margin: 1px 0px 1px;
+    margin: 1px 0 1px;
     color: #00cccc;
 }
 
@@ -663,7 +769,7 @@ space, rather than just the text)*/
 #twiliobutton-call:active, #twiliobutton-call-audrey:active, #twiliobutton-call-jelly:active, #clear-button:active, #reset-button:active,
 #draw-slow:active, #draw-med:active, #draw-fast:active {
     font-family: "Raleway", sans-serif;
-    margin: 1px 0px 1px;
+    margin: 1px 0 1px;
     color: #66ff66;
 }
 
@@ -689,7 +795,7 @@ space, rather than just the text)*/
 
 
 #spacegamecanvas {
-    margin: 10px 20px 15px;
+    margin: 10px 20px 40px;
     border: 1px solid #a1a1a1;
     background-color: #101010;
     background-color: rgba(0, 0, 0, 0.95);
