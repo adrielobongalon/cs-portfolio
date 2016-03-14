@@ -17,58 +17,79 @@
 -->
 
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Calculator</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans" rel="stylesheet" type="text/css">
-</head>
-<body>
-    <div class="name">
-        <h1>Adrielo Bongalon</h1>
-    </div>
-    <div class="nav">
-        <ul>
-            <li><a href="home.html" class="left-border">Home</a>        </li>
-            <li><a href="htmlcss.html">HTML and CSS</a>                 </li>
-            <li><a href="calc.html">Calculator</a>                      </li>
-            <li><a href="boxgame.html">Box Game</a>                     </li>
-            <li><a href="twilio_thing.html">Texting Tool</a>            </li>
-            <li><a href="spaceshootergame.html">Space Shooter Game</a>  </li>
-            <li><a href="geniusproject.html">Genius Project</a>         </li>
-            <li><a href="gifs.html">Gifs</a>                            </li>
-            <li><a href="aboutme.html">About Me</a>                     </li>
-        </ul>
-    </div>
-    <div class="content-box">
-        <div class="calculator-box">
-            <h2>Calculator</h2>
-            <div class="calculator">
-                <input type="text" name="input1" id="input1">
-                <select id="dropdown">
-                    <option value="+">+ (add)</option>
-                    <option value="-">- (subtract)</option>
-                    <option value="x">&#x2715; (multiply)</option>
-                    <option value="/">&#xf7; (divide)</option>
-                    <option value="^">^ (exponent)</option>
-                    <option value="r">&#x221a; (nth root)</option>
-                    <option value="%">% (modulus)</option>
-                </select>
-                <input type="text" name="input2" id="input2">
-                <input type="button" value="Calculate" id="submitButton">
-            </div>
-                <p class="main-text">answer: <span id="display"></span></p>
-                <p class="table-footnote" style="padding:0px 20px; margin:10px 0px 1px"><i>How to Use:</i></p>
-                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>1) enter 2 integer values into the boxes</i></p>
-                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>2) select operation</i></p>
-                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>3) press "Calculate" button</i></p>
-                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>4) for exponent function, use first box for the base and the
-                second for the exponent</i></p>
-                <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>5) for root function, use first box for the radicand and the
-                second for the index</i></p>
-                <p class="table-footnote" style="padding:0px 20px; margin:10px 0px 15px"><i>Values may be rounded.</i></p>
+    <head>
+    	<meta charset="utf-8">
+    	<title>Calculator</title>
+    	<link rel="stylesheet" type="text/css" href="style.css">
+    	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans" rel="stylesheet" type="text/css">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="audreyfavicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="audreyfavicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="audreyfavicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="audreyfavicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="audreyfavicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="audreyfavicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="audreyfavicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="audreyfavicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="audreyfavicons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="audreyfavicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="audreyfavicons/android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="audreyfavicons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="audreyfavicons/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="audreyfavicons/manifest.json">
+        <link rel="mask-icon" href="audreyfavicons/safari-pinned-tab.svg" color="#2fb3b3">
+        <meta name="apple-mobile-web-app-title" content="audrey">
+        <meta name="application-name" content="audrey">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="audreyfavicons/mstile-144x144.png">
+        <meta name="theme-color" content="#bbffff">
+    </head>
+    <body>
+        <div class="name">
+            <h1>Adrielo Bongalon</h1>
         </div>
-    </div>
-    <script src="calc.js"></script>
-</body>
+        <div class="nav">
+            <ul>
+                <li><a href="home.html" class="left-border">Home</a>        </li>
+                <li><a href="htmlcss.html">HTML and CSS</a>                 </li>
+                <li><a href="calc.html">Calculator</a>                      </li>
+                <li><a href="boxgame.html">Box Game</a>                     </li>
+                <li><a href="twilio_thing.html">Texting Tool</a>            </li>
+                <li><a href="spaceshootergame.html">Space Shooter Game</a>  </li>
+                <li><a href="geniusproject.html">Genius Project</a>         </li>
+                <li><a href="gifs.html">Gifs</a>                            </li>
+                <li><a href="aboutme.html">About Me</a>                     </li>
+            </ul>
+        </div>
+        <div class="content-box">
+            <div class="calculator-box">
+                <h2>Calculator</h2>
+                <div class="calculator">
+                    <input type="text" name="input1" id="input1">
+                    <select id="dropdown">
+                        <option value="+">+ (add)</option>
+                        <option value="-">- (subtract)</option>
+                        <option value="x">&#x2715; (multiply)</option>
+                        <option value="/">&#xf7; (divide)</option>
+                        <option value="^">^ (exponent)</option>
+                        <option value="r">&#x221a; (nth root)</option>
+                        <option value="%">% (modulus)</option>
+                    </select>
+                    <input type="text" name="input2" id="input2">
+                    <input type="button" value="Calculate" id="submitButton">
+                </div>
+                    <p class="main-text">answer: <span id="display"></span></p>
+                    <p class="table-footnote" style="padding:0px 20px; margin:10px 0px 1px"><i>How to Use:</i></p>
+                    <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>1) enter 2 integer values into the boxes</i></p>
+                    <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>2) select operation</i></p>
+                    <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>3) press "Calculate" button</i></p>
+                    <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>4) for exponent function, use first box for the base and the
+                    second for the exponent</i></p>
+                    <p class="table-footnote" style="padding:0px 20px; margin:1px 0px 1px"><i>5) for root function, use first box for the radicand and the
+                    second for the index</i></p>
+                    <p class="table-footnote" style="padding:0px 20px; margin:10px 0px 15px"><i>Values may be rounded.</i></p>
+            </div>
+        </div>
+        <script src="calc.js"></script>
+    </body>
 </html>
