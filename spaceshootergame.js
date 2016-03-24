@@ -35,8 +35,8 @@ var explosion2 = document.getElementById("explosion2");
 var redBulletImage = document.getElementById("red-bullet");
 var greenBulletImage = document.getElementById("green-bullet");
 
-var player = shipImage;                                                         // ships start out normal (not damaged)
-var opponent = enemyImage;
+var playerSkin = shipImage;                                                     // ships start out normal (not damaged)
+var opponentSkin = enemyImage;
 
 var gameStarted = false;
 
@@ -82,7 +82,7 @@ var ship = {                                                                    
         }
     },
     draw: function() {                                                          // fuction to draw the ship
-        ctx.drawImage(player, this.xPos, this.yPos, this.width, this.height);
+        ctx.drawImage(playerSkin, this.xPos, this.yPos, this.width, this.height);
     },
     drawHP: function() {
         ctx.beginPath();
@@ -132,19 +132,19 @@ function EnemyBullet(xPos, yPos, height, width) {                               
 // BUTTON INPUT
 document.addEventListener("keydown", function(evt) {
     if (ship.hp > 0) {                                                          // cannot move if dead
-       if (evt.keyCode === 38) {                                                // key codes correspond to arrow keys
-           ship.goUp = true;
-       }
-       if (evt.keyCode === 40) {
-           ship.goDown = true;
-       }
-       if (evt.keyCode === 37) {
-           ship.goLeft = true;
-       }
-       if (evt.keyCode === 39) {
-           ship.goRight = true;
-       }
-       if (evt.keyCode === 32) {
+        if (evt.keyCode === 38) {                                               // key codes correspond to arrow keys
+            ship.goUp = true;
+        }
+        if (evt.keyCode === 40) {
+            ship.goDown = true;
+        }
+        if (evt.keyCode === 37) {
+            ship.goLeft = true;
+        }
+        if (evt.keyCode === 39) {
+            ship.goRight = true;
+        }
+        if (evt.keyCode === 32) {
             if (gameStarted) {
                 ship.firing = true;                                             // if the game started, then spacebar makes the ship shoot
             }
@@ -154,26 +154,26 @@ document.addEventListener("keydown", function(evt) {
                     enemy.canShoot = true;
                 }
             }
-       }
-   }
+        }
+    }
 });
 
 document.addEventListener("keyup", function(evt) {                              // ship doesnt move when arrow keys are not pressed
-   if (evt.keyCode === 38) {
-       ship.goUp = false;
-   }
-   if (evt.keyCode === 40) {
-       ship.goDown = false;
-   }
-   if (evt.keyCode === 37) {
-       ship.goLeft = false;
-   }
-   if (evt.keyCode === 39) {
-       ship.goRight = false;
-   }
-   if (evt.keyCode === 32) {
-      ship.firing = false;
-   }
+    if (evt.keyCode === 38) {
+        ship.goUp = false;
+    }
+    if (evt.keyCode === 40) {
+        ship.goDown = false;
+    }
+    if (evt.keyCode === 37) {
+        ship.goLeft = false;
+    }
+    if (evt.keyCode === 39) {
+        ship.goRight = false;
+    }
+    if (evt.keyCode === 32) {
+        ship.firing = false;
+    }
 });
 
 // ENEMY SHIP AND HEALTH
@@ -187,7 +187,7 @@ var enemy = {                                                                   
     hp: 100,                                                                    // enemy starts out with 100HP
 
     draw: function() {                                                          // draws the enemy at the approprate location
-        ctx.drawImage(opponent, this.xPos - this.width / 2, this.yPos, this.width, this.height);
+        ctx.drawImage(opponentSkin, this.xPos - this.width / 2, this.yPos, this.width, this.height);
     },
     drawHP: function() {
         ctx.beginPath();
@@ -217,8 +217,23 @@ function detectStart() {
 function detectWin() {                                                          // function detects if the enemy is dead (HP <= 0)
     if (enemy.hp <= 0) {
         enemy.canShoot = false;                                                 // enemy cannot shoot if dead
-        opponent = explosion1;
-        enemy.exploding = true;
+
+        window.setTimeout(function() {
+            ctx.beginPath();
+            ctx.drawImage(explosion1, enemy.xPos - enemy.width / 2, enemy.yPos, enemy.width, enemy.height);
+        }, 90);
+
+        // ctx.beginPath();
+        // ctx.rect(0, 0, spacegamecanvas.width, spacegamecanvas.height);          // if enemy is dead, screen slightly fades to white...
+        // ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
+        // ctx.fill();
+
+        // ctx.font = "25px 'Press Start 2P'";                                     // ...and displays the "you win" message
+        // ctx.fillStyle = "#44ff44";
+        // ctx.stokeStyle = "#111111";
+        // ctx.textAlign = "center";
+        // ctx.fillText("yay! you win!", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
+        // ctx.strokeText("yay! you win!", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
     }
 }
 function detectLose() {                                                         // function detects if the player is dead (HP <= 0)
@@ -246,7 +261,6 @@ function detectLose() {                                                         
 
 var enemyMove = 0;                                                              // creates the enemy movement; starts at zero, increases by gameLoop
 var enemyShoot = 0;
-var enemyExplodeCount = 0;
 
 
 
@@ -285,17 +299,17 @@ function gameLoop() {
                 bullets.splice(i, 1);                                           // bullet despawns if it hits the enemy
                 if (enemy.hp > 0) {                                             // "if HP > 0"prevents HP bar from drawing in the negative direction
                     enemy.hp -= 60;                                              // enemy loses HP when hit
-                    opponent = enemyDamagedImage;                               // makes the enemy "blink" (look damaged) for a second...
+                    opponentSkin = enemyDamagedImage;                               // makes the enemy "blink" (look damaged) for a second...
                     window.setTimeout(function() {
-                        opponent = enemyImage;                                  // ...then resets the image back to normal
-                    }, 90);
+                        opponentSkin = enemyImage;                                  // ...then resets the image back to normal
+                    }, 190);
                 }
             }
         }
     }
 
 // ENEMY MOVEMENT AND HEALTH
-    if (enemy.hp > 0 || !gameStarted) {                                         // if enemy is alive, also able to move before game start
+    if (enemy.hp > 0) {                                                         // if enemy is alive
         enemyMove++;                                                            // increases the variable mentioned before the gameLoop
     }
     enemy.xPos = (-((spacegamecanvas.width - (2 * 17)) / 2) * (Math.sin((6.28318530718 / 400) * enemyMove))) + (spacegamecanvas.width / 2);
@@ -305,7 +319,9 @@ function gameLoop() {
     // direction fluctuate back and forth, creating the figure-8 movement. i made sure the enemy and spaceship x-speeds were different. that way,
     // it's harder to shoot the enemy ship
 
-    enemy.draw();                                                               // draws the enemy
+    if (enemy.hp > 0) {                                                         // draws the enemy
+        enemy.draw();
+    }
     enemy.drawHP();                                                             // draws the enemy HP bar
 
 // ENEMY SHOOTING
@@ -340,7 +356,7 @@ function gameLoop() {
             enemy.canShoot = false;
             window.setTimeout(function(){
                 enemy.canShoot = true;
-            }, 300);                                                            // raised the fire ratge cap because it started machine-gunning
+            }, 300);                                                            // raised the fire rate cap because it started machine-gunning
         }
     }
 
@@ -359,9 +375,9 @@ function gameLoop() {
                 enemyBullets.splice(i, 1);                                      // bullet despawns if it hits the enemy
                 if (ship.hp > 0) {                                              // "if HP > 0"prevents HP bar from drawing in the negative direction
                     ship.hp -= 10;                                              // enemy loses HP when hit
-                    player = shipDamagedImage;                                  // ship looks damaged for a bit...
+                    playerSkin = shipDamagedImage;                                  // ship looks damaged for a bit...
                     window.setTimeout(function() {
-                        player = shipImage;                                     // ...then image resets back to normal
+                        playerSkin = shipImage;                                     // ...then image resets back to normal
                     }, 125);
                 }
             }
@@ -372,31 +388,7 @@ function gameLoop() {
     detectStart();
     detectWin();                                                                // calls the fuction that detects if the enemy is dead
     detectLose();
-    if (enemy.exploding) {
-        enemyExplodeCount += 1;
-    }
-    if (enemyExplodeCount > 0 && enemyExplodeCount < 30) {
-        opponent = explosion1;
-    }
-    else if (enemyExplodeCount >= 30 && enemyExplodeCount < 90){
-        opponent = explosion2;
-    }
-    else if (enemyExplodeCount >= 90) {
-        opponent = explosion2;
-        
-        ctx.beginPath();
-        ctx.rect(0, 0, spacegamecanvas.width, spacegamecanvas.height);          // if enemy is dead, screen slightly fades to white...
-        ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
-        ctx.fill();
 
-        ctx.font = "25px 'Press Start 2P'";                                     // ...and displays the "you win" message
-        ctx.fillStyle = "#44ff44";
-        ctx.stokeStyle = "#111111";
-        ctx.textAlign = "center";
-        ctx.fillText("yay! you win!", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
-        ctx.strokeText("yay! you win!", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
-    }
-    
     window.requestAnimationFrame(gameLoop);                                     // loops the gameLoop
 }
 
