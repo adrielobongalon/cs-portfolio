@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
-    Document   : geniusproject.html, for cs-portfolio
-    Created on : Wednesday, March 9, 2016, 08:55 AM
-    Author     : Adrielo (audrey) Bongalon
-    Description: for my genius project blog (10th grade project at summit shasta)
+    Document   : vindinium.html, for cs-portfolio
+    Created on : Thursday, March 24, 2016, 14:41 PM
+    Author     : Adrielo (Audrey) Bongalon
+    Description: webpage about my bot for vindinium, for 10th grade computer science expeditions course
 
                                ___
                               /\  \
@@ -19,7 +19,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Genius Project</title>
+        <title>Audrey's Vindinium Bot</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Cousine|Raleway:400|Open+Sans" rel="stylesheet" type="text/css">
 
@@ -63,49 +63,43 @@
             </ul>
         </div>
         <div class="full-main">
-            <h2>Genius Project</h2>
-            <p class="main-text">I go to school at a place called Summit Shasta. Every 10th grader has a project called the "Genius Project" where we
-            work on something that interests us. It's sort of based off this thing at Google where their employees get to spend 20% of their time
-            working on whatever project that interests them. I'm not entirely sure if that's true or not, but either way, at our school, we get to
-            work on something of our choice. On of our assignments is to create a blog. So here it is.</p>
+            <h2>Vindinium</h2>
+            <p class="main-text">Vindinium! It totally sounds like a metallic element. But it's actually a game. It's lots of fun, and it's good for
+            learning how to code. At my school, I'm taking a computer science course as an elective, and one of our projects is to make our own bot
+            for the game. And here, I'm going to talk about it.</p>
             <div class="jump-to">
                 <p class="small-title">Jump to Section</p>
                 <ol>
-                    <li><a href="#entry1">Blog Entry 1</a></li>
-                    <li><a href="#entry2">Blog Entry 2</a></li>
-                    <li><a href="#entry3">Blog Entry 3</a></li>
+                    <li><a href="#vindinium1">The Game</a></li>
+                    <li><a href="#vindinium2">My Code</a></li>
+                    <li><a href="#vindinium3">What I Learned</a></li>
                 </ol>
             </div>
 
-            <h3 id="entry1">Entry 1</h3>
-            <div class="caption-box" style="width: 30%; float:left;">
+            <h3 id="vindinium1">The Game</h3>
+            <div class="caption-box" style="width: 40%; float:left;">
                 <div class="img-with-caption">
-                    <img src="http://wpshrine.com/uploads/subb/wpshrine_Lucky_Star_192_1920x1200.jpg" width="100%" alt="konota is thinking">
+                    <img src="vindinium.png" style="width: 100%;"; alt="screenshot of vindinium">
                 </div>
-                <p class="caption">So I've been thinking&#8230</p>
+                <p class="caption">a screenshot of the game (I'm not playing in this one)</p>
             </div>
-            <p class="main-text">So something I like, huh? Well, to be honest, I had a lot of time to think about what I want to do for this project.
-            Even though this project actually started in the <i>middle</i> of the school year, I knew about it pretty early on, since several people
-            (mostly 11th graders I know) told me about it near the start. And I've had a few ideas.</p>
+            <p class="main-text">So let's go over the rules and stuff. Vindinium is a turn based game. You get one player/character thingy who starts
+            out with 100HP. And each turn, you can move one space (or stay in place). Depending on what you walk into, your guy will do different
+            things.</p>
 
-            <div style="display: inline-block; margin: 0; padding: 0;">
-                <ul class="bullet-list">
-                    <li>scarf</li>
-                    <li>learn Japanese</li>
-                    <li>learn Tagalog</li>
-                    <li>code something</li>
-                    <li>song mashup</li>
-                </ul>
-            </div>
+            <p class="main-text">The goal is to have the most amount of gold by the end of the game, which, in my experience, usually consists of
+            1200 turns. You can get gold by going into the mines. Problem is, they're guarded by goblins, so each time you do, you'll have to fight
+            them. But if you survive, then the mine belongs to you, and you get 1 gold per mine you own at the end of each turn. If you step into
+            your own mine, nothing happens. But if you step into an unowned mine, or one that belongs to someone else, then you lose 20HP, but gain
+            control of the mine.</p>
+            
+            <p class="main-text">So obviously, you eventually gotta get your health back up, and you can do that by going into the taverns, which I
+            call pubs, because, well let's face it. <i>Pubs</i> just sounds better than <i>taverns</i>. Anyways, at the pubs, you pay 2 gold to get
+            50HP.</p>
 
-            <p class="main-text">Perhaps I should explain a little further. So it's winter, and I've been thinking that I'd like to have a scarf. But
-            I'm a rather picky person when it comes to fashion, and I don't like what I see in stores or online. So I thought I'd make it myself. So
-            why don't I learn to knit one? Oh yeah. I'm too lazy to. But that won't stop me. Instead, I'll create a loom out of wood and 3D-printed
-            material. Still, I don't think I should do this for my Genius Project, since it's basically just following someone else's intructions
-            (I found the 3D models of the parts online, made by someone else, so it's not exactly <i>my</i> project). But I'm still going to make the
-            scarf, since I really want one. It gets cold around here.</p>
-
-            <p class="main-text">I also thought about</p>
+            <p class="main-text">If you try to step out of the map, or into a tree or wall, nothing happens. If your bot takes too long to figure out
+            what to do (1 second), then your bot, he stays in place until the end of the game (but can still win if you have the most gold by the
+            end). So make sure your bot works, or else it'll stay stuck in I-don't-know-what-to-do-mode.</p>
 
             <p class="main-text">Here's a list of some common HTML tags.</p>
             <table>
@@ -175,57 +169,15 @@
             attributes". Attributes tell the web browser different information about the tag and have various purposes.</p>
 
             <p class="main-text">Here's a list of some common HTML attributes.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <td colspan="3" class="table-title">Common HTML Attributes</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn1">attribute</td>
-                        <td class="tcolumn2">stands for</td>
-                        <td>usage</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="mono tcolumn1">class</td>
-                        <td class="tcolumn2">class</td>
-                        <td>puts stuff within a class (allows it to me modified with CSS)</td>
-                    </tr>
-                    <tr>
-                        <td class="mono tcolumn1">id</td>
-                        <td class="tcolumn2">identification</td>
-                        <td>like a class, but meant for only one thing (the difference between class and id will be discussed later)</td>
-                    </tr>
-                    <tr>
-                        <td class="mono tcolumn1">href</td>
-                        <td class="tcolumn2">hypertext reference</td>
-                        <td>used to reference other files or urls; tells the browser which page a link should direct to, what stylesheet to
-                        reference, and more</td>
-                    </tr>
-                    <tr>
-                        <td class="mono tcolumn1">src</td>
-                        <td class="tcolumn2">source</td>
-                        <td>used within <span class="mono white-highlight">&#60img&#62</span> tags to specify where to get the image from</td>
-                    </tr>
-                    <tr>
-                        <td class="mono tcolumn1">alt</td>
-                        <td class="tcolumn2">alternative text</td>
-                        <td>used within <span class="mono white-highlight">&#60img&#62</span> tags to specify the alternative text; in case the image
-                        is unable to show up (for whatever reason), alternative text will display</td>
-                    </tr>
-                    <tr>
-                        <td class="mono tcolumn1">style</td>
-                        <td class="tcolumn2">style</td>
-                        <td>used to modify something; this attribute is not used too often, since CSS can completely replace it</td>
-                    </tr>
-                </tbody>
-            </table>
 
 
 
 
-            <h3 id="entry2">CSS</h3>
+
+
+
+
+            <h3 id="vindinium2">My Code</h3>
             <p class="main-text">There's a whole lot you can do with CSS. Some stuff is really simple, like changing the font or the size of text.
             Some is more complicated, like the rainbow text. Click <a href="htmlcssugly.html" target="_blank">here</a> to see this webpage without
             CSS styling. You'd be surprised how much different it looks. Click <a href="style.css" target="_blank">here</a> to see the CSS stylesheet
@@ -247,76 +199,23 @@
             selected content with CSS.</p>
 
             <p class="main-text">Here's a list of some common CSS properties.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <td colspan="2" class="table-title">Common CSS Properties</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">property</td>
-                        <td>usage</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="tcolumn2">font-family</td>
-                        <td>changes the font</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">font-size</td>
-                        <td>changes the font</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">color</td>
-                        <td>changes the colour of a something; make sure to spell it the American way, or else it won't work. That's one of the
-                        mistakes I make rather often</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">background-color</td>
-                        <td>similar to the <span class="mono white-highlight">color</span> property, changes the background colour of certain things</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">text-align</td>
-                        <td>changes the alignment of text</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">width</td>
-                        <td>changes the width of something</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">height</td>
-                        <td>changes the height of something</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">margin</td>
-                        <td>adjusts the margins</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">padding</td>
-                        <td>adjusts the padding</td>
-                    </tr>
-                    <tr>
-                        <td class="tcolumn2">border</td>
-                        <td>adds a border</td>
-                    </tr>
-                </tbody>
-            </table>
 
 
 
 
-            <h3 id="entry3">Documentation</h3>
+
+
+
+
+            <h3 id="vindinium3">What I Learned</h3>
             <div class="img-border">
                 <img src="http://vaguehope.com/uploads/2010/12/yuki420.gif" width="30%" alt="html" class="floatleft">
             </div>
-            <p class="main-text">Keep in mind that the HTML tags, HTML attributes, and CSS properties I listed above are not the only ones in
-            existence. There are <i>so</i> many more. <b>SO MANY MOAR!</b> It's practically impossible to memorise all of them, and in reality,
-            most people don't. We just remember the ones we use most often, and that depends on the person. So what do you do if you need something
-            that you don't remember? You check the documentation. Many people have used HTML and CSS (and other programming languages), and as a
-            result, people have created useful documents to made it easier for other people to learn. The one I personally use most often is
-            <a href="http://www.w3schools.com/">W3Schools</a>, which has a lot of infomation on HTML and CSS by itself. For everything else it can't
-            answer, there are plety more documentations out there on the Internet. A big part about learning to code well is learning to use
-            documentation effectively.</p>
+            <p class="main-text">If there's one thing I can say I understand better because of this, it's arrays.</p>
         </div>
     </body>
 </html>
+
+<!--describe game, at least what it is, how it's played, how it's won
+    describe code, at least what your bot does and how
+    what you learned-->
