@@ -203,7 +203,7 @@ function detectStart() {
         ctx.beginPath();
         ctx.font = "33px 'Press Start 2P'";                                     // ...and displays the "you win" message
         ctx.fillStyle = "#44ff44";
-        ctx.stokeStyle = "#111111";
+        ctx.strokeStyle = "#111111";
         ctx.textAlign = "center";
         ctx.fillText("press space", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 - 30);
         ctx.strokeText("press space", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 - 30);
@@ -230,7 +230,7 @@ function detectWin() {                                                          
 
         // ctx.font = "25px 'Press Start 2P'";                                     // ...and displays the "you win" message
         // ctx.fillStyle = "#44ff44";
-        // ctx.stokeStyle = "#111111";
+        // ctx.strokeStyle = "#111111";
         // ctx.textAlign = "center";
         // ctx.fillText("yay! you win!", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
         // ctx.strokeText("yay! you win!", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
@@ -247,7 +247,7 @@ function detectLose() {                                                         
 
         ctx.font = "35px 'Press Start 2P'";                                     // ...and displays the "game over" message
         ctx.fillStyle = "#ff4444";
-        ctx.stokeStyle = "#111111";
+        ctx.strokeStyle = "#111111";
         ctx.textAlign = "center";
         ctx.fillText("GAME OVER", spacegamecanvas.width / 2, spacegamecanvas.height / 2);
         ctx.strokeText("GAME OVER", spacegamecanvas.width / 2, spacegamecanvas.height / 2);

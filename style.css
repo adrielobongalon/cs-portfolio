@@ -203,9 +203,9 @@ body {
     flex-grow: 1;
     flex-shrink: 1;
     font-family: "Raleway", sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 15px;
     text-align: center;
     white-space: nowrap;
 }
@@ -792,8 +792,6 @@ space, rather than just the text)*/
 
 
 
-
-
 #spacegamecanvas {
     margin: 10px 20px 40px;
     border: 1px solid #a1a1a1;
@@ -806,4 +804,21 @@ space, rather than just the text)*/
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+
+
+
+#synthcanvas {
+    margin: 10px 20px 30px;
+    border: 1px solid #a1a1a1;
+    background-color: #7ae6a9;
+    background-color: rgba(122, 230, 169, 0.7);
+}
+
+
+
+
+#keyspanSlider {
+    margin: 5px 20px 40px;
 }

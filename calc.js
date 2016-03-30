@@ -21,7 +21,7 @@ var button = document.getElementById("submitButton");                           
 var input1 = document.getElementById("input1");                                 //     element with the given id
 var input2 = document.getElementById("input2");
 var answer;
-var display = document.getElementById("display");
+var display = document.getElementById("calcdisplay");
 var dropdown = document.getElementById("dropdown");
 
 button.addEventListener("click", doMath);                                       // looks for the button to be clicked, then runs the function doMath
