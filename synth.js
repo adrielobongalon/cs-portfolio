@@ -1,7 +1,7 @@
-//  Document   : synth.js, for cs-portfolio
-//  Created on : Monday, March 28, 2016, 13:23 PM
-//  Author     : Adrielo (Audrey) Bongalon
-//  Description: synthesiser simulator javascript file, for 10th grade computer science expeditions course
+//     document: synth.js, for cs-portfolio
+//   created on: monday, march 28, 2016, 13:23 PM
+//       author: adrielo (audrey) bongalon
+//  description: synthesiser simulator javascript file, for 10th grade computer science expeditions course
 
 
 //                                      88
@@ -18,51 +18,42 @@
 var synthcanvas = document.getElementById("synthcanvas");
 var ctx = synthcanvas.getContext("2d");
 
-var testImage = document.getElementById("pianoKeyboard");
-function drawpiano() {
-    ctx.drawImage(testImage, 0, 0, synthcanvas.width, synthcanvas.width * (188 / 429));
+// var testImage = document.getElementById("pianoKeyboard");
+// function drawpiano() {
+//     ctx.drawImage(testImage, 0, 0, synthcanvas.width, synthcanvas.width * (188 / 429));
+// }
+
+var i = 0;
+
+synthcanvas.addEventListener("mousedown", detectMouse, true);
+
+var mousex;
+var mousey;
+function detectMouse(event) {
+    if (event.x != undefined && event.y != undefined) {
+        mousex = event.x;
+        mousey = event.y;
+    }
+    else {                                                                      // Firefox method to get the position
+        mousex = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        mousey = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    mousex -= synthcanvas.offsetLeft;
+    mousey -= synthcanvas.offsetTop;
+
+    alert("x: " + mousex + "  y: " + mousey);
 }
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 
 var keyslider = document.getElementById("keyspanSlider");
 var keysdisplay = document.getElementById("pianokeysdisplay");
+keyslider.addEventListener("change", redrawKeys);
 
-var keyspan = parseInt(keyslider.value, 10);                                                               // number of white keys
+var keyspan = parseInt(keyslider.value, 10);                                    // number of white keys
 var keyheight = synthcanvas.height * (19 / 20);
 var keywidth = synthcanvas.width / keyspan;
-
-var keys = [];
-
-// var c4 = {
-//     height: synthcanvas.height * (19 / 20),
-//     width: synthcanvas.width / keyspan,
-//     pressed: false,
-//     draw: function() {
-//         if (this.pressed === false) {
-//             ctx.beginPath();
-//             ctx.lineWidth = 5;
-//             ctx.lineJoin = "round";
-//             ctx.moveTo(0, 0);
-//             ctx.lineTo(0, keyheight);
-//             ctx.lineTo(keywidth, keyheight);
-//             ctx.lineTo(keywidth, keyheight * (4 / 7));
-//             ctx.lineTo(keywidth * (3 / 4), keyheight * (4 / 7));
-//             ctx.lineTo(keywidth * (3 / 4), 0);
-//             ctx.closePath();
-//             ctx.strokeStyle = "#000000";
-//             ctx.stroke();
-//             ctx.fillStyle = "#ffffff";
-//             ctx.fill();
-//         }
-//     },
-//     detectClick: function() {
-//         if () {
-
-//         }
-//     }
-// };
-
 
 function LeftKey(x, y) {
     this.x = x;
@@ -82,8 +73,17 @@ function LeftKey(x, y) {
         ctx.closePath();
         ctx.strokeStyle = "#000000";
         ctx.stroke();
-        ctx.fillStyle = "#ffffff";
-        ctx.fill();
+        if (this.pressed === false) {
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+        }
+        else {
+            ctx.fillStyle = "#a1a1a1";
+            ctx.fill();
+        }
+    };
+    this.detectPress = function() {
+        
     };
 }
 
@@ -139,7 +139,7 @@ function EndKey(x, y) {
     this.x = x;
     this.y = y;
     this.pressed = false;
-    
+
     this.draw = function() {
         ctx.beginPath();
         ctx.lineWidth = 5;
@@ -177,85 +177,52 @@ function BlackKey(x, y) {
     };
 }
 
-for (i = 0; i < keyspan; i++) {
-    if ((i % 7 === 0 || i % 7 === 3) && i != keyspan - 1) {
-        keys.push(new LeftKey((synthcanvas.width / keyspan) * i, 0));
-    }
-    else if ((i % 7 === 1 || i % 7 === 4 || i % 7 === 5) && i != keyspan - 1) {
-        keys.push(new BlackKey((synthcanvas.width / keyspan) * i, 0));
-        keys.push(new MiddleKey((synthcanvas.width / keyspan) * i, 0));
-    }
-    else if ((i % 7 === 2 || i % 7 === 6) && i != keyspan - 1) {
-        keys.push(new BlackKey((synthcanvas.width / keyspan) * i, 0));
-        keys.push(new RightKey((synthcanvas.width / keyspan) * i, 0));
-    }
-    else if (i === keyspan - 1) {
-        if (i % 7 === 0 || i % 7 === 3) {
-            keys.push(new EndKey((synthcanvas.width / keyspan) * i, 0));
+var keys = [];
+
+function pushKeys() {
+    for (i = 0; i < keyspan; i++) {
+        if ((i % 7 === 0 || i % 7 === 3) && i != keyspan - 1) {
+            keys.push(new LeftKey((synthcanvas.width / keyspan) * i, 0));
         }
-        else {
+        else if ((i % 7 === 1 || i % 7 === 4 || i % 7 === 5) && i != keyspan - 1) {
+            keys.push(new BlackKey((synthcanvas.width / keyspan) * i, 0));
+            keys.push(new MiddleKey((synthcanvas.width / keyspan) * i, 0));
+        }
+        else if ((i % 7 === 2 || i % 7 === 6) && i != keyspan - 1) {
             keys.push(new BlackKey((synthcanvas.width / keyspan) * i, 0));
             keys.push(new RightKey((synthcanvas.width / keyspan) * i, 0));
         }
-    }
-    else {
-        alert("error. is not left, middle, or right key");
+        else if (i === keyspan - 1) {
+            if (i % 7 === 0 || i % 7 === 3) {
+                keys.push(new EndKey((synthcanvas.width / keyspan) * i, 0));
+            }
+            else {
+                keys.push(new BlackKey((synthcanvas.width / keyspan) * i, 0));
+                keys.push(new RightKey((synthcanvas.width / keyspan) * i, 0));
+            }
+        }
+        else {
+            alert("error. is not left, middle, or right key");
+        }
     }
 }
+pushKeys();
 
-// keys.push(new LeftKey(0, 0));
-// keys.push(new MiddleKey(synthcanvas.width / keyspan, 0));
-// keys.push(new RightKey((synthcanvas.width / keyspan) * 2, 0));
-// keys.push(new LeftKey((synthcanvas.width / keyspan) * 3, 0));
-// keys.push(new MiddleKey(synthcanvas.width / keyspan * 4, 0));
-// keys.push(new MiddleKey(synthcanvas.width / keyspan * 5, 0));
-// keys.push(new RightKey((synthcanvas.width / keyspan) * 6, 0));
-// keys.push(new LeftKey((synthcanvas.width / keyspan) * 7, 0));
-// keys.push(new MiddleKey(synthcanvas.width / keyspan * 8, 0));
-// keys.push(new RightKey((synthcanvas.width / keyspan) * 9, 0));
-
-// keys.push(new BlackKey(synthcanvas.width / keyspan, 0));
-// keys.push(new BlackKey((synthcanvas.width / keyspan) * 2, 0));
-// keys.push(new BlackKey((synthcanvas.width / keyspan) * 4, 0));
-// keys.push(new BlackKey((synthcanvas.width / keyspan) * 5, 0));
-// keys.push(new BlackKey((synthcanvas.width / keyspan) * 6, 0));
-// keys.push(new BlackKey((synthcanvas.width / keyspan) * 8, 0));
-// keys.push(new BlackKey((synthcanvas.width / keyspan) * 9, 0));
-
-// var d4 = {
-//     height: synthcanvas.height * (19 / 20),
-//     width: synthcanvas.width / keyspan,
-//     pressed: false,
-//     draw: function() {
-//         if (this.pressed === false) {
-//             ctx.beginPath();
-//             ctx.lineWidth = 5;
-//             ctx.lineJoin = "round";
-//             ctx.moveTo(0, 0);
-//             ctx.lineTo(0, keyheight);
-//             ctx.lineTo(keywidth, keyheight);
-//             ctx.lineTo(keywidth, keyheight * (4 / 7));
-//             ctx.lineTo(keywidth * (3 / 4), keyheight * (4 / 7));
-//             ctx.lineTo(keywidth * (3 / 4), 0);
-//             ctx.closePath();
-//             ctx.strokeStyle = "#000000";
-//             ctx.stroke();
-//             ctx.fillStyle = "#ffffff";
-//             ctx.fill();
-//         }
-//     }
-// };
-
-var i = 0;
+function redrawKeys() {
+    keywidth = synthcanvas.width / keyspan;
+    keys = [];
+    pushKeys();
+}
 
 function drawLoop() {
     ctx.beginPath();
     ctx.clearRect(0, 0, synthcanvas.width, synthcanvas.height);
-    
+
     // drawpiano();
+
     keyspan = parseInt(keyslider.value, 10);
     keysdisplay.innerHTML = keyspan;
-    
+
     for (i = 0; i < keys.length; i++) {
         keys[i].draw();
     }
