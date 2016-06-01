@@ -23,15 +23,17 @@ var ctx = synthcanvas.getContext("2d");
 //     ctx.drawImage(testImage, 0, 0, synthcanvas.width, synthcanvas.width * (188 / 429));
 // }
 
+var keys = [];
 var i = 0;
 
-synthcanvas.addEventListener("mousedown", detectMouse, true);
+synthcanvas.addEventListener("mousedown", findMousePos, true);
 
 var mousex;
 var mousey;
-function detectMouse(event) {
+var clickedKey;
+function findMousePos(event) {
     if (event.x != undefined && event.y != undefined) {
-        mousex = event.x;
+        mousex = event.x;                                                       // defines position within window
         mousey = event.y;
     }
     else {                                                                      // Firefox method to get the position
@@ -39,11 +41,19 @@ function detectMouse(event) {
         mousey = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
 
-    mousex -= synthcanvas.offsetLeft;
+    mousex -= synthcanvas.offsetLeft;                                           // resets position within canvas
     mousey -= synthcanvas.offsetTop;
 
-    alert("x: " + mousex + "  y: " + mousey);
+    alert("x: " + mousex + "\n" + "y: " + mousey);
 }
+function detectClickedKey(event) {
+    for (i = 0; i < keys.length; i++) {
+        if(keys[i].isClicked() != false){
+            clickedKey = keys[i];
+        } 
+    }
+}
+
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -55,11 +65,12 @@ var keyspan = parseInt(keyslider.value, 10);                                    
 var keyheight = synthcanvas.height * (19 / 20);
 var keywidth = synthcanvas.width / keyspan;
 
-function LeftKey(x, y) {
+function LeftKey(x, y, note) {
     this.x = x;
     this.y = y;
+    this.note = note;
     this.pressed = false;
-    
+
     this.draw = function() {
         ctx.beginPath();
         ctx.lineWidth = 5;
@@ -71,7 +82,7 @@ function LeftKey(x, y) {
         ctx.lineTo(this.x + (keywidth * (3 / 4)), keyheight * (4 / 7));
         ctx.lineTo(this.x + (keywidth * (3 / 4)), this.y);
         ctx.closePath();
-        ctx.strokeStyle = "#000000";
+        ctx.strokeStyle = "#252525";
         ctx.stroke();
         if (this.pressed === false) {
             ctx.fillStyle = "#ffffff";
@@ -82,12 +93,18 @@ function LeftKey(x, y) {
             ctx.fill();
         }
     };
-    this.detectPress = function() {
-        
+    this.isClicked = function(mousex, mousey) {
+        if ((mousex > this.x && mousex < this.x + (keywidth * (3 / 4)) && mousey > 0 && mousey < keyheight * (4 / 7)) ||
+        (mousex > this.x && mousex < this.x + keywidth && mousey > keyheight * (4 / 7) && mousey < synthcanvas.height)) {
+            return this.note;
+        }
+        else {
+            return false;
+        }
     };
 }
 
-function MiddleKey(x, y) {
+function MiddleKey(x, y, note) {
     this.x = x;
     this.y = y;
     this.pressed = false;
@@ -105,14 +122,23 @@ function MiddleKey(x, y) {
         ctx.lineTo(this.x + (keywidth * (3 / 4)), keyheight * (4 / 7));
         ctx.lineTo(this.x + (keywidth * (3 / 4)), this.y);
         ctx.closePath();
-        ctx.strokeStyle = "#000000";
+        ctx.strokeStyle = "#252525";
         ctx.stroke();
         ctx.fillStyle = "#ffffff";
         ctx.fill();
     };
+    this.isClicked = function(mousex, mousey) {
+        if ((mousex > this.x + (keywidth / 4) && mousex < this.x + (keywidth * (3 / 4)) && mousey > 0 && mousey < keyheight * (4 / 7)) ||
+        (mousex > this.x && mousex < this.x + keywidth && mousey > keyheight * (4 / 7) && mousey < synthcanvas.height)) {
+            return this.note;
+        }
+        else {
+            return false;
+        }
+    };
 }
 
-function RightKey(x, y) {
+function RightKey(x, y, note) {
     this.x = x;
     this.y = y;
     this.pressed = false;
@@ -128,14 +154,23 @@ function RightKey(x, y) {
         ctx.lineTo(this.x + keywidth, keyheight);
         ctx.lineTo(this.x + keywidth, this.y);
         ctx.closePath();
-        ctx.strokeStyle = "#000000";
+        ctx.strokeStyle = "#252525";
         ctx.stroke();
         ctx.fillStyle = "#ffffff";
         ctx.fill();
     };
+    this.isClicked = function(mousex, mousey) {
+        if ((mousex > this.x + (keywidth / 4) && mousex < this.x + keywidth && mousey > 0 && mousey < keyheight * (4 / 7)) ||
+        (mousex > this.x && mousex < this.x + keywidth && mousey > keyheight * (4 / 7) && mousey < synthcanvas.height)) {
+            return this.note;
+        }
+        else {
+            return false;
+        }
+    };
 }
 
-function EndKey(x, y) {
+function EndKey(x, y, note) {
     this.x = x;
     this.y = y;
     this.pressed = false;
@@ -149,14 +184,22 @@ function EndKey(x, y) {
         ctx.lineTo(this.x + keywidth, keyheight);
         ctx.lineTo(this.x + keywidth, this.y);
         ctx.closePath();
-        ctx.strokeStyle = "#000000";
+        ctx.strokeStyle = "#252525";
         ctx.stroke();
         ctx.fillStyle = "#ffffff";
         ctx.fill();
     };
+    this.isClicked = function(mousex, mousey) {
+        if (mousex > this.x && mousex < this.x + keywidth && mousey > 0 && mousey < synthcanvas.height) {
+            return this.note;
+        }
+        else {
+            return false;
+        }
+    };
 }
 
-function BlackKey(x, y) {
+function BlackKey(x, y, note) {
     this.x = x;
     this.y = y;
     this.pressed = false;
@@ -172,17 +215,23 @@ function BlackKey(x, y) {
         ctx.closePath();
         // ctx.strokeStyle = "#000000";
         // ctx.stroke();
-        ctx.fillStyle = "#111111";
+        ctx.fillStyle = "#252525";
         ctx.fill();
     };
+    this.isClicked = function(mousex, mousey) {
+        if (mousex > this.x - (keywidth / 4) && mousex < this.x + (keywidth / 4) && mousey > 0 && mousey < keyheight * (4 / 7)) {
+            return this.note;
+        }
+        else {
+            return false;
+        }
+    };
 }
-
-var keys = [];
 
 function pushKeys() {
     for (i = 0; i < keyspan; i++) {
         if ((i % 7 === 0 || i % 7 === 3) && i != keyspan - 1) {
-            keys.push(new LeftKey((synthcanvas.width / keyspan) * i, 0));
+            keys.push(new LeftKey((synthcanvas.width / keyspan) * i, 0, "c or f"));
         }
         else if ((i % 7 === 1 || i % 7 === 4 || i % 7 === 5) && i != keyspan - 1) {
             keys.push(new BlackKey((synthcanvas.width / keyspan) * i, 0));

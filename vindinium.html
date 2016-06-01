@@ -21,7 +21,7 @@
         <meta charset="utf-8">
         <title>Audrey's Vindinium Bot</title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Cousine|Raleway:400|Open+Sans" rel="stylesheet" type="text/css">
+    	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans" rel="stylesheet" type="text/css">
 
         <link rel="apple-touch-icon" sizes="57x57" href="audreyfavicons/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="audreyfavicons/apple-touch-icon-60x60.png">
@@ -79,8 +79,8 @@
 
             <h3 id="vindinium1">The Game</h3>
             <div class="caption-box" style="width: 40%; float:left;">
-                <div class="img-with-caption">
-                    <img src="vindinium.png" style="width: 100%;"; alt="screenshot of vindinium">
+                <div class="img-border" style="display: inline-block;">
+                    <img src="vindinium.png" style="width: 100%;" alt="screenshot of vindinium">
                 </div>
                 <p class="caption">a screenshot of the game (I'm not playing in this one)</p>
             </div>
@@ -110,12 +110,448 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
             <h3 id="vindinium2">My Code</h3>
-            <p class="main-text">I made my bot in JavaScript. If you want to see the file, click <a href="vindiniumCode.js" target="_blank">here</a>.</p>
+            <p class="main-text">I made my bot in JavaScript. If you want to see the file, click <a href="vindiniumCode.js" target="_blank">here</a>.
+            Below, I will try my best to explain my bot my breaking the code into sections.</p>
+            
+            <p class="main-text">So instead of going from top to bottom, I think I'll describe my code in roughly the order that I created it.
+            Interestingly, that means we'll be starting at the end of the code.</p>
 
-            <p class="main-text">words</p>
+            <p><pre class="hax-txt"><code>if (myDir === "none" || myDir === undefined) {
+    if (myDir === undefined) {
+        if (task === "none") {
+            console.log("no task. random direction");
+        }
+        else {
+            console.log("direction is undefined. check code for errors");
+        }
+    }
+    if (task !== "none") {
+        console.log("random direction");
+    }
+    var rand = Math.floor(Math.random() * 4);
+    var dirs = ["north", "south", "east", "west"];
+    bot.goDir = dirs[rand];
+}
+else {
+    bot.goDir = myDir;
+}</code></pre></p>
 
-            <p class="main-text">words</p>
+            <p class="main-text">O_______________________O &nbsp &nbsp &nbsp &nbsp lol wut?</p>
+
+            <p class="main-text">Don't worry. It's not <i>that</i> complicated. All this is is a fail-safe. Basically, I assign my bot both a
+            <span class="mono offwhite-highlight">task</span> (what I want it to do each turn) and a <span class="mono offwhite-highlight">myDir</span>
+            (direction to go in). If either I ask it not to go anywhere (<span class="mono offwhite-highlight">myDir === "none"</span>) or if some
+            other part of my code doesn't run properly (<span class="mono offwhite-highlight">myDir === undefined</span>), then my bot will choose a
+            random direction and go that way. But most of the time, it will run the last three lines, which basically tell my bot to go whatever way
+            I tell it to (which gets defined elsewhere in the code). All the mumbo jumbo in the middle just tries to figure out what the problem is
+            and sends it to the "console log", which is basically a debugging tool that displays a message that you tell it to send when something in
+            your code happens.</p>
+
+
+
+
+
+
+
+
+            <p class="main-text">By the way, here's what the gets put on the console log every turn of the game (although it sholud be pretty
+            self-explanatory just by looking at the pictures):</p>
+            
+            <div class="img-border">
+                <img src="VindiniumConsoleLog2.png" style="width: 320px; vertical-align: top; float: right; margin: 0 20px 10px 10px;" alt="Vindinium: Console Log 2">
+                <img src="VindiniumConsoleLog1.png" style="width: 350px; vertical-align: top; float: right; margin: 0 0 10px 10px" alt="Vindinium: Console Log 1">
+            </div>
+
+            <p class="main-text">Allow me to explain.</p>
+            <ul class="main-text" style="margin-left: 20px; text-align: justify;">
+                <li style="list-style-type: square;">that weird looking block thing is basically map</li>
+                <ul>
+                    <li style="list-style-type: circle;">i didn't code this. it was part of the code i was given</li>
+                </ul>
+                <li style="list-style-type: square;">below that is a table for the life, mines, and gold of each bot. it also shows what turn of the
+                game you're on</li>
+                <ul>
+                    <li style="list-style-type: circle;">i didn't code this either. but i coded everything else</li>
+                </ul>
+                <li style="list-style-type: square;">information on <i>my</i> bot. this includes its:</li>
+                <ul>
+                    <li style="list-style-type: circle;">id</li>
+                    <li style="list-style-type: circle;">position</li>
+                    <li style="list-style-type: circle;">life/hp</li>
+                    <li style="list-style-type: circle;">number of mines i own</li>
+                    <li style="list-style-type: circle;">amount of gold i have</li>
+                    <li style="list-style-type: circle;">the place i spawned</li>
+                    <li style="list-style-type: circle;">the location of the mines i own</li>
+                </ul>
+                <li style="list-style-type: square;">info on <i>enemy</i> bots</li>
+                <ul>
+                    <li style="list-style-type: circle;">same stuff as in my bot, &#215;3</li>
+                    <li style="list-style-type: circle;">position</li>
+                </ul>
+                <li style="list-style-type: square;">the "free mines" (mines that no one has captured yet)</li>
+                <li style="list-style-type: square;">location of the nearest pub, as well as how far away it is</li>
+                <li style="list-style-type: square;">nearest enemy, and how for away</li>
+                <li style="list-style-type: square;">the weaklings, and their id</li>
+                <ul>
+                    <li style="list-style-type: circle;">basically any bot that's weaker than me</li>
+                </ul>
+                <li style="list-style-type: square;">the richest enemy, and how many are equally as rich as that enemy</li>
+                <li style="list-style-type: square;">the richest weakling (if any)</li>
+                <li style="list-style-type: square;">whatever task i assign my bot</li>
+                <ul>
+                    <li style="list-style-type: circle;">"freemine" - searches for and mines the nearest free mine</li>
+                    <li style="list-style-type: circle;">"pub" - get health</li>
+                    <li style="list-style-type: circle;">"attack" - should be self explanatory</li>
+                    <li style="list-style-type: circle;">"murder" - this is pretty mean. if there's anyone richer than me who also has less health,
+                    my bot will specifically target it and try to kill it. my bot is also smart enough not to attack "campers", which i'll explain
+                    later</li>
+                    <li style="list-style-type: circle;">"none" - more of a backup thing than something i actually want it to do</li>
+                </ul>
+                <li style="list-style-type: square;">then there's the information line. it basically gives me more information on what my bot is
+                doing. a lot of them contain obscure references</li>
+                <ul>
+                    <li style="list-style-type: circle;">"mining for free cash money at [<i>mine location</i>]" tells me where my bot is mining if
+                    the task is set to "freemine" (reference to this stupid joke my friend made)</li>
+                    <li style="list-style-type: circle;">"charlie mops" is basically code for getting health. (anyone get this reference?)</li>
+                    <li style="list-style-type: circle;">"LEAVE AUDREY ALONE!" means i'm attacking someone. (reference to Keralis's sword)</li>
+                    <li style="list-style-type: circle;">"IM BLEEDING OUT" means i'm dying (reference to pretty much every FPS game)</li>
+                </ul>
+                <li style="list-style-type: square;">the direction my bot is heading</li>
+            </ul>
+
+            <p class="main-text">One thing I'd like to note about the console log is the colours. I snooped around with the other files, and I
+            figured out how they coloured some of the stuff in the console log. And from there, I basically taught myself how to change the colours
+            for both the text and highlight colours. And it's kind a cool learning through reverse-engineering, rather than normal instruction.
+            Still, I couldn't figure out what made the table contents red, so I couldn't change the colours on those. It bothers me because the red
+            is hard to read on the blue background. Oh well.</p>
+
+
+
+
+
+
+
+
+            <p class="main-text" style="margin-top: 90px;">And then there's this thing.</p>
+            <p><pre class="hax-txt"><code>if (task === "freemine") {
+    console.log("mining for free cash money at [ " + nearestMine + " ]");
+    myDir = bot.findPath(myPos, nearestMine);
+}
+else if (task === "pub") {
+    console.log("charlie mops");
+    myDir = bot.findPath(myPos, nearestPub);
+}
+else if (task === "attack") {
+    console.log("LEAVE AUDREY ALONE!");
+    myDir = bot.findPath(myPos, [nearestFoolishMortal.pos.x, nearestFoolishMortal.pos.y]);
+}
+else if (task === "murder") {
+    myDir = bot.findPath(myPos, [richestWeakling.pos.x, richestWeakling.pos.y]);
+}</code></pre></p>
+            <p class="main-text">It started with just the first four lines telling it to mine when I tell it to. Then I changed it so that it still
+            works when I tell it to go to pubs or attack other players. This tells the bot what direction to go in based on its task.</p>
+
+            <p class="main-text" style="margin-top: 90px;">This section assigns tasks based on what's going on. The attack algorithm looks pretty
+            big, relatively, but the comments (stuff after the double slashes) explain them pretty well. Basically, in order to attack an enemy, my
+            bot makes sure that it has a lot more health than the enemy (and enough to get to a pub afterwards), not too far away, and that the enemy
+            actually owns mines. Because what's the point of attacking a player without mines? The whole purpose of attacking is to take control of
+            all of their mines at once.</p>
+            <p><pre class="hax-txt"><code>var task;
+if (bot.yourBot.life >= 35 && nearestFoolishMortal.life <= bot.yourBot.life + 10 &&                 // needs enough health to outlast the enemy and get back to a pub
+bot.findDistance(myPos, [nearestFoolishMortal.pos.x, nearestFoolishMortal.pos.y]) <= 11 &&          // dont bother if they're too far away (moar than 10 spaces)
+nearestFoolishMortal.mineCount > 0) {                                                               // why bother attacking if you wont get anything out of it?
+    task = "attack";
+    console.log("enemy has only " + colors.yellow(nearestFoolishMortal.life + " hp") + " hp left");
+}
+else if (bot.yourBot.life <= 15) {
+    task = "pub";
+}
+else if (bot.freeMines.length > 0) {
+    task = "freemine";
+}
+else if (bot.yourBot.life >= 35 && richestWeakling != "none" && rwNotCamping) {
+    task = "murder";
+}
+else {
+    task = "none";
+}
+console.log("my task: " + colors.bgCyan(task));</code></pre></p>
+            <p class="main-text">Only look for health when you need it, only look for free mines if they exist in the first place, only go on murder
+            mode if you have enough health and there's someone with enough money who's not camping, etc etc etc. Oh and if none of that happens, then
+            don't do anything. Not much going on here. Although you might notice me calling them "foolish mortals". Why am I like this? I try way too
+            hard to be funny.</p>
+
+
+
+
+
+
+
+
+            <p class="main-text" style="margin-top: 90px;">One of the pieces of code I was given to start was this.</p>
+            <p><pre class="hax-txt"><code>var nearestMine = bot.freeMines[0];
+for (i = 0; i < bot.freeMines.length; i++) {
+    if (bot.findDistance(myPos, nearestMine) > bot.findDistance(myPos, bot.freeMines[i])) {
+        nearestMine = bot.freeMines[i];
+    }
+}</code></pre></p>
+            <p class="main-text">It basically finds the nearest free mine and tells the bot where it is. I modified something to the end of the code so
+            that it console logged the nearest pub and how far away it is. From there, I used it to find the nearest pub and the nearest enemy.</p>
+            <p><pre class="hax-txt"><code>var nearestPub = bot.taverns[0];
+for (i = 0; i < bot.taverns.length; i++) {
+    if (bot.findDistance(myPos, nearestPub) > bot.findDistance(myPos, bot.taverns[i])) {
+        nearestPub = bot.taverns[i];
+    }
+}
+console.log(colors.bgGreen("nearest pub") + ": [ " + nearestPub + " ], " + bot.findDistance(myPos, nearestPub) + " blocks away");
+
+var nearestFoolishMortal = enemyBots[0];
+for (i = 0; i < enemyBots.length; i++) {
+    if (bot.findDistance(myPos, [nearestFoolishMortal.pos.x, nearestFoolishMortal.pos.y]) > bot.findDistance(myPos, [enemyBots[i].pos.x, enemyBots[i].pos.y])) {
+        nearestFoolishMortal = enemyBots[i];
+    }
+}
+console.log(colors.bgRed("nearest enemy") + ": " + nearestFoolishMortal.id + ", " + bot.findDistance(myPos, [nearestFoolishMortal.pos.x, nearestFoolishMortal.pos.y]) + " blocks away");</code></pre></p>
+
+
+
+
+
+
+
+
+            <p class="main-text" style="margin-top: 500px;">But surprisingly, even though all that code accounts for the majority of my bot's
+            functions, it accounts for <i>less than half</i> of my bot's code. It turns out the majority of my code is spent trying to figure out who is the
+            richest enemy, and of those people, which ones I should attack. If you thought the stuff up there was a lot, then what's coming up might
+            appear to be overkill. But I think it's worth it, because if you attack the wrong person, you're essentially making yourself bait. No
+            point in trying to attack someone and getting killed in the process, right?</p>
+
+
+
+
+
+
+
+
+            <p class="main-text" style="margin-top: 500px;">Let's start with this.</p>
+            <p><pre class="hax-txt"><code>var weaklings = [];
+for (i = 0; i < enemyBots.length; i++) {
+    if (enemyBots[i].life < bot.yourBot.life) {
+        weaklings.push(enemyBots[i]);
+    }
+}
+console.log("weaklings: ");
+if (weaklings.length > 0) {
+    for (i = 0; i < weaklings.length; i++) {
+        console.log("potential weak target identified: " + colors.yellow(weaklings[i].id));
+    }
+}
+else {
+    console.log(colors.magenta("no weaklings detected"));
+}</code></pre></p>
+            <p class="main-text">This tells the bot which enemies are weaker than it (if any are).</p>
+
+
+
+
+
+
+
+
+            <p class="main-text" style="margin-top: 90px;">Then I did this.</p>
+            <p><pre class="hax-txt"><code>function richTest1() {                                                          // tests to see if there is a richest player
+    for (i = 0; i < enemyBots.length; i++) {
+        if (enemyBots[i].mineCount != enemyBots[0].mineCount) {
+            return true;
+        }
+        return false;
+    }
+}
+richTest1();                                                                    // calls the richTest1 function (applies to all opponents)
+
+var richestEnemy = enemyBots[0];                                                // initialises richestEnemy (not necessarily actual richest opponent)
+var richestEnemies = [];                                                        // just in case the top few, but not all enemies, are equally rich
+if (richTest1) {
+    for (i = 0; i < enemyBots.length; i++) {
+        if (richestEnemy.mineCount < enemyBots[i].mineCount) {
+            richestEnemy = enemyBots[i];
+        }
+    }
+    richestEnemies.push(richestEnemy);                                          // the richest enemy of all obviously consists of the richest enemy
+    for (i = 0; i < enemyBots.length; i++) {
+        if (enemyBots[i].mineCount === richestEnemies[0] && enemyBots[i].id != richestEnemies[0].id) {
+            richestEnemies.push(enemyBots[i]);                                  // if there's anyone just as rich as the richest, then they're also one of the richest
+        }
+    }
+}
+else {
+    richestEnemy = nearestFoolishMortal;                                        // if they're all equally rich, you might as just go for whoever's closest
+}
+console.log(colors.yellow("richest enemy") + ": " + richestEnemy.id + ", " + (richestEnemies.length - 1) + " enemies are equally rich");</code></pre></p>
+            <p class="main-text">The comments should probably explain it enough, but basically, it first checks if any enemy is richer than another.
+            If not, then my bot just goes for the nearest one. (Because why go across the whole map?) But this became mostly for informational
+            purposes. Because I don't necessarily plan to attack the richest enemy, especially if they'll kill me before I kill them. But it does get
+            put into the console log, so I know who I need to beat by the end of the game.</p>
+
+
+
+
+
+
+
+
+            <p class="main-text" style="margin-top: 90px;">Still, I had that problem that I only wanted to deal with the people I <i>could</i> kill, not
+            necessarily everyone richer than me. So I created this.</p>
+            <p><pre class="hax-txt"><code>var richestWeakling;
+var weakOuranKids = [];                                                         // just in case the top few weaklings, but not all weaklings, are equally rich
+if (weaklings.length > 0) {
+    richestWeakling = weaklings[0];                                             // finds the amount of mines the richest player(s) has/have
+    for (i = 0; i < weaklings.length; i++) {
+        if (richestWeakling.mineCount < weaklings[i].mineCount) {
+            richestWeakling = weaklings[i];
+        }
+    }
+    weakOuranKids.push(richestWeakling);                                        // one of the richest weaklings is obviously the most rich one
+    for (i = 0; i < weaklings.length; i++) {
+        if (weaklings[i].mineCount === weakOuranKids[0] && weaklings[i].id != weakOuranKids[0].id) {
+            weakOuranKids.push(weaklings[i]);                                   // if there's anyone just as rich as the richest, then they're also one of the richest
+        }
+    }
+}
+else {
+    richestWeakling = "none";
+}
+if (weakOuranKids.length === 0) {
+    richestWeakling = "none";
+}
+else if (weakOuranKids.length === 1) {
+    if (weakOuranKids[0].mineCount > 0) {
+        richestWeakling = weakOuranKids[0];
+    }
+    else {
+        richestWeakling = "none";
+    }
+}
+else if (weakOuranKids.length > 1) {
+    richestWeakling = weakOuranKids[0];
+    for (i = 0; i < weakOuranKids.length; i++) {
+        if (bot.findDistance(myPos, [weakOuranKids[i].pos.x, weakOuranKids[i].pos.y]) < bot.findDistance(myPos, [richestWeakling.pos.x, richestWeakling.pos.y])) {
+            richestWeakling = weakOuranKids[i];                                 // if there are one or more people equally rich as the richest person, then go for the closest
+        }
+    }
+    if (richestWeakling.minecount < 1) {
+        richestWeakling = "none";
+    }
+}
+if (richestWeakling === "none") {
+    console.log("richest weakling: " + colors.magenta("none"));
+}
+else {
+    console.log("richest weakling: " + richestWeakling.id);
+}</code></pre></p>
+            <p class="main-text">Okay. So this is a lot. Put simply, this finds the ideal target. It looks through every bot who is weaker than me,
+            then finds the richest one. If multiple people are the richest, it finds the closest. It also does some things that accounts for no one
+            being weaker than me and for none of the enemies having any mines (in both cases, the richest weakling becomes "none"). You might notice
+            that I call the rich bots "Ouran Kids". Yeah&#8230; I'm kinda a weeb.</p>
+
+
+
+
+
+
+
+
+            <p class="main-text" style="margin-top: 90px;">At this point, I thought I was done. Like seriously. It's a rather large amount of code
+            just to figure out who to attack. But here's the worst part. When I actually tested my bot, it didn't go so well. Why? Because everyone
+            else in my class was basically making what I call "camper bots". They all just went to get one mine, and then from there, keep standing
+            next to a pub so that they'd never die. This became a problem because my bot would occasionally try to attack them, but they would kill
+            me because they have essentially infinite health, while blocking my access to health at the same time. So I created the section below.</p>
+            <p><pre class="hax-txt"><code>function rwNotCamping() {                                                       // "rw" stands for "richest weakling"
+    if (richestWeakling === "none") {
+        return false;
+    }
+    else {
+        var nearestRWpub = bot.taverns[0];
+        for (i = 0; i < bot.taverns.length; i++) {
+            if (bot.findDistance([richestWeakling.pos.x, richestWeakling.pos.y], nearestRWpub) > bot.findDistance([richestWeakling.pos.x, richestWeakling.pos.y], bot.taverns[i])) {
+                nearestPub = bot.taverns[i];
+            }
+        }
+        if (bot.findDistance([richestWeakling.pos.x, richestWeakling.pos.y], nearestRWpub) <= 4) {
+            return false;                                                       // prevents me from attacking what i call "pub campers"
+        }
+        else if (bot.findDistance([richestWeakling.pos.x, richestWeakling.pos.y], nearestRWpub) <= bot.findDistance(myPos, nearestRWpub)) {
+            if (bot.findDistance([richestWeakling.pos.x, richestWeakling.pos.y], nearestRWpub) < 9) {
+                return false;                                                   // it's not really useful to try to attack them if they're too far away (and will likely get to a
+            }
+            else {
+                return true;
+            }
+        }                                                                       // pub before i can reach them)
+        else {
+            return true;
+        }
+    }
+}
+rwNotCamping();</code></pre></p>
+            <p class="main-text" style="margin-top: 90px;">It checks if the richest weakling is within 3 spaces of a pub. If it is, my bot regards it
+            as "camping" (even if it's just getting health, I decided not to attack them because they'll heal to quickly). For everyone else, I check
+            first where the closet pub they can reach is. Then I check if they're closer to it than I am. If I'm closer, I attack them, because it's
+            very likely I will be able to intercept them before they can get there. If they're closer, though, then I check to make sure they're far
+            enough from the pub. Otherwise, my bot doesn't attack them.</p>
+
+
+
+
+
+
+
+
+            <p class="main-text" style="margin-top: 90px;">and of course, there's my ASCII signature at the top. It also contains the Vindinium keys
+            I use for my bots, just in in case I lose it. It's hard to accidentally delete that giant thing.</p>
+
+            <p><pre class="hax-txt"><code>//                          dP                                           dP                         dP
+//                          88                                           88                         Y"
+//  ,d8888b. dP    dP ,d888b88 88d888b. ,d8888b. dP    dP       ,d8888b. 88d888b. ,d8888b. 88d888b.    ,d8888b.
+//  88'  `88 88    88 88'  `88 88'  `88 88ooood8 88    88 88888 88'  `"" 88'  `88 88'  `88 88'  `88    88(,,,,
+//  88.  ,88 88.  ,88 88.  ,88 88       88.  ,.. 88.  ,88       88.  ,.. 88    88 88.  ,88 88    88     """")88
+//  `88888P8 `88888P' `88888P8 dP       `88888P' `8888P88       `88888P' dP    dP `88888P8 dP    dP    "88888P'
+//                                                   ,88
+//                                               d8888P
+//  dP                  dP       .8888b                              aa                dP aa          aa
+//  88                  88       88                                                    88
+//  88d888b. ,d8888b. d8888P    a8888P ,d8888b. 88d888b.    dP   ,dP dP 88d888b. ,d888b88 dP 88d888b. dP dP    dP 88d8b.d8b.
+//  88'  `88 88'  `88   88       88    88'  `88 88'  `88    88   d8' 88 88'  `88 88'  `88 88 88'  `88 88 88    88 88'`88'`88
+//  88.  ,88 88.  ,88   88       88    88.  ,88 88          88 ,88'  88 88    88 88.  ,88 88 88    88 88 88.  ,88 88  88  88
+//  88Y8888' `88888P'   dP       dP    `88888P' dP          8888P'   dP dP    dP `88888P8 dP dP    dP dP `88888P' dP  dP  dP
+
+
+
+
+//             ad88888ba  88                                                                 88                                     8888888888                  ,ad888ba,
+//            d8"     "8b 88                                                                 88          88                         88          88             d8"     "Y8
+//            Y8a     a8P 88                                                                 88                                     88                         88
+//  ,adPPYba,  "Y8aaa8P"  88  ,adPPYba, 8b,dPPYba,  ,adPPYba,  ,adPPYb,d8 8b,     ,d8        88,dPPYba,  88 8b       d8 8b       d8 88a8PPPP8b, 88 8b       d8 88,dd888bb,
+//  I8(    ""  ,d8"""8b,  88 a8P,,,,,88 88P'    "8a I8(    "" a8"    `Y88  `Y8, ,8P'         88P'    "8a 88 `8b     d8' `8b     d8' PP"     `8b 88 `8b     d8' 88P'   `Y8b
+//   `"Y8ba,  d8"     "8b 88 8PP""""""" 88       d8  `"Y8ba,  8b      :88    :888:           88       88 88  `8b   d8'   `8b   d8'           d8 88  `8b   d8'  88      :88
+//  aa    )8I Y8.     ,8P 88 "8b,   ,aa 88b.   ,a8" aa    )8I "8a    ,d88  ,d8" "8b,         88       88 88   `8b,d8'     `8b,d8'   Y8a     a8P 88   `8b.d8'   88a     a8P
+//  `"YbbdP"'  "Y88888P"  88  `"Ybbd8"' 88`"Y88P"'  `"YbbdP"'  `"YbbdP'88 8P'     `Y8        88       88 88     Y88'        Y88'     "Y88888P"  88     Y8Y      "Y88888P"
+//                                      88                             88                                       d8'         d8'                ,88
+//                                      88                             88                                      d8'         d8'               888P"</code></pre></p>
+            <p class="main-text">And that's just about it!</p>
 
 
 
@@ -125,15 +561,17 @@
 
 
             <h3 id="vindinium3">What I Learned</h3>
-            <div class="img-border">
-                <img src="http://vaguehope.com/uploads/2010/12/yuki420.gif" width="30%" alt="html" class="floatleft">
+            <div class="default-img img-border">
+                <img src="https://media.giphy.com/media/oQgIhA9CG8lUY/giphy.gif" width="30%" alt="html" class="floatleft">
             </div>
-            <p class="main-text">If there's one thing I can say I understand better because of this, it's arrays.</p>
+            <p class="main-text">If there's one thing I can say I understand better because of this, it's arrays. There are just so many array items
+            in Vindinium that I was pretty much forced to use them. Even the map itself is an array of arrays. And finding data about my enemies
+            often involved me looking at arrays within arrays. But it was definitely worth learning.</p>
+            <p class="main-text">I learned about array indices, how to create arrays, and how to add items into arrays. Interestingly, from my
+            previous work from the space shooter game, I knew how to get items out of arrays (but I didn't need to use it here), but I wasn't
+            particularly good at creating the arrays themselves. So yeah. This project basically taught me that. Yay!</p>
+            <br>
+            <br>
         </div>
     </body>
 </html>
-
-<!--describe game, at least what it is, how it's played, how it's won
-    describe code, at least what your bot does and how
-    what you learned
-    http://adrielobongalon.github.io/cs-portfolio/vindinium.html-->

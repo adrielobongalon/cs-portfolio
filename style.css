@@ -56,6 +56,12 @@ body {
     margin-top: 20%;
     padding: 0;
 }
+.header h1::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.header h1::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
 
 
 
@@ -76,6 +82,12 @@ body {
     font-size: 40px;
     padding: 0.5% 6% 0.5%;
     margin: 0;
+}
+.name h1::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.name h1::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
 }
 
 
@@ -101,6 +113,12 @@ body {
 .welcome {
     text-align: center;
 }
+.welcome h5::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.welcome h5::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
 
 
 
@@ -117,6 +135,12 @@ body {
     border-radius: 23px;
     margin-top: 100px;
     transition: 0.5s all;
+}
+.welcome a::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.welcome a::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
 }
 
 
@@ -220,6 +244,12 @@ body {
     color: #00ffff;
     transition: 0.4s background-color;
 }
+.nav li a::selection {
+    background: #ffffff; /* WebKit/Blink Browsers */
+}
+.nav li a::-moz-selection {
+    background: #ffffff; /* Gecko Browsers */
+}
 
 
 
@@ -261,6 +291,44 @@ body {
     padding: 0 20px;
     margin: 10px 0 15px;
 }
+.main-text::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.main-text::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
+
+
+
+
+i::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+i::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
+b::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+b::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
+p.main-text a::election {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+p.main-text a::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
+
+
+
+
+br::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+br ::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
 
 
 
@@ -272,6 +340,12 @@ body {
     text-align: justify;
     padding: 0 10px;
     margin: 10px 0 15px;
+}
+.sidebar-text::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.sidebar-text::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
 }
 
 
@@ -329,6 +403,12 @@ h2 {
     margin: 20px 20px 0;
     border-bottom: 1px solid #a1a1a1;
 }
+h2::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+h2::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
 
 
 
@@ -342,6 +422,12 @@ h3 {
     border-bottom: 1px solid #a1a1a1;
     padding-top: 10px;
 }
+h3::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+h3::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
 
 
 
@@ -354,6 +440,12 @@ h4 {
     margin: 15px 10px 0;
     border-bottom: 1px solid #a1a1a1;
     padding-top: 10px;
+}
+h4::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+h4::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
 }
 
 
@@ -497,6 +589,12 @@ td {
     vertical-align: top;
     /*border: 1px solid red;*/
 }
+.td::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.td::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
 
 
 
@@ -527,6 +625,12 @@ td.mono {
     border-bottom: none;
     font-size: 20px;
 }
+.table-title::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.table-title::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
 
 
 
@@ -534,6 +638,12 @@ td.mono {
 .table-footnote {
     border-bottom: none;
     font-size: 10px;
+}
+.table-footnote::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.table-footnote::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
 }
 
 
@@ -544,6 +654,12 @@ td.mono {
     font-size: 10px;
     border-radius: 1px;
 }
+.mono-footnote::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.mono-footnote::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
 
 
 
@@ -552,6 +668,15 @@ td.mono {
     border: 2px solid #eeeeee;
     border-radius: 3px;
     box-shadow: 2px 2px 3px #333333;
+}
+img::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+img::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
+}
+
+.default-img img{
     margin: 5px 20px;
     display: inline-block;
 }
@@ -559,22 +684,12 @@ td.mono {
 
 
 
-/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* vv----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----v----vv */
 
 .caption-box {
     margin: 5px 20px 0;
 }
 /* make sure to manually add the width and the side to float it to in the html */
-
-
-
-
-.img-with-caption img {
-    border: 2px solid #eeeeee;
-    border-radius: 3px;
-    box-shadow: 2px 2px 3px #333333;
-    display: inline-block;
-}
 
 
 
@@ -588,7 +703,7 @@ td.mono {
     text-align: center;
 }
 
-/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ^^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^----^^ */
 
 
 
@@ -624,6 +739,12 @@ td.mono {
     background-color: #efefef;
     padding: 1px 2px;
     border-radius: 2px;
+}
+.offwhite-highlight::selection {
+    background: #dd99ff; /* WebKit/Blink Browsers */
+}
+.offwhite-highlight::-moz-selection {
+    background: #dd99ff; /* Gecko Browsers */
 }
 
 
@@ -677,6 +798,21 @@ space, rather than just the text)*/
     /*height: 100%;*/
     width: 75%;
     border-radius: 5px;
+}
+
+
+
+
+.hax-txt {
+    font-family: "Cousine", monospace;
+    padding: 15px 15px;
+    font-size: 10px;
+    /*line-height: 90%;*/
+    margin: 10px 20px 15px;
+    background-color: #000000;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    box-shadow: 2px 2px 3px #333333;
 }
 
 
@@ -751,9 +887,6 @@ space, rather than just the text)*/
     transition: 0.4s color;
 }
 
-
-
-
 #dropdown:hover, #submitButton:hover, #twiliobutton:hover, #twiliobutton-text-audrey:hover, #twiliobutton-text-jelly:hover, #twiliobutton-call:hover,
 #twiliobutton-call-audrey:hover, #twiliobutton-call-jelly:hover, #clear-button:hover, #reset-button:hover, #draw-slow:hover, #draw-med:hover,
 #draw-fast:hover {
@@ -761,10 +894,6 @@ space, rather than just the text)*/
     margin: 1px 0 1px;
     color: #00cccc;
 }
-
-
-
-
 #dropdown:active, #submitButton:active, #twiliobutton:active, #twiliobutton-text-audrey:active, #twiliobutton-text-jelly:active,
 #twiliobutton-call:active, #twiliobutton-call-audrey:active, #twiliobutton-call-jelly:active, #clear-button:active, #reset-button:active,
 #draw-slow:active, #draw-med:active, #draw-fast:active {
@@ -772,6 +901,11 @@ space, rather than just the text)*/
     margin: 1px 0 1px;
     color: #66ff66;
 }
+/*#dropdown::selection, #submitButton::selection, #twiliobutton::selection, #twiliobutton-text-audrey::selection, #twiliobutton-text-jelly::selection,*/
+/*#twiliobutton-call::selection, #twiliobutton-call-audrey::selection, #twiliobutton-call-jelly::selection, #clear-button::selection, #reset-button::selection,*/
+/*#draw-slow::selection, #draw-med::selection, #draw-fast::selection {*/
+/*    background: #dd99ff;*/
+/*}*/
 
 
 
