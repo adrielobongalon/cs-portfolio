@@ -32,7 +32,7 @@ var enemyImage = document.getElementById("enemy");
 var enemyDamagedImage = document.getElementById("enemy-damaged");
 var explosion1 = document.getElementById("explosion1");
 var explosion2 = document.getElementById("explosion2");
-var enemyExplosionSequence = [enemyDamagedImage, explosion1, explosion1, explosion2, explosion2];
+var enemyExplosionSequence = 0;
 
 var redBulletImage = document.getElementById("red-bullet");
 var greenBulletImage = document.getElementById("green-bullet");
@@ -187,12 +187,26 @@ var enemy = {                                                                   
     canShoot: false,
     exploding: false,
     hp: 100,                                                                    // enemy starts out with 100HP
-    explodePhase1: false,
-    explodePhase2: false,
-    explodePhase3: false,
     gone: false,
-    winMessage: false,
+    displayYouWin: false,
 
+    skinSelect: function() {
+        if (enemyExplosionSequence === 0) {                                     // these numbers don't need to be defined as ranges.
+            opponentSkin = enemyImage;                                          // they only change it, so you don't need to set the skin
+        }                                                                       // every count
+        if (enemyExplosionSequence === 1) {
+            opponentSkin = enemyDamagedImage;
+        }
+        if (enemyExplosionSequence === 20) {
+            opponentSkin = explosion1;
+        }
+        if (enemyExplosionSequence === 60) {
+            opponentSkin = explosion2;
+        }
+        if (enemyExplosionSequence === 100) {
+            this.gone = true;
+        }
+    },
     draw: function() {                                                          // draws the enemy at the approprate location
         ctx.drawImage(opponentSkin, this.xPos - this.width / 2, this.yPos, this.width, this.height);
     },
@@ -206,39 +220,33 @@ var enemy = {                                                                   
 
 // GAME STATE DETECTION
 function detectStart() {
-    // if (!gameStarted) {
-    //     ctx.beginPath();
-    //     ctx.font = "33px 'Press Start 2P'";                                     // ...and displays the "you win" message
-    //     ctx.fillStyle = "#44ff44";
-    //     ctx.strokeStyle = "#111111";
-    //     ctx.textAlign = "center";
-    //     ctx.fillText("press space", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 - 30);
-    //     ctx.strokeText("press space", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 - 30);
+    if (!gameStarted) {
+        ctx.beginPath();
+        ctx.font = "33px 'Press Start 2P'";                                     // ...and displays the "you win" message
+        ctx.fillStyle = "#44ff44";
+        ctx.strokeStyle = "#111111";
+        ctx.textAlign = "center";
+        ctx.fillText("press space", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 - 30);
+        ctx.strokeText("press space", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 - 30);
 
-    //     ctx.font = "33px 'Press Start 2P'";
-    //     ctx.textAlign = "center";
-    //     ctx.fillText("to start", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 + 10);
-    //     ctx.strokeText("to start", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 + 10);
-    // }
+        ctx.font = "33px 'Press Start 2P'";
+        ctx.textAlign = "center";
+        ctx.fillText("to start", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 + 10);
+        ctx.strokeText("to start", spacegamecanvas.width / 2, (spacegamecanvas.height / 3) * 2 + 10);
+    }
 }
 
-var playerWon = false;
-var displayYouWin = false;
+// var displayYouWin = false;
 function detectWin() {
-    enemy.canShoot = false;                                                     // enemy cannot shoot if dead
-
-    opponentSkin = enemyDamagedImage;
-    window.setTimeout(function() {
-        opponentSkin = explosion1;
-        window.setTimeout(function() {
-            opponentSkin = explosion2;
-        }, 500);
-    }, 250);
+    if (enemy.hp <= 0) {
+        enemy.canShoot = false;                                                 // enemy cannot shoot if dead
+        enemyExplosionSequence++;
+    }
 }
 function detectWinMessage() {
-    if (displayYouWin === true) {
+    if (enemy.displayYouWin === true) {
         ctx.beginPath();
-        ctx.rect(0, 0, spacegamecanvas.width, spacegamecanvas.height);          // if enemy is dead, screen slightly fades to white...
+        ctx.rect(0, 0, spacegamecanvas.width, spacegamecanvas.height);          // if enemy is dead and explosion animation is complete, screen slightly fades to white...
         ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
         ctx.fill();
     
@@ -253,8 +261,6 @@ function detectWinMessage() {
 
 function detectLose() {                                                         // function detects if the player is dead (HP <= 0)
     if (ship.hp <= 0) {
-        ship.canShoot = false;                                                  // ship cannot shoot if dead
-
         ctx.beginPath();
         ctx.rect(0, 0, spacegamecanvas.width, spacegamecanvas.height);          // if player is dead, screen slightly fades to white...
         ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
@@ -346,6 +352,7 @@ function gameLoop() {
     // it's harder to shoot the enemy ship
 
     if (enemy.gone === false) {
+        enemy.skinSelect();
         enemy.draw();                                                           // draws the enemy
     }
     if (enemy.hp < 0) {
@@ -380,7 +387,6 @@ function gameLoop() {
 
     if ((enemy.xPos >= ship.xPos) && ((enemy.xPos + enemy.width) <= (ship.yPos + ship.width))) {
         if (enemy.canShoot) {
-            console.log("in between");
             enemyBullets.push(new EnemyBullet(enemy.xPos - 1, enemy.yPos + enemy.height, 25, 2));
             enemy.canShoot = false;
             window.setTimeout(function(){
@@ -412,10 +418,9 @@ function gameLoop() {
 
 // GAME STATUS
     detectStart();
-    if (enemy.hp <= 0 && playerWon === false) {
-        enemy.canShoot = false;
-        playerWon = true;
-        detectWin();                                                            // calls the fuction that detects if the enemy is dead
+    detectWin();                                                                // calls the fuction that detects if the enemy is dead
+    if (enemyExplosionSequence === 180) {
+        enemy.displayYouWin = true;
     }
     detectWinMessage();
     detectLose();
