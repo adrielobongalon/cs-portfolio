@@ -58,13 +58,23 @@
                 <li><a href="spaceshootergame.html">Space Duel</a>          </li>
                 <li><a href="synth.html">Synth</a>                          </li>
                 <li><a href="vindinium.html">Vindinium</a>                  </li>
-                <li><a href="geniusproject.html">Genius Project</a>         </li>
+                <li class="dropdown">
+                    <a href="geniusproject.html" class="dropdownbox">Genius Project</a>
+                    <div class="dropdownitems">
+                        <a href="geniusproject.html">Blog 1</a>
+                        <a href="geniusproject2.html">Blog 2</a>
+                        <a href="geniusproject3.html">Blog 3</a>
+                        <a href="geniusproject4.html">Blog 4</a>
+                        <a href="geniusproject5.html">Blog 5</a>
+                        <a href="geniusproject6.html">Blog 6</a>
+                    </div>
+                </li>
                 <li><a href="gifs.html">Gifs</a>                            </li>
                 <li><a href="aboutme.html">About Me</a>                     </li>
             </ul>
         </div>
         <div class="content-box">
-            <div class="small-main">
+            <div class="smol-main">
                 <h2>Synthesiser</h2>
                 <img src="pianoKeyboard.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
                 style="display:none;" id="pianoKeyboard">
@@ -72,7 +82,10 @@
                 <canvas id="synthcanvas" width="800" height="275">aw. the simulator wont work. your browser doesn't support the HTML5 canvas tag
                 *(&gt;n&lt;)*</canvas>
                 
-                <p class="main-text" style="margin: 0px 0px 2px">keys: <span id="pianokeysdisplay"></span></p>
+                <p class="main-text" style="margin: 0px 0px 2px; display: inline-block;">white keys: <span id="whitekeysdisplay"></span></p>
+                <p class="main-text" style="margin: 0px 0px 2px; display: inline-block;">black keys: <span id="blackkeysdisplay"></span></p>
+                <p class="main-text" style="margin: 0px 0px 2px; display: inline-block;">total keys: <span id="totalkeysdisplay"></span></p>
+                <br>
                 <input type="range" id="keyspanSlider" min="7" max="50" defaultValue="10" value="10">
             </div>
             <div class="sidebar">

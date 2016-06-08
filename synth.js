@@ -44,11 +44,11 @@ function findMousePos(event) {
     mousex -= synthcanvas.offsetLeft;                                           // resets position within canvas
     mousey -= synthcanvas.offsetTop;
 
-    alert("x: " + mousex + "\n" + "y: " + mousey);
+    // alert("x: " + mousex + "\n" + "y: " + mousey);
 }
 function detectClickedKey(event) {
     for (i = 0; i < keys.length; i++) {
-        if(keys[i].isClicked() != false){
+        if(keys[i].isClicked()){
             clickedKey = keys[i];
         } 
     }
@@ -58,8 +58,10 @@ function detectClickedKey(event) {
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 
 var keyslider = document.getElementById("keyspanSlider");
-var keysdisplay = document.getElementById("pianokeysdisplay");
-keyslider.addEventListener("change", redrawKeys);
+var whiteKeysDisplay = document.getElementById("whitekeysdisplay");
+var blackKeysDisplay = document.getElementById("blackkeysdisplay");
+var totalKeysDisplay = document.getElementById("totalkeysdisplay");
+// keyslider.addEventListener("change", redrawKeys);
 
 var keyspan = parseInt(keyslider.value, 10);                                    // number of white keys
 var keyheight = synthcanvas.height * (19 / 20);
@@ -69,6 +71,7 @@ function LeftKey(x, y, note) {
     this.x = x;
     this.y = y;
     this.note = note;
+    this.colour = "#ffffff";
     this.pressed = false;
 
     this.draw = function() {
@@ -85,7 +88,7 @@ function LeftKey(x, y, note) {
         ctx.strokeStyle = "#252525";
         ctx.stroke();
         if (this.pressed === false) {
-            ctx.fillStyle = "#ffffff";
+            ctx.fillStyle = this.colour;
             ctx.fill();
         }
         else {
@@ -96,6 +99,8 @@ function LeftKey(x, y, note) {
     this.isClicked = function(mousex, mousey) {
         if ((mousex > this.x && mousex < this.x + (keywidth * (3 / 4)) && mousey > 0 && mousey < keyheight * (4 / 7)) ||
         (mousex > this.x && mousex < this.x + keywidth && mousey > keyheight * (4 / 7) && mousey < synthcanvas.height)) {
+            alert("hi")
+            this.colour = "#00ff00";
             return this.note;
         }
         else {
@@ -128,8 +133,8 @@ function MiddleKey(x, y, note) {
         ctx.fill();
     };
     this.isClicked = function(mousex, mousey) {
-        if ((mousex > this.x + (keywidth / 4) && mousex < this.x + (keywidth * (3 / 4)) && mousey > 0 && mousey < keyheight * (4 / 7)) ||
-        (mousex > this.x && mousex < this.x + keywidth && mousey > keyheight * (4 / 7) && mousey < synthcanvas.height)) {
+        if ((mousex >= this.x + (keywidth / 4) && mousex <= this.x + (keywidth * (3 / 4)) && mousey >= 0 && mousey <= keyheight * (4 / 7)) ||
+        (mousex >= this.x && mousex <= this.x + keywidth && mousey >= keyheight * (4 / 7) && mousey <= synthcanvas.height)) {
             return this.note;
         }
         else {
@@ -160,8 +165,8 @@ function RightKey(x, y, note) {
         ctx.fill();
     };
     this.isClicked = function(mousex, mousey) {
-        if ((mousex > this.x + (keywidth / 4) && mousex < this.x + keywidth && mousey > 0 && mousey < keyheight * (4 / 7)) ||
-        (mousex > this.x && mousex < this.x + keywidth && mousey > keyheight * (4 / 7) && mousey < synthcanvas.height)) {
+        if ((mousex >= this.x + (keywidth / 4) && mousex <= this.x + keywidth && mousey >= 0 && mousey <= keyheight * (4 / 7)) ||
+        (mousex >= this.x && mousex <= this.x + keywidth && mousey >= keyheight * (4 / 7) && mousey <= synthcanvas.height)) {
             return this.note;
         }
         else {
@@ -190,7 +195,7 @@ function EndKey(x, y, note) {
         ctx.fill();
     };
     this.isClicked = function(mousex, mousey) {
-        if (mousex > this.x && mousex < this.x + keywidth && mousey > 0 && mousey < synthcanvas.height) {
+        if (mousex >= this.x && mousex <= this.x + keywidth && mousey >= 0 && mousey <= synthcanvas.height) {
             return this.note;
         }
         else {
@@ -219,7 +224,7 @@ function BlackKey(x, y, note) {
         ctx.fill();
     };
     this.isClicked = function(mousex, mousey) {
-        if (mousex > this.x - (keywidth / 4) && mousex < this.x + (keywidth / 4) && mousey > 0 && mousey < keyheight * (4 / 7)) {
+        if (mousex >= this.x - (keywidth / 4) && mousex <= this.x + (keywidth / 4) && mousey >= 0 && mousey <= keyheight * (4 / 7)) {
             return this.note;
         }
         else {
@@ -257,6 +262,28 @@ function pushKeys() {
 }
 pushKeys();
 
+function findBlackKeysDisplay() {
+    if (keyspan % 7 === 0 || keyspan % 7 === 1) {
+        return Math.floor((keyspan / 7) * 5);
+    }
+    else if (keyspan % 7 === 2) {
+        return Math.floor(((keyspan - 2) / 7) * 5) + 1;
+    }
+    else if (keyspan % 7 === 3 || keyspan % 7 === 4) {
+        return Math.floor(((keyspan - 3) / 7) * 5) + 2;
+    }
+    else if (keyspan % 7 === 5) {
+        return Math.floor(((keyspan - 5) / 7) * 5) + 3;
+    }
+    else if (keyspan % 7 === 6) {
+        return Math.floor(((keyspan - 6) / 7) * 5) + 4;
+    }
+}
+
+function findTotalKeysDisplay() {
+    return keyspan + findBlackKeysDisplay();
+}
+
 function redrawKeys() {
     keywidth = synthcanvas.width / keyspan;
     keys = [];
@@ -270,7 +297,13 @@ function drawLoop() {
     // drawpiano();
 
     keyspan = parseInt(keyslider.value, 10);
-    keysdisplay.innerHTML = keyspan;
+    whiteKeysDisplay.innerHTML = keyspan;
+    findBlackKeysDisplay();
+    blackKeysDisplay.innerHTML = findBlackKeysDisplay();
+    findTotalKeysDisplay();
+    totalKeysDisplay.innerHTML = findTotalKeysDisplay();
+    
+    redrawKeys();
 
     for (i = 0; i < keys.length; i++) {
         keys[i].draw();
