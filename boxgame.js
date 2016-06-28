@@ -1,19 +1,21 @@
-//  Document   : boxgame.js, for cs-portfolio
-//  Created on : Wednesday, Jaunary 6, 2016, 15:02 PM
-//  Author     : Adrielo (Audrey) Bongalon
-//  Description: box game javascript file, for 10th grade computer science expeditions course
+/*
+       document : boxgame.js, for cs-portfolio
+     created on : wednesday, jaunary 6, 2016, 15:02 PM
+         author : adrielo (audrey) bongalon
+    description : box game javascript file, for 10th grade computer science expeditions course
 
 
-//                                      88
-//                                      88
-//                                      88
-//    ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
-//    ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
-//    ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
-//    88,    ,88  "8a,   ,a88  "8a,   ,d88  88          "8b,   ,aa    `8b,d8'
-//    `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
-//                                                                      d8'
-//                                                                     d8'
+                                     88
+                                     88
+                                     88
+    ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
+    ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
+    ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
+    88,    ,88  "8a,   ,a88  "8a,   ,d88  88          "8b,   ,aa    `8b,d8'
+    `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
+                                                                     d8'
+                                                                    d8'
+*/
 
 
 var boxgamecanvas = document.getElementById("boxgamecanvas");                   // gets the canvas from the html and gives it a variable name

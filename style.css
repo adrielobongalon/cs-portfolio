@@ -1,9 +1,8 @@
 /*
-    Document   : style.css, for cs-portfolio
-    Created on : Monday, October 12, 2015,
-    Author     : Adrielo (Audrey) Bongalon
-    Description: css stylesheet, for 10th grade computer science expeditions course
-
+       document : style.css, for cs-portfolio
+     created on : monday, october 12, 2015, (time unknown)
+         author : adrielo (audrey) bongalon
+    description : css stylesheet, for 10th grade computer science expeditions course
 
                                         88
                                         88
@@ -15,9 +14,13 @@
       `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
                                                                         d8'
                                                                        d8'
-    You like my design, huh? Feel free to check it out!
-    I'm glad you're curious. (^-^)
+
+    you like my design, huh? feel free to check it out!
+    i'm glad you're curious (^-^)
 */
+
+
+
 
 root {
     display: block;

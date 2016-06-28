@@ -1,19 +1,21 @@
-//  Document   : spaceshootergame.js, for cs-portfolio
-//  Created on : Tuesday, Jaunary 12, 2016, 09:44 AM
-//  Author     : Adrielo (Audrey) Bongalon
-//  Description: space shooter game javascript file, for 10th grade computer science expeditions course
+/*
+       document : spaceshootergame.js, for cs-portfolio
+     created on : tuesday, jaunary 12, 2016, 09:44 AM
+         author : adrielo (audrey) bongalon
+    description : space shooter game javascript file, for 10th grade computer science expeditions course
 
 
-//                                      88
-//                                      88
-//                                      88
-//    ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
-//    ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
-//    ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
-//    88,    ,88  "8a,   ,a88  "8a,   ,d88  88          "8b,   ,aa    `8b,d8'
-//    `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
-//                                                                      d8'
-//                                                                     d8'
+                                     88
+                                     88
+                                     88
+    ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
+    ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
+    ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
+    88,    ,88  "8a,   ,a88  "8a,   ,d88  88          "8b,   ,aa    `8b,d8'
+    `"8bbdP"Y8   `"YbbdP'Y8   `"8bbdP"Y8  88           `"Ybbd8"'      Y88'
+                                                                     d8'
+                                                                    d8'
+*/
 
 
 var spacegamecanvas = document.getElementById("spacegamecanvas");               // gets the canvas from the html and gives it a variable name

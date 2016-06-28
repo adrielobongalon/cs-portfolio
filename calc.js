@@ -1,7 +1,8 @@
-/*  Document   : calc.js, for cs-portfolio
-    Created on : Tuesday, Jaunary 5, 2016, 13:50 PM
-    Author     : Adrielo (Audrey) Bongalon
-    Description: calculator javascript file, for 10th grade computer science expeditions course
+/*
+       document : calc.js, for cs-portfolio
+     created on : tuesday, jaunary 5, 2016, 13:50 PM
+         author : adrielo (audrey) bongalon
+    description : calculator javascript file, for 10th grade computer science expeditions course
 
 
                                         88
