@@ -5,9 +5,9 @@
     description : approximates the value of pi using an infinite series, just for the hell of it
 
 
-                                     88
-                                     88
-                                     88
+                                      88
+                                      88
+                                      88
     ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
     ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
     ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
@@ -43,6 +43,9 @@ console.log("complete");
 
 /*  
                     4       4       4       4       4
-        pi = 4  -  ---  +  ---  -  ---  +  ---  -  ----  +  ...
+        pi ~= 4 -  ---  +  ---  -  ---  +  ---  -  ----  +  ...
                     3       5       7       9       11
+
+    note: it's an approximation. some digits will be incorrect. see
+    https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80
 */

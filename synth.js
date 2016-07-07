@@ -5,9 +5,9 @@
     description : synthesiser simulator javascript file, for 10th grade computer science expeditions course
 
 
-                                     88
-                                     88
-                                     88
+                                      88
+                                      88
+                                      88
     ,adPPYYba,  88       88   ,adPPYb,88  8b,dPPYba,   ,adPPYba,  8b       d8
     ""     `Y8  88       88  a8"    `Y88  88P'   "Y8  a8P,,,,,88  `8b     d8'
     ,adPPPPP88  88       88  8b      :88  88          8PP"""""""   `8b   d8'
