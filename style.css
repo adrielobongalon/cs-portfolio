@@ -908,7 +908,7 @@ space, rather than just the text)*/
 
 
 
-#input1, #input2, #phoneNumberInput, #messageInput {
+#input1, #input2, #phoneNumberInput, #messageInput, #flirtInput {
     font-family: "Open Sans", sans-serif;
     margin: 1px 0 1px;
 }
