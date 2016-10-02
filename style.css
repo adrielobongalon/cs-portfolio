@@ -887,6 +887,9 @@ space, rather than just the text)*/
 #input1, #input2 {
     width: 50px;
 }
+#flirtInput {
+    width: 70%;
+}
 
 
 
@@ -992,6 +995,23 @@ space, rather than just the text)*/
 
 #keyspanSlider {
     margin: 5px 20px 40px;
+}
+
+
+
+
+#stttCanvas {
+    margin: 5px 20px 10px;
+    border: 1px solid #a1a1a1;
+    background-color: #dd99ff;
+    background-color: rgba(170, 102, 255, 0.5);
+    background-image: url("blackBackgroundPaisley.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 

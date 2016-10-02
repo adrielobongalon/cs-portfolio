@@ -35,17 +35,23 @@ function replaceWords(editThis) {
     words = editThis.split(" ");
     for (i = 0; i < words.length; i++) {
         // word replacements
-        if (words[i] === "hey") {
+        if (words[i] === "hey" || words[i] === "hi") {
             words[i] = "heeeeeeey";
         }
         else if (words[i] === "you") {
             words[i] = "yoooouuu";
         }
+        else if (words[i] === "me") {
+            words[i] = "meeeeeee";
+        }
+        else if (words[i] === "love") {
+            words[i] = "loooovvvee";
+        }
         else if (words[i] === "cute") {
             words[i] = "cuuuuuuute";
         }
-        else if (words[i] === "me") {
-            words[i] = "meeeeeee";
+        else if (words[i] === "hate") {
+            words[i] = "haaaaaaate";
         }
 
 
@@ -72,3 +78,5 @@ function translate() {
     }
     display.innerHTML = translation;
 }
+
+// todo: add moar replacements, account for capital letters, flirty font

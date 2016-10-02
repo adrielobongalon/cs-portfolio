@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
-       document : flirttext.html, for cs-portfolio
-     created on : wednesday, august 17, 2016, 11:53 AM
-         author : adrielo (audrey) bongalon
-    description : html page for the flirt text thingy-wingy
+       document : superTicTacToe.html, for cs-portfolio
+     created on : thursday, september 29, 2016, 15:49 PM
+         author : audrey
+    description : html page for a super-tic-tac-toe game
 
                                ___
                               /\  \
@@ -19,9 +19,9 @@
 <html lang="en">
     <head>
     	<meta charset="utf-8">
-    	<title>Flirt Translator</title>
+    	<title>Super Tic-Tac-Toe</title>
     	<link rel="stylesheet" type="text/css" href="style.css">
-    	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans" rel="stylesheet" type="text/css">
+    	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans%7cPress+Start+2P" rel="stylesheet" type="text/css">
 
         <link rel="apple-touch-icon" sizes="57x57" href="audreyfavicons/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="audreyfavicons/apple-touch-icon-60x60.png">
@@ -46,18 +46,18 @@
     </head>
     <body>
         <div class="name">
-            <h1>Adrielo Bongalon</h1>
+            <h1>audrey_hepburn()</h1>
         </div>
         <div class="nav">
             <ul>
-                <li><a href="home.html" class="left-border">Home</a>        </li>
-                <li><a href="htmlcss.html">HTML and CSS</a>                 </li>
-                <li><a href="calc.html">Calculator</a>                      </li>
-                <li><a href="boxgame.html">Box Game</a>                     </li>
-                <li><a href="twilio_thing.html">Texting Tool</a>            </li>
-                <li><a href="spaceshootergame.html">Space Duel</a>          </li>
-                <li><a href="synth.html">Synth</a>                          </li>
-                <li><a href="vindinium.html">Vindinium</a>                  </li>
+                <li><a href="home.html" class="left-border">Home</a>                                        </li>
+                <li><a href="htmlcss.html">HTML and CSS</a>                                                 </li>
+                <li><a href="calc.html">Calculator</a>                                                      </li>
+                <li><a href="boxgame.html">Box Game</a>                                                     </li>
+                <li><a href="twilio_thing.html">Texting Tool</a>                                            </li>
+                <li><a href="spaceshootergame.html">Space Duel</a>                                          </li>
+                <li><a href="synth.html">Synth</a>                                                          </li>
+                <li><a href="vindinium.html">Vindinium</a>                                                  </li>
                 <li class="dropdown">
                     <a href="geniusproject.html" class="dropdownbox">Genius Project</a>
                     <div class="dropdownitems">
@@ -69,21 +69,26 @@
                         <a href="geniusproject6.html">Blog 6</a>
                     </div>
                 </li>
-                <li><a href="gifs.html">Gifs</a>                            </li>
-                <li><a href="aboutme.html">About Me</a>                     </li>
+                <li><a href="gifs.html">Gifs</a>                                                            </li>
+                <li><a href="aboutme.html">About Me</a>                                                     </li>
             </ul>
         </div>
         <div class="content-box">
-            <!-- div stylings are stolen from the calculator page lol -->
-            <div class="calculator-box">
-                <h2>Make Your Words Flirty!</h2>
-                <div class="calculator">
-                    <input type="text" name="flirtInput" id="flirtInput" autofocus="on">
-                    <input type="button" value="translate" id="translateButton">
-                </div>
-                <p class="main-text">how to say it flirty: <span id="flirtDisplay"></span></p>
+            <div class="smol-main">
+                <h2>Super Tic-Tac-Toe</h2>
+                <img src="galaga-spaceship-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
+                style="display: none;" id="spaceship">
+    
+                <canvas id="stttCanvas" width="500" height="500">aw. the game wont work. your browser doesn't support the HTML5 canvas tag
+                *(&gt;n&lt;)*</canvas>
+            </div>
+            <div class="sidebar">
+                <h4>Instructions</h4>
+                <p class="sidebar-text"><span class="mono-side offwhite-highlight">left mouse-click</span> to move do stuff</p>
+                <p class="sidebar-text">If you don't know how to play this, click 
+                <a href="https://mathwithbaddrawings.com/ultimate-tic-tac-toe-original-post/" target="_blank">here</a> to read the rules.</p>
             </div>
         </div>
-        <script src="flirttext.js"></script>
+        <script src="superTicTacToe.js"></script>
     </body>
 </html>
