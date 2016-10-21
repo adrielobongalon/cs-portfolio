@@ -22,6 +22,7 @@ var canvas = document.getElementById("stttCanvas");
 var ctx = canvas.getContext("2d");
 
 var i = 0;
+var turn = "x";
 
 
 
@@ -30,7 +31,31 @@ var i = 0;
 
 
 
-canvas.addEventListener("mousedown", findMousePos, true);
+canvas.addEventListener("mousedown", onClick, true);
+
+function onClick() {
+    findMousePos(event);
+
+    if (turn == "x") {
+        turn = "o";
+    }
+    else {
+        turn = "x";
+    }
+
+    showData();
+}
+
+function showData() {
+    alert("x: " + mousex + "\n" + "y: " + mousey + "\n\n" + "turn: " + turn);
+}
+
+
+
+
+
+
+
 
 var mousex;
 var mousey;
@@ -47,9 +72,39 @@ function findMousePos(event) {
 
     mousex -= canvas.offsetLeft;                                                // resets position within canvas
     mousey -= canvas.offsetTop;
-
-    alert("x: " + mousex + "\n" + "y: " + mousey);
 }
+
+
+
+
+
+
+
+
+function Square(xPos, yPos, height, width) {                                    // the object constructor for each bullet
+    this.xPos = xPos;                                                           // defaults the values for each bullet
+    this.yPos = yPos;
+    this.height = height;
+    this.width = width;
+
+    this.drawX = function() {
+        alert("draw x");
+    };                   
+
+    this.drawO = function() {
+        alert("draw o");
+    };
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -131,6 +186,9 @@ function drawSmolBoards() {
                   canvas.width, bigBoardLineThickness + (2 * smolBoardBuffer));
 }
 
+
+
+
 // FOR DEVELOPMENT PURPOSES ONLY
 // DO NOT RUN IN FINAL GAME
 function drawGuides() {
@@ -157,11 +215,18 @@ function drawGuides() {
     }
 }
 
+
+
+
+
+
+
+
 function draw() {
     drawSmolBoards();
     drawBigBoard();
 
-    // drawGuides();
+    drawGuides();
 }
 
 draw();
