@@ -22,6 +22,7 @@ var canvas = document.getElementById("stttCanvas");
 var ctx = canvas.getContext("2d");
 
 var i = 0;
+var j = 0;
 var turn = "x";
 
 
@@ -57,6 +58,19 @@ function showData() {
 
 
 
+/*
+                 ,8.       ,8.           ,o888888o.     8 8888      88    d888888o.   8 888888888888
+                ,888.     ,888.       . 8888     `88.   8 8888      88  .`8888:' `88. 8 8888
+               .`8888.   .`8888.     ,8 8888       `8b  8 8888      88  8.`8888.   Y8 8 8888
+              ,8.`8888. ,8.`8888.    88 8888        `8b 8 8888      88  `8.`8888.     8 8888
+             ,8'8.`8888,8^8.`8888.   88 8888         88 8 8888      88   `8.`8888.    8 8888888888
+            ,8' `8.`8888' `8.`8888.  88 8888         88 8 8888      88    `8.`8888.   8 8888
+           ,8'   `8.`88'   `8.`8888. 88 8888        ,8P 8 8888      88     `8.`8888.  8 8888
+          ,8'     `8.`'     `8.`8888.`8 8888       ,8P  ` 8888     ,8P 8b   `8.`8888. 8 8888
+         ,8'       `8        `8.`8888.` 8888     ,88'     8888   ,d8P  `8b.  ;8.`8888 8 8888
+        ,8'         `         `8.`8888.  `8888888P'        `Y88888P'    `Y8888P ,88P' 8 888888888888
+*/
+
 var mousex;
 var mousey;
 
@@ -81,20 +95,6 @@ function findMousePos(event) {
 
 
 
-function Square(xPos, yPos, height, width) {                                    // the object constructor for each bullet
-    this.xPos = xPos;                                                           // defaults the values for each bullet
-    this.yPos = yPos;
-    this.height = height;
-    this.width = width;
-
-    this.drawX = function() {
-        alert("draw x");
-    };                   
-
-    this.drawO = function() {
-        alert("draw o");
-    };
-}
 
 
 
@@ -103,13 +103,18 @@ function Square(xPos, yPos, height, width) {                                    
 
 
 
-
-
-
-
-
-
-
+/*
+        8 888888888o        ,o888888o.           .8.          8 888888888o.   8 888888888o.
+        8 8888    `88.   . 8888     `88.        .888.         8 8888    `88.  8 8888    `^888.
+        8 8888     `88  ,8 8888       `8b      :88888.        8 8888     `88  8 8888        `88.
+        8 8888     ,88  88 8888        `8b    . `88888.       8 8888     ,88  8 8888         `88
+        8 8888.   ,88'  88 8888         88   .8. `88888.      8 8888.   ,88'  8 8888          88
+        8 8888888888    88 8888         88  .8`8. `88888.     8 888888888P'   8 8888          88
+        8 8888    `88.  88 8888        ,8P .8' `8. `88888.    8 8888`8b       8 8888         ,88
+        8 8888      88  `8 8888       ,8P .8'   `8. `88888.   8 8888 `8b.     8 8888        ,88'
+        8 8888    ,88'   ` 8888     ,88' .888888888. `88888.  8 8888   `8b.   8 8888    ,o88P'
+        8 888888888P        `8888888P'  .8'       `8. `88888. 8 8888     `88. 8 888888888P'
+*/
 
 var bigBoardLineThickness = 10;
 var bigBoardBuffer = 15;
@@ -222,11 +227,88 @@ function drawGuides() {
 
 
 
+
+
+
+
+
+
+
+
+/*
+     ,o888888o.           .8.                   ,8.       ,8.          8 888888888888  8 888888888o    8 8888                  .8.    `8.`8888.      ,8'
+    8888     `88.        .888.                 ,888.     ,888.         8 8888          8 8888    `88.  8 8888                 .888.    `8.`8888.    ,8'
+ ,8 8888       `8.      :88888.               .`8888.   .`8888.        8 8888          8 8888     `88  8 8888                :88888.    `8.`8888.  ,8'
+ 88 8888               . `88888.             ,8.`8888. ,8.`8888.       8 8888          8 8888     ,88  8 8888               . `88888.    `8.`8888.,8'
+ 88 8888              .8. `88888.           ,8'8.`8888,8^8.`8888.      8 8888888888    8 8888.   ,88'  8 8888              .8. `88888.    `8.`88888'
+ 88 8888             .8`8. `88888.         ,8' `8.`8888' `8.`8888.     8 8888          8 888888888P'   8 8888             .8`8. `88888.    `8. 8888
+ 88 8888   8888888  .8' `8. `88888.       ,8'   `8.`88'   `8.`8888.    8 8888          8 8888          8 8888            .8' `8. `88888.    `8 8888
+ `8 8888       .8' .8'   `8. `88888.     ,8'     `8.`'     `8.`8888.   8 8888          8 8888          8 8888           .8'   `8. `88888.    8 8888
+    8888     ,88' .888888888. `88888.   ,8'       `8        `8.`8888.  8 8888          8 8888          8 8888          .888888888. `88888.   8 8888
+     `8888888P'  .8'       `8. `88888. ,8'         `         `8.`8888. 8 888888888888  8 8888          8 888888888888 .8'       `8. `88888.  8 8888
+*/
+
+function Square(id, xPos, yPos) {                                               // object constructor for each smol space
+    this.id = id;
+    this.state = "e";   // "e" is for "empty"
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.height = workAreaHeight / 9;
+    this.width = workAreaWidth / 9;
+
+    this.drawX = function() {
+        this.state = "x";
+        alert("draw x");
+    };                   
+
+    this.drawO = function() {
+        this.state = "o";
+        alert("draw o");
+    };
+}
+
+function Small(id, xPos, yPos) {
+    this.id = id;
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this.winner = "none";       // if (winner = "none") {board is valid}
+    this.board = [  [ [], [], [] ],
+                    [ [], [], [] ],
+                    [ [], [], [] ]  ];
+
+    this.initialise = function() {
+        var smolIDcounter = 0;
+
+        for (var i = 0; i < 3; i++) {
+          for (var j = 0; j < 3; j++) {
+            this.board[i][j] = new Square(smolIDcounter, xPos, yPos);
+          }
+        }
+    };
+
+    this.detectWin = function() {
+        // if (aoeu) {
+        //     // win x
+        // }
+        // else if (aoeu) {
+        //     // win o
+        // }
+    };
+}
+
+
+
+
+
+
+
+
 function draw() {
     drawSmolBoards();
     drawBigBoard();
 
-    drawGuides();
+    // drawGuides();
 }
 
 draw();
+
