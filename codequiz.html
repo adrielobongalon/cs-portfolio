@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
-       document : flirttext.html, for cs-portfolio
-     created on : wednesday, august 17, 2016, 11:53 AM
+       document : codequiz.html, for cs-portfolio
+     created on : friday, december 16 2016, 1:02 PM
          author : adrielo (audrey) bongalon
-    description : html page for the flirt text thingy-wingy
+    description : a mini-quiz thingy-wingy
 
                                ___
                               /\  \
@@ -19,7 +19,7 @@
 <html lang="en">
     <head>
     	<meta charset="utf-8">
-    	<title>Flirt Translator</title>
+    	<title>Should You Join Coding Club?</title>
     	<link rel="stylesheet" type="text/css" href="style.css">
     	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans" rel="stylesheet" type="text/css">
 
@@ -81,16 +81,57 @@
             </ul>
         </div>
         <div class="content-box">
-            <!-- div stylings are stolen from the calculator page lol -->
-            <div class="calculator-box">
-                <h2>Make Your Words Flirty!</h2>
-                <div class="calculator">
-                    <input type="text" name="flirtInput" id="flirtInput" autofocus="on">
-                    <input type="button" value="translate" id="translateButton">
+            <div class="main">
+                <h2>Quiz: Should You Join Coding Club at Shasta?</h2>
+                <div class="survey-question">
+                    <p class="main-text">Do you attend Summit Shasta?</p>
+                    <form class="survey-form">
+                        <input type="radio" name="attend" value="yes"> yes<br>
+                        <input type="radio" name="attend" value="no"> no
+                    </form>
                 </div>
-                <p class="main-text">how to say it flirty: <span id="flirtDisplay"></span></p>
+                <div class="survey-question">
+                    <p class="main-text">Are you interested in coding?</p>
+                    <form class="survey-form">
+                        <input type="radio" name="interest" value="yes"> yes<br>
+                        <input type="radio" name="interest" value="no"> no
+                    </form>
+                </div>
+                <div class="survey-question">
+                    <p class="main-text">Can you believe it's not butter?</p>
+                    <form class="survey-form">
+                        <input type="radio" name="butter" value="yes"> yes<br>
+                        <input type="radio" name="butter" value="no"> no<br>
+                        <input type="radio" name="butter" value="wtsf"> what does this even have to do with coding?
+                    </form>
+                </div>
+                <div class="survey-question">
+                    <p class="main-text">Do you know the muffin man?</p>
+                    <form class="survey-form">
+                        <input type="radio" name="muffin" value="yes"> yes<br>
+                        <input type="radio" name="muffin" value="no"> no<br>
+                        <input type="radio" name="muffin" value="not personally"> not personally<br>
+                        <input type="radio" name="muffin" value="wtsf"> Okay seriously. Do I even need to do these questions?
+                    </form>
+                </div>
+                <div class="survey-question">
+                    <p class="main-text">If train A is heading due north at -42 miles per hour, train B is heading due west at the
+                    same velocity towards the same destination and insists upon using the metric system, and train C has a physics
+                    teacher that is upset that they somehow have the same velocity while travelling in different directions while
+                    traveling weast on square wheels at 1,000,000 miles per moon cycle, how many minutes did you waste reading
+                    this question?</p>
+                    <form class="survey-form">
+                        <input type="radio" name="idek" value="9"> 9<br>
+                        <input type="radio" name="idek" value="-3"> -3<br>
+                        <input type="radio" name="idek" value="no read"> I don't know how to read.<br>
+                        <input type="radio" name="idek" value="potato"> potato<br>
+                    </form>
+                </div>
+            </div>
+            <div class="sidebar">
+                <h4>Instructions</h4>
+                <p class="sidebar-text">Curious about joining Summit Shasta's coding club?</p>
             </div>
         </div>
-        <script src="flirttext.js"></script>
     </body>
 </html>
