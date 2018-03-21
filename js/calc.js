@@ -30,27 +30,27 @@ button.addEventListener("click", doMath);                                       
 function doMath() {
     var firstInput = parseFloat(input1.value);                                  // gets the value from the first box and sets it as a variable
     var secondInput = parseFloat(input2.value);                                 // ditto the second value
-    if(dropdown.value == "+"){                                                  // if + is selected in the dropdown, then it adds values
-        answer = (firstInput * 100000000 + secondInput * 100000000) / 100000000;// sets the result as the variable "answer", uses a sligthly complex
-    }                                                                           //     algebraic function to accomodate decimals
-    else if(dropdown.value == "-"){                                             // ditto for -
+    if (dropdown.value == "+") {                                                // if + is selected in the dropdown, then it adds values
+        answer = (firstInput * 100000000 + secondInput * 100000000) / 100000000;/* sets the result as the variable "answer", uses a sligthly complex */
+    }                                                                           /*      algebraic function to accomodate decimals                    */
+    else if (dropdown.value == "-") {                                           // ditto for -
         answer = (firstInput * 100000000 - secondInput * 100000000) / 100000000;
     }
-    else if(dropdown.value == "x"){                                             // ditto for x
+    else if (dropdown.value == "x") {                                           // ditto for x
         answer = firstInput * secondInput;
     }
-    else if(dropdown.value == "/"){                                             // ditto for /
+    else if (dropdown.value == "/") {                                           // ditto for /
         answer = firstInput / secondInput;
     }
-    else if(dropdown.value == "^"){                         // ditto for ^
-        answer = Math.pow(firstInput, secondInput);         // Math.pow does exponents
+    else if (dropdown.value == "^") {                                           // ditto for ^
+        answer = Math.pow(firstInput, secondInput); // Math.pow does exponents
     }
-    else if(dropdown.value == "r"){                         // ditto for r (roots)
-        answer = Math.pow(firstInput, 1 / secondInput);     // since nth roots can be done as fractional exponents, make the denominator the second
-                                                            //     input for nth root with Math.pow
+    else if (dropdown.value == "r") {                                           // ditto for r (roots)
+        answer = Math.pow(firstInput, 1 / secondInput);                         /* since nth roots can be done as fractional exponents, make the denominator the second
+                                                                                   input for nth root with Math.pow */
     }
-    else if(dropdown.value == "%"){                         // ditto % (modulus)
+    else if (dropdown.value == "%") { // ditto % (modulus)
         answer = firstInput % secondInput;
     }
-    display.innerHTML = answer;                             // displays the variable "answer"
+    display.innerHTML = answer;                                                 // displays the variable "answer"
 }
