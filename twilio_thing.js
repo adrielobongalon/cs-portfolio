@@ -17,6 +17,10 @@
                                                                     d8'
 */
 
+/* global Twilio */
+
+
+
 
 var phoneNumber = document.getElementById("phoneNumberInput");                  // sets variables for the text-input boxes
 var messageInput = document.getElementById("messageInput");
@@ -30,6 +34,13 @@ var callAudreyButton = document.getElementById("twiliobutton-call-audrey");
 var callJellyButton = document.getElementById("twiliobutton-call-jelly");
 
 
+
+
+//  -----------------------------------------------------------------------
+//  |   notice: since the key has expired, i've gotten rid of the phone   |
+//  |   numbers to reduce the risk of unwanted calls and texts            |
+//  -----------------------------------------------------------------------
+
 twilioButton.addEventListener("click", function(){                              // looks for someone to click "text number"
     var callNumber = phoneNumber.value;                                         // takes phone number
     var sendMessage = messageInput.value;                                       // takes message
@@ -38,12 +49,12 @@ twilioButton.addEventListener("click", function(){                              
 
 audreyButton.addEventListener("click", function(){                              // looks for someone to click "text audrey"
     var sendMessage = messageInput.value;                                       // takes message
-    Twilio.sendMessage("650-720-6166", sendMessage);                            // texts message to my number
+    Twilio.sendMessage("123-456-7890", sendMessage);                            // texts message to my number
 });
 
 jellyButton.addEventListener("click", function(){                               // looks for someone to click "text jelly"
     var sendMessage = messageInput.value;                                       // takes message
-    Twilio.sendMessage("650-278-3676", sendMessage);                            // texts message to jelly's number
+    Twilio.sendMessage("123-456-7890", sendMessage);                            // texts message to jelly's number
 });
 
 twilioCallButton.addEventListener("click", function(){                          // looks for someone to click "call number"
@@ -54,10 +65,10 @@ twilioCallButton.addEventListener("click", function(){                          
 
 callAudreyButton.addEventListener("click", function(){                          // looks for someone to click "call audrey"
     var sendMessage = messageInput.value;                                       // takes message
-    Twilio.callAndSay("650-720-6166", sendMessage);                             // calls me and says message
+    Twilio.callAndSay("123-456-7890", sendMessage);                             // calls me and says message
 });
 
 callJellyButton.addEventListener("click", function(){                           // looks for someone to click "call jelly"
     var sendMessage = messageInput.value;                                       // takes message
-    Twilio.callAndSay("650-278-3676", sendMessage);                             // calls jelly and says message
+    Twilio.callAndSay("123-456-7890", sendMessage);                             // calls jelly and says message
 });

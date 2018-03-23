@@ -43,6 +43,15 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-TileImage" content="audreyfavicons/mstile-144x144.png">
         <meta name="theme-color" content="#bbffff">
+
+        <style>
+            #broken-notice {
+                margin: 10px 20px 0;
+                text-align: center;
+                border: 2px dashed #ff6666;
+                background-color: #ff9999;
+            }
+        </style>
     </head>
     <body>
         <div class="name">
@@ -83,6 +92,11 @@
         <div class="content-box">
             <div class="smol-main">
                 <h2>Texting Tool</h2>
+
+                <div id="broken-notice">
+                    <p><b>Notice:</b> This tool no longer works, since our Twilio key has expired.</p>
+                </div>
+
                 <div class="twilio-tool" style="float:left">
                     <input type="text" name="phoneNumberInput" placeholder="123-456-7890" id="phoneNumberInput" style="width:100px">
                     <input type="text" name="messageInput" placeholder="message" id="messageInput" style="width:350px">
