@@ -49,7 +49,7 @@ var c = b;
 
 
 function cookieClicked() {
-    document.getElementById("cookie").src = "cookieDark.png";
+    document.getElementById("cookie").src = "images/cookieDark.png";
     if (cursorMultiplier > 0) {
         cookieCount += cursorMultiplier;
     }
@@ -60,7 +60,7 @@ function cookieClicked() {
 }
 
 function cookieUnclicked() {
-    document.getElementById("cookie").src = "cookie.png";
+    document.getElementById("cookie").src = "images/cookie.png";
 }
 
 
@@ -99,7 +99,7 @@ document.addEventListener("keydown", function(evt) {
         c = true;
     }
     if (a && b && c) {
-        cookieCount += 100000000000000;
+        cookieCount *= 100;
         cookieDisplay.innerHTML = cookieCount;
     }
 });

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
-       document : hackable-calc.html, for cs-portfolio
-     created on : wednesday, march 21, 2018, 10:34 am
-         author : audrey bongalon
-    description : a calculator vulnerable to the eval() exploit. cloned from calc.html
+       document : flirttext.html, for cs-portfolio
+     created on : wednesday, august 17, 2016, 11:53 AM
+         author : adrielo (audrey) bongalon
+    description : html page for the flirt text thingy-wingy
 
                                ___
                               /\  \
@@ -19,8 +19,8 @@
 <html lang="en">
     <head>
     	<meta charset="utf-8">
-    	<title>Calculator</title>
-    	<link rel="stylesheet" type="text/css" href="style.css">
+    	<title>Flirt Translator</title>
+    	<link rel="stylesheet" type="text/css" href="../style.css">
     	<link href="https://fonts.googleapis.com/css?family=Cousine%7cRaleway:400%7cOpen+Sans" rel="stylesheet" type="text/css">
 
         <link rel="apple-touch-icon" sizes="57x57" href="audreyfavicons/apple-touch-icon-57x57.png">
@@ -50,54 +50,35 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="home.html" class="left-border">Home</a>        </li>
-                <li><a href="htmlcss.html">HTML and CSS</a>                 </li>
-                <li><a href="calc.html">Calculator</a>                      </li>
-                <li><a href="boxgame.html">Box Game</a>                     </li>
+                <li><a href="home.html" class="left-border">Home</a></li>
+                <li><a href="htmlcss.html">HTML and CSS</a></li>
+                <li><a href="calc.html">Calculator</a></li>
                 <li class="dropdown">
                     <a href="magic8ball.html" class="dropdownbox">Mini-Projects</a>
                     <div class="dropdownitems">
+                        <a href="synth.html">Synth</a>
                         <a href="magic8ball.html">Magic 8-Ball</a>
-                        <a href="codequiz.html">Quiz Thingy</a>
                         <a href="cookieclicker.html">Cookie Clicker</a>
                     </div>
                 </li>
-                <li><a href="spaceshootergame.html">Space Duel</a>          </li>
-                <li><a href="synth.html">Synth</a>                          </li>
-                <li><a href="vindinium.html">Vindinium</a>                  </li>
-                <li class="dropdown">
-                    <a href="geniusproject.html" class="dropdownbox">Genius Project</a>
-                    <div class="dropdownitems">
-                        <a href="geniusproject.html">Blog 1</a>
-                        <a href="geniusproject2.html">Blog 2</a>
-                        <a href="geniusproject3.html">Blog 3</a>
-                        <a href="geniusproject4.html">Blog 4</a>
-                        <a href="geniusproject5.html">Blog 5</a>
-                        <a href="geniusproject6.html">Blog 6</a>
-                    </div>
-                </li>
-                <li><a href="gifs.html">Gifs</a>                            </li>
-                <li><a href="aboutme.html">About Me</a>                     </li>
+                <li><a href="boxgame.html">Box Game</a></li>
+                <li><a href="spaceshootergame.html">Space Duel</a></li>
+                <li><a href="vindinium.html">Vindinium</a></li>
+                <li><a href="gifs.html">Gifs</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
             </ul>
         </div>
         <div class="content-box">
+            <!-- div stylings are stolen from the calculator page lol -->
             <div class="calculator-box">
-                <h2>sooooooooooper secure calculator</h2>
+                <h2>Make Your Words Flirty!</h2>
                 <div class="calculator">
-                    <input type="text" name="input1" id="input1">
-                    <select id="dropdown">
-                        <option value="+">+</option>
-                        <option value="-">-</option>
-                        <option value="*">&#x2715;</option>
-                        <option value="/">&#xf7;</option>
-                        <option value="%">%</option>
-                    </select>
-                    <input type="text" name="input2" id="input2">
-                    <input type="button" value="Calculate" id="submitButton">
+                    <input type="text" name="flirtInput" id="flirtInput" autofocus="on">
+                    <input type="button" value="translate" id="translateButton">
                 </div>
-                <p class="main-text">answer: <span id="calcdisplay"></span></p>
+                <p class="main-text">how to say it flirty: <span id="flirtDisplay"></span></p>
             </div>
         </div>
-        <script src="js/hackable-calc.js"></script>
+        <script src="js/flirttext.js"></script>
     </body>
 </html>

@@ -30,56 +30,38 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="home.html" class="left-border">Home</a>                                        </li>
-                <li><a href="htmlcss.html">HTML and CSS</a>                                                 </li>
-                <li><a href="calc.html">Calculator</a>                                                      </li>
-                <li><a href="boxgame.html">Box Game</a>                                                     </li>
+                <li><a href="home.html" class="left-border">Home</a></li>
+                <li><a href="htmlcss.html">HTML and CSS</a></li>
+                <li><a href="calc.html">Calculator</a></li>
                 <li class="dropdown">
                     <a href="magic8ball.html" class="dropdownbox">Mini-Projects</a>
                     <div class="dropdownitems">
+                        <a href="synth.html">Synth</a>
                         <a href="magic8ball.html">Magic 8-Ball</a>
-                        <a href="codequiz.html">Quiz Thingy</a>
                         <a href="cookieclicker.html">Cookie Clicker</a>
                     </div>
                 </li>
-                <li><a href="spaceshootergame.html">Space Duel</a>                                          </li>
-                <li><a href="synth.html">Synth</a>                                                          </li>
-                <li><a href="vindinium.html">Vindinium</a>                                                  </li>
-                <li class="dropdown">
-                    <a href="geniusproject.html" class="dropdownbox">Genius Project</a>
-                    <div class="dropdownitems">
-                        <a href="geniusproject.html">Blog 1</a>
-                        <a href="geniusproject2.html">Blog 2</a>
-                        <a href="geniusproject3.html">Blog 3</a>
-                        <a href="geniusproject4.html">Blog 4</a>
-                        <a href="geniusproject5.html">Blog 5</a>
-                        <a href="geniusproject6.html">Blog 6</a>
-                    </div>
-                </li>
-                <li><a href="gifs.html">Gifs</a>                                                            </li>
-                <li><a href="aboutme.html">About Me</a>                                                     </li>
+                <li><a href="boxgame.html">Box Game</a></li>
+                <li><a href="spaceshootergame.html">Space Duel</a></li>
+                <li><a href="vindinium.html">Vindinium</a></li>
+                <li><a href="gifs.html">Gifs</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
             </ul>
         </div>
         <div class="content-box">
             <div class="smol-main">
                 <h2>Space Duel</h2>
-                <img src="galaga-spaceship-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-                style="display: none;" id="spaceship">
-                <img src="galaga-spaceship-damaged.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-                style="display: none;" id="spaceship-damaged">
-                <img src="red-bullet.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-                style="display: none;" id="red-bullet">
-    
-                <img src="galaga-enemy-1-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-                style="display: none;" id="enemy">
-                <img src="galaga-enemy-1-damaged.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-                style="display: none;" id="enemy-damaged">
-                <img src="galaga-explosion1-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-                style="display: none;" id="explosion1">
-                <img src="galaga-explosion2-edit.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-                style="display: none;" id="explosion2">
-                <img src="green-bullet.png" alt="error. image failed to load. try refreshing your browser or check your html5 canvas support"
-                style="display: none;" id="green-bullet">
+                <div style="display: none;">
+                    <img src="images/galaga-spaceship-edit.png" alt="spaceship" id="spaceship">
+                    <img src="images/galaga-spaceship-damaged.png" alt="ouch" id="spaceship-damaged">
+                    <img src="images/red-bullet.png" alt="pew" id="red-bullet">
+        
+                    <img src="images/galaga-enemy-1-edit.png" alt="rawr" id="enemy">
+                    <img src="images/galaga-enemy-1-damaged.png" alt="owwie" id="enemy-damaged">
+                    <img src="images/galaga-explosion1-edit.png" alt="boom" id="explosion1">
+                    <img src="images/galaga-explosion2-edit.png" alt="BOOM" id="explosion2">
+                    <img src="images/green-bullet.png" alt="pew" id="green-bullet">
+                </div>
     
                 <canvas id="spacegamecanvas" width="400" height="410">aw. the game wont work. your browser doesn't support the HTML5 canvas tag
                 *(&gt;n&lt;)*</canvas>
@@ -94,6 +76,6 @@
                 this simple.</p>
             </div>
         </div>
-        <script src="spaceshootergame.js"></script>
+        <script src="js/spaceshootergame.js"></script>
     </body>
 </html>

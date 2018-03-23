@@ -30,7 +30,7 @@ root {
 
 
 html {
-    background: url("modern_wallpaper1.jpg") no-repeat center center fixed; 
+    background: url("images/modern_wallpaper1.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -977,7 +977,7 @@ space, rather than just the text)*/
     border: 1px solid #a1a1a1;
     background-color: #101010;
     background-color: rgba(0, 0, 0, 0.95);
-    background-image: url("stars-background-edit.jpg");
+    background-image: url("images/stars-background-edit.jpg");
     background-repeat: no-repeat;
     background-position: center;
     -webkit-background-size: cover;
@@ -1028,7 +1028,7 @@ space, rather than just the text)*/
     position: absolute;
     background-color: #000000;
 	background-color: rgba(0, 0, 0, 0.9);
-    min-width: 162px;
+    min-width: 200px;
     border-left: 2px solid #00ffff;
     border-right: 2px solid #00ffff;
     border-bottom: 2px solid #00ffff;
